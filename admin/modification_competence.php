@@ -1,6 +1,6 @@
 <?php
-
 require 'connexion.php';
+
 // je récupère la compétence
 $id_competence = $_GET['id_competence']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'"); // la requete est égal a l'id
