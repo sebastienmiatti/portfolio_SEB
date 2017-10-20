@@ -1,5 +1,5 @@
 <?php
-require 'connexion.php';
+require('inc/init.inc.php')
 ?>
 
 <?php
@@ -21,13 +21,12 @@ if (isset($_POST['utilisateur'])) { // Si on a posté une nouvelle comp.
 // Suppression d'une compétence
 if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans l'url
     $efface =  $_GET['id_utilisateur'];
-
     $resultat = "DELETE FROM t_utilisateurs WHERE id_utilisateur = '$efface'";
     $pdo -> query($resultat); // on peut avec exec aussi si on veut
     header("location: utilisateur.php"); // pour revenir sur la page
 
 } // ferme le if(isset)
-
+require('inc/nav.inc.php');
 ?>
 
 <!DOCTYPE html>

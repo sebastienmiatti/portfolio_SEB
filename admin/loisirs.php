@@ -1,5 +1,6 @@
 <?php
-require 'connexion.php';
+include('inc/init.inc.php');
+require ('connexion.php');
 ?>
 
 <?php
@@ -28,6 +29,8 @@ if (isset($_GET['id_loisir'])) { // on récupère la comp. par son id dans l'url
 
 } // ferme le if(isset)
 
+
+include('inc/nav.inc.php');
 ?>
 
 <!DOCTYPE html>

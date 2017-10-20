@@ -1,8 +1,9 @@
 <?php
-require 'connexion.php';
-?>
+include('inc/init.inc.php');
 
-<?php
+$resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
+$ligne_utilisateur = $resultat -> fetch();
+
 // gestion des contenus de la BDD compétences
 
 // insertion d'une compétence
@@ -29,16 +30,10 @@ if (isset($_GET['id_competence'])) { // on récupère la comp. par son id dans l
 
 } // ferme le if(isset)
 
+include('inc/nav.inc.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <?php
-        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-        $ligne_utilisateur = $resultat -> fetch();
-        ?>
+
         <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
     </head>
     <body>

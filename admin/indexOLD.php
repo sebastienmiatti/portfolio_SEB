@@ -1,5 +1,5 @@
 <?php
-require 'connexion.php';
+require ('connexion.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
