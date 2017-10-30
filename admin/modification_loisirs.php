@@ -1,5 +1,6 @@
 <?php
-require 'connexion.php';
+//inclusion du header comprenant l'init
+require('inc/header.inc.php');
 
 // mise a jour d'un loisir
 if(isset($_POST['loisir'])){// par le nom du premier input
@@ -16,6 +17,7 @@ if(isset($_POST['loisir'])){// par le nom du premier input
 $id_loisir = $_GET['id_loisir']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_loisirs WHERE id_loisir = '$id_loisir'"); // la requete est égal a l'id
 $ligne_loisir = $resultat->fetch();
+
 ?>
 
 <!DOCTYPE html>

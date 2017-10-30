@@ -1,20 +1,11 @@
 <?php
-require('connexion.php');
-$resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-$ligne_utilisateur = $resultat -> fetch();
+// $pdo = new PDO('mysql:host=localhost;dbname=site_cv', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
+$hote='localhost';
+$bdd ='site_cv';
+$utilisateur='root';
+$passe='';
+$pdo = new PDO('mysql:host=' . $hote . ';dbname=' . $bdd, $utilisateur, $passe);
+// $pdoCv est le nom de la variable de la connexion qui sert partout où l'on doit se servir de cette connexion
+$pdo -> exec('SET NAMES utf8');
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href="css/bootstrap.min.css" rel="stylesheet"><!-- importation bootstrap CSS -->
-
-        <title>Site cv-<?= ($ligne_utilisateur['prenom']); ?> <?= ($ligne_utilisateur['nom']); ?></title>
-    </head>
-
-    <body>
-        <div class="container-fluid">
+ 

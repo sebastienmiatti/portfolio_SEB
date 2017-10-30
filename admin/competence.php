@@ -1,51 +1,48 @@
 <?php
-include('inc/init.inc.php');
-
-$resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-$ligne_utilisateur = $resultat -> fetch();
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
 
 // gestion des contenus de la BDD compétences
+$resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id='1'");
+$resultat->execute();
+$nbr_competences = $resultat->rowCount();
+// $ligne_competence = $resultat -> fetch();
+
 
 // insertion d'une compétence
-if (isset($_POST['competence'])) { // Si on a posté une nouvelle comp.
-    if (!empty($_POST['competence']) && !empty($_POST['c_niveau'])) { // Si compétence n'est pas vide
-        $competence = addslashes($_POST['competence']);
-        $c_niveau = addslashes($_POST['c_niveau']);
-        $pdo -> exec("INSERT INTO t_competences VALUES (NULL, '$competence', '$c_niveau', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
-        header("location: competence.php");
-        exit();
+if (isset($_POST['competence']))
+    { // Si on a posté une nouvelle comp.
+        if (!empty($_POST['competence']) && !empty($_POST['c_niveau']))
+            { // Si compétence n'est pas vide
+                $competence = addslashes($_POST['competence']);
+                $c_niveau = addslashes($_POST['c_niveau']);
 
-        } // ferme le if n'est pas vide
-
-} // ferme le if(isset) du form
+                $pdo->exec("INSERT INTO t_competences VALUES (NULL, '$competence', '$c_niveau', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+                header("location: competence.php"); // pour revenir sur la page
+                exit();
+            } // ferme le if n'est pas vide
+    } // ferme le if(isset) du form
 
 
 // Suppression d'une compétence
-if (isset($_GET['id_competence'])) { // on récupère la comp. par son id dans l'url
-    $efface =  $_GET['id_competence'];
+if (isset($_GET['id_competence']))
+    { // on récupère la comp. par son id dans l'url
+        $efface =  $_GET['id_competence'];
+        $resultat = "DELETE FROM t_competences WHERE id_competence = '$efface'";
+        $pdo -> query($resultat); // on peut avec exec aussi si on veut
+        header("location: competence.php"); // pour revenir sur la page
+    } // ferme le if(isset)
 
-    $resultat = "DELETE FROM t_competences WHERE id_competence = '$efface'";
-    $pdo -> query($resultat); // on peut avec exec aussi si on veut
-    header("location: competence.php"); // pour revenir sur la page
-
-} // ferme le if(isset)
-
-include('inc/nav.inc.php');
 ?>
 
 
-        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
+        <title>Admin-Réalisation: <?= ($ligne_utilisateur['pseudo']); ?></title>
     </head>
     <body>
         <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
         <p>texte</p>
         <hr>
-        <?php
-        $resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id='1'");
-        $resultat->execute();
-        $nbr_competences = $resultat->rowCount();
-        // $ligne_competence = $resultat -> fetch();
-        ?>
+
 
         <h2>Les compétences</h2>
         <p><b>J'ai <?= $nbr_competences;?> compétence<?= ($nbr_competences>1)?'s' : ''?></p>
