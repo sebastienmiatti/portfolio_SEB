@@ -1,24 +1,18 @@
 <?php
-require ('connexion.php');
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
+
+// gestion des contenus de la BDD compétences
+$resultat = $pdo -> query('SELECT * FROM t_competences');
+$ligne_competence = $resultat -> fetch();
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <?php
-        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-        $ligne_utilisateur = $resultat -> fetch();
-        ?>
-        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
+
+<title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
     </head>
     <body>
         <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
         <p>texte</p>
         <hr>
         <h2>Accueil admin</h2>
-        <?php
-        $resultat = $pdo -> query('SELECT * FROM t_competences');
-        $ligne_competence = $resultat -> fetch();
-        ?>
-    </body>
-</html>
+
+<?php require('inc/footer.inc.php');?>

@@ -1,6 +1,12 @@
 <?php
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
+include('inc/header.inc.php');
+
+// Récupération des loisirs
+$id_loisir = $_GET['id_loisir']; // par l'id et $_GET
+$resultat = $pdo-> query("SELECT * FROM t_loisirs WHERE id_loisir = '$id_loisir'"); // la requete est égal a l'id
+$ligne_loisir = $resultat->fetch();
+
 
 // mise a jour d'un loisir
 if(isset($_POST['loisir'])){// par le nom du premier input
@@ -13,35 +19,24 @@ if(isset($_POST['loisir'])){// par le nom du premier input
     exit();
 }
 
-// je récupère le loisir
-$id_loisir = $_GET['id_loisir']; // par l'id et $_GET
-$resultat = $pdo-> query("SELECT * FROM t_loisirs WHERE id_loisir = '$id_loisir'"); // la requete est égal a l'id
-$ligne_loisir = $resultat->fetch();
-
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <?php
-        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-        $ligne_utilisateur = $resultat -> fetch();
-        ?>
-        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
-    </head>
-    <body>
-        <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
-        <p>texte</p>
-        <hr>
-        <h2>modification d'un loisir</h2>
-        <p><?php echo ($ligne_loisir['loisir']); ?></p>
+<div class="panel panel-info">
+    <div class="panel-heading">modification du loisir, <b><?php echo ($ligne_loisir['loisir']); ?></b></div>
+    <div class="panel-body">
         <form action="modification_loisirs.php" method="POST">
-            <label for="loisir">Loisirs</label>
-            <input type="text" name="loisir" value="<?php echo $ligne_loisir['loisir']; ?>">
+            <div class="form-group">
+                <label for="loisir">Loisir :</label>
+                <input type="text" name="loisir" class="form-control" value="<?php echo $ligne_loisir['loisir']; ?>">
+            </div>
+
             <input hidden value="<?php echo $ligne_loisir['id_loisir']; ?>" name="id_loisir">
-            <input type="submit" value="Mettre à jour">
+            <input type="submit" class="btn btn-success btn-block" value="Mettre à jour">
+
+            <div class="panel-footer">
+                <a href="loisirs.php">Retour à la page Loisirs</a>
+            </div>
 
         </form>
-    </body>
-</html>
+
+<?php require('inc/footer.inc.php');?>

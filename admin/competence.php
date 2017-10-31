@@ -35,49 +35,57 @@ if (isset($_GET['id_competence']))
 
 ?>
 
+<div class="panel panel-info">
+    <div class="panel-heading text-center"><b>Liste des compétences</b></div>
+</div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-info">
+            <div class="panel-heading">J'ai <?= $nbr_competences;?> compétence<?= ($nbr_competences>1)?'s' : ''?></div>
+                <div class="panel-body">
 
-        <title>Admin-Réalisation: <?= ($ligne_utilisateur['pseudo']); ?></title>
-    </head>
-    <body>
-        <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
-        <p>texte</p>
-        <hr>
+                    <table class="table table-bordered table-hover" border="2">
+                        <tr>
+                            <th>Compétences</th>
+                            <th> Niveau </th>
+                            <th>Suppression</th>
+                            <th>Modification</th>
+                        </tr>
 
+                        <tr>
+                            <?php while ($ligne_competence = $resultat -> fetch()) : ?>
+                                <td><?= $ligne_competence['competence'];?></td>
+                                <td><?= $ligne_competence['c_niveau'];?></td>
+                                <td><a href="modification_competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></tdModifier</a></td>
+                                <td><a href="competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                        </tr>
+                            <?php endwhile ?>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-        <h2>Les compétences</h2>
-        <p><b>J'ai <?= $nbr_competences;?> compétence<?= ($nbr_competences>1)?'s' : ''?></p>
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Insertion d'une compétence</div>
+                <div class="panel-body">
+                    <form action="competence.php" method="post">
 
-        <table border="6">
-          <tr>
-              <th>Compétences</th>
-              <th> Niveau </th>
-              <th>Suppression</th>
-              <th>Modification</th>
-          </tr>
+                        <div class="form-group">
+                            <label for="competence">Compétence :</label>
+                            <input type="text" name="competence" class="form-control" id="competence" placeholder="Insérer une compétence">
+                        </div>
 
-          <tr>
-          <?php while ($ligne_competence = $resultat -> fetch()) { ?>
-              <td><?= $ligne_competence['competence'];?></td>
-              <td><?= $ligne_competence['c_niveau'];?></td>
-              <td><a href="competence.php?id_competence=<?= $ligne_competence['id_competence'];?>">Supprimer</a></td>
-              <td><a href="modification_competence.php?id_competence=<?= $ligne_competence['id_competence'];?>">Modifier</a></td>
-          </tr>
-          <?php } ?>
+                        <div class="form-group">
+                            <label for="c_niveau">Niveau :</label>
+                            <input type="text" name="c_niveau" class="form-control" id="c_niveau" placeholder="Insérer le niveau">
+                        </div>
 
-        </table>
-
-        <hr>
-
-        <h2>Insertion d'une compétence</h2>
-
-        <form action="competence.php" method="post">
-
-            <label for="competence">Compétence :</label><br><br>
-            <input type="text" name="competence" id="competence" placeholder="Insérer une compétence"><br><br>
-            <input type="text" name="c_niveau" id="c_niveau" placeholder="Insérer le niveau"><br><br>
-            <input type="submit" value="Insérez">
-
-
-        </form>
-    </body>
-</html>
+                        <input type="submit" class="btn btn-success btn-block" value="Insérez">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php require('inc/footer.inc.php');?>

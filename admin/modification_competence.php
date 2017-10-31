@@ -1,5 +1,6 @@
 <?php
-require 'connexion.php';
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
 
 // mise a jour d'une compétences
 if(isset($_POST['competence'])){// par le nom du premier input
@@ -12,37 +13,37 @@ if(isset($_POST['competence'])){// par le nom du premier input
     exit();
 }
 
-// je récupère la compétence
+// Récupération de la compétence
 $id_competence = $_GET['id_competence']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'"); // la requete est égal a l'id
 $ligne_competence = $resultat->fetch();
+
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <?php
-        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-        $ligne_utilisateur = $resultat -> fetch();
-        ?>
-        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
-    </head>
-    <body>
-        <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
-        <p>texte</p>
-        <hr>
-        <h2>modification d'une competence</h2>
-        <p><?php echo ($ligne_competence['competence']); ?></p>
+<div class="panel panel-info">
+    <div class="panel-heading">modification de la competence, <b><?= ($ligne_competence['competence']); ?></b></div>
+    <div class="panel-body">
+
         <form action="modification_competence.php" method="POST">
-            <label for="competence">Compétence</label>
-            <input type="text" name="competence" value="<?php echo $ligne_competence['competence']; ?>">
-            <input type="number" name="c_niveau" value="<?php echo $ligne_competence['c_niveau']; ?>">
-            <input hidden value="<?php echo $ligne_competence['id_competence']; ?>" name="id_competence">
-            <input type="submit" value="mettre a jour">
+            <div class="form-group">
+                <label for="competence">Compétence :</label>
+                <input type="text" name="competence" class="form-control" value="<?php echo $ligne_competence['competence']; ?>">
+            </div>
 
+            <div class="form-group">
+                <label for="c_niveau">Niveau :</label>
+                <input type="number" name="c_niveau" class="form-control" value="<?php echo $ligne_competence['c_niveau']; ?>">
+            </div>
 
+                <input hidden value="<?php echo $ligne_competence['id_competence']; ?>" name="id_competence">
+                <input type="submit" class="btn btn-success btn-block" value="mettre a jour">
 
+                <div class="panel-footer">
+                    <a href="competence.php">Retour à la page Compétence</a>
+                </div>
         </form>
-    </body>
-</html>
+    </div>
+</div>
+
+
+<?php require('inc/footer.inc.php');?>

@@ -1,48 +1,56 @@
 <?php
-require 'connexion.php';
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
 
-// mise a jour d'une compétences
-if(isset($_POST['competence'])){// par le nom du premier input
-    $competence = addslashes($_POST['competence']);
-    $c_niveau = addslashes($_POST['c_niveau']);
-    $id_competence = $_POST['id_competence'];
+// mise a jour d'une realisation
+if(isset($_POST['r_titre'])){// par le nom du premier input
+    $id_realisation = addslashes($_POST['id_realisation']);
+    $r_titre = addslashes($_POST['r_titre']);
+    $r_soustitre = addslashes($_POST['r_soustitre']);
+    $r_dates = addslashes($_POST['r_dates']);
+    $r_description = addslashes($_POST['r_description']);
 
-    $pdo->exec("UPDATE t_competences SET competence='$competence', c_niveau='$c_niveau' WHERE id_competence ='$id_competence'");
-    header('location: competence.php');
+    $pdo->exec("UPDATE t_realisations SET r_titre='$r_titre', r_soustitre='$r_soustitre', r_dates='$r_dates', r_description='$r_description'  WHERE id_realisation ='$id_realisation'");
+    header('location: realisation.php');
     exit();
 }
 
 // je récupère la compétence
-$id_competence = $_GET['id_competence']; // par l'id et $_GET
-$resultat = $pdo-> query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'"); // la requete est égal a l'id
-$ligne_competence = $resultat->fetch();
+$id_realisation = $_GET['id_realisation']; // par l'id et $_GET
+$resultat = $pdo-> query("SELECT * FROM t_realisations WHERE id_realisation = '$id_realisation'"); // la requete est égal a l'id
+$ligne_realisation = $resultat->fetch();
+
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <?php
-        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-        $ligne_utilisateur = $resultat -> fetch();
-        ?>
-        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
-    </head>
-    <body>
-        <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
-        <p>texte</p>
-        <hr>
-        <h2>modification d'une competence</h2>
-        <p><?php echo ($ligne_competence['competence']); ?></p>
-        <form action="modification_competence.php" method="POST">
-            <label for="competence">Compétence</label>
-            <input type="text" name="competence" value="<?php echo $ligne_competence['competence']; ?>">
-            <input type="number" name="c_niveau" value="<?php echo $ligne_competence['c_niveau']; ?>">
-            <input hidden value="<?php echo $ligne_competence['id_competence']; ?>" name="id_competence">
-            <input type="submit" value="mettre a jour">
+    <div class="panel panel-info">
+        <div class="panel-heading">modification de la réalisation, <b><?= ($ligne_realisation['r_titre']); ?> </b></div>
+        <div class="panel-body">
+            <form action="modification_realisation.php" method="POST">
+                <div class="form-group">
+                    <label for="realisation">Titre de la réalisation :</label>
+                    <input type="text" class="form-control" name="r_titre" value="<?= $ligne_realisation['r_titre']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="realisation">Sous-titre :</label>
+                    <input type="text" class="form-control" name="r_soustitre" value="<?= $ligne_realisation['r_soustitre']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="realisation">Date :</label>
+                    <input type="text" class="form-control" name="r_dates" value="<?= $ligne_realisation['r_dates']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="realisation">Description :</label>
+                    <input type="text" class="form-control" name="r_description" value="<?= $ligne_realisation['r_description']; ?>">
+                </div>
 
+                <input hidden value="<?= $ligne_realisation['id_realisation']; ?>" name="id_realsisation">
+                <input type="submit" class="btn btn-success btn-block" value="mettre a jour">
 
+            <div class="panel-footer">
+                <a href="realisation.php">Retour à la page Réalisation</a>
+            </div>
 
-        </form>
-    </body>
-</html>
+            </form>
+        </div>
+    </div>
+<?php require('inc/footer.inc.php');?>

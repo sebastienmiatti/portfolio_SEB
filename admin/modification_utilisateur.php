@@ -1,5 +1,6 @@
 <?php
-require 'connexion.php';
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
 
 // mise a jour d'un loisir
 if(isset($_POST['utilisateurs'])){// par le nom du premier input
@@ -18,20 +19,6 @@ $resultat = $pdo-> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$
 $ligne_utilisateur = $resultat->fetch();
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <?php
-        $resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-        $ligne_utilisateur = $resultat -> fetch();
-        ?>
-        <title>Admin : <?= ($ligne_utilisateur['pseudo']); ?></title>
-    </head>
-    <body>
-        <h1>Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
-        <p>texte</p>
-        <hr>
         <h2>modification d'un utilisateur</h2>
         <p><?php echo ($ligne_utilisateurs['utilisateur']); ?></p>
         <form action="modification_utilisateur.php" method="POST">
@@ -41,5 +28,4 @@ $ligne_utilisateur = $resultat->fetch();
             <input type="submit" value="Mettre à jour">
 
         </form>
-    </body>
-</html>
+<?php require('inc/footer.inc.php');?>

@@ -1,11 +1,12 @@
 <?php
-require('inc/init.inc.php');
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
+
+// gestion des contenus de la BDD compétences
 $resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id='1'");
-    $resultat->execute();
-    $nbr_competences = $resultat->rowCount();
+$resultat->execute();
+$nbr_competences = $resultat->rowCount();
 
-
-require('inc/nav.inc.php');
  ?>
 
 <div class="container-fluid geometrique">
@@ -108,6 +109,4 @@ require('inc/nav.inc.php');
   </div>
   <hr>
 </div>
-<?php
-require_once('inc/footer.inc.php');
- ?>
+<?php require('inc/footer.inc.php');?>

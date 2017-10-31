@@ -1,16 +1,12 @@
 <?php
-include('inc/init.inc.php');
+//inclusion du header comprenant l'init
+include('inc/header.inc.php');
 
-$resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-$ligne_utilisateur = $resultat -> fetch();
-
+// gestion des contenus de la BDD compétences
 $resultat = $pdo -> query('SELECT * FROM t_competences');
 $ligne_competence = $resultat -> fetch();
 
-
-include('inc/nav.inc.php');
 ?>
-
 
     <div class="container">
       <ol class="breadcrumb text-center">
@@ -32,6 +28,5 @@ include('inc/nav.inc.php');
 
       </div>
     </div>
-<?php
-include('inc/footer.inc.php');
-?>
+
+<?php require('inc/footer.inc.php');?>
