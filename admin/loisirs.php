@@ -80,3 +80,5 @@ if (isset($_GET['id_loisir']))
             </div>
         </div>
     </div>
+
+<?php require('inc/footer.inc.php') ?>

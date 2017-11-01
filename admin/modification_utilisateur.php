@@ -19,12 +19,18 @@ $resultat = $pdo-> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$
 $ligne_utilisateur = $resultat->fetch();
 ?>
 
-        <h2>modification d'un utilisateur</h2>
-        <p><?php echo ($ligne_utilisateurs['utilisateur']); ?></p>
+    <div class="panel panel-info">
+        <div class="panel-heading"><b>modification d'un utilisateur</b></div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">Modification de : <?= ($ligne_utilisateur['prenom']); ?> <br> Email : <?=($ligne_utilisateur['email']); ?></div>
+            <div class="panel-body">
         <form action="modification_utilisateur.php" method="POST">
             <label for="utilisateur">Utilisateur</label>
-            <input type="text" name="utilisateur" value="<?php echo $ligne_utilisateur['utilisateur']; ?>">
-            <input hidden value="<?php echo $ligne_utilisateur['id_utilisateur']; ?>" name="id_utilisateur">
+            <input type="text" name="utilisateur" value="<?= $ligne_utilisateur['utilisateur']; ?>">
+            <input hidden value="<?= $ligne_utilisateur['id_utilisateur']; ?>" name="id_utilisateur">
             <input type="submit" value="Mettre à jour">
 
         </form>

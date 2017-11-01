@@ -53,7 +53,7 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
 
     <div class="col-md-12">
         <div class="panel panel-info">
-            <div class="panel-heading text-center">J'ai <?= $nbr_utilisateur;?> utilisateur<?= ($nbr_utilisateur>1)?'s' : ''?></div>
+            <div class="panel-heading">J'ai <?= $nbr_utilisateur;?> utilisateur<?= ($nbr_utilisateur>1)?'s' : ''?></div>
         </div>
         <div class="panel-body">
             <table class="table table-bordered table-hover table-responsi" border="2">
