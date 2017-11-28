@@ -2,10 +2,6 @@
 //inclusion du header comprenant l'init
 include('inc/header.inc.php');
 
-// gestion des contenus de la BDD compétences
-$resultat = $pdo -> query('SELECT * FROM t_competences');
-$ligne_competence = $resultat -> fetch();
-
 ?>
 
     <div class="container">

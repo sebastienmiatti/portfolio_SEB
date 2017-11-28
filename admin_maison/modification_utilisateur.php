@@ -32,7 +32,7 @@ $ligne_utilisateur = $resultat->fetch();
                     <div class="panel-heading"><b>Modification d'un utilisateur</b></div>
                     <div class="panel-body">
 
-                    <form action="" method="POST">
+                    <form action="utilisateur.php" method="POST">
                     <div class="form-group">
                         <label for="prenom">Prenom :</label>
                         <input type="text" name="prenom" class="form-control" id="prenom" value="<?= $ligne_utilisateur['prenom']; ?>">

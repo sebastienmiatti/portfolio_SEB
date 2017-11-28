@@ -2,6 +2,15 @@
 //inclusion du header comprenant l'init
 include('inc/header.inc.php');
 
+if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+}else{
+    header('location: connexion.php');
+}
+
 // gestion des contenus de la BDD utilisateur
 $resultat = $pdo -> prepare("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
 $resultat->execute();
@@ -30,7 +39,7 @@ if (isset($_POST['utilisateur']))
                 $ville = addslashes($_POST['ville']);
                 $pays = addslashes($_POST['pays']);
                 $site_web = addslashes($_POST['site_web']);
-                $pdo -> exec("INSERT INTO t_utilisateurs VALUES (NULL, '$utilisateur', '$prenom', '$nom', '$email', '$telephone', '$mdp', '$pseudo', '$avatar', '$age', '$etat_civil', '$sexe', '$etat_civil', '$adresse', '$code_postal', '$ville', '$pays', '$site_web', '1')");
+                $pdo -> exec("UPDATE INTO t_utilisateurs VALUES (NULL, '$utilisateur', '$prenom', '$nom', '$email', '$telephone', '$mdp', '$pseudo', '$avatar', '$age', '$etat_civil', '$sexe', '$etat_civil', '$adresse', '$code_postal', '$ville', '$pays', '$site_web', '1')");
                 //mettre $id_utilisateur quand on l'aura dans la variable de session
                 header("location: utilisateur.php");
                 exit();
@@ -52,7 +61,7 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
 </div>
 
 
-<div class="col-sm-4 col-md-5">
+<div class="col-sm-4 col-md-6 col-md-offset-3">
     <div class="thumbnail">
 
         <div class="caption">
@@ -92,7 +101,7 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
 </div>
 
         <div class="panel-footer text-center">
-            <a href="index.php">Retour à la page d'accueil</a>
+            <a href="inscription.php">Insertion d'un nouvel utilisateur</a>
         </div>
 
     <?php require('inc/footer.inc.php');?>

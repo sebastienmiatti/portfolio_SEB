@@ -9,3 +9,5 @@ $pdo = new PDO('mysql:host=' . $hote . ';dbname=' . $bdd, $utilisateur, $passe);
 $pdo -> exec('SET NAMES utf8');
 
 // define('RACINE_CV','/site_cv/');
+
+session_start();

@@ -55,7 +55,7 @@ $ligne_utilisateur = $resultat -> fetch();
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Se déconnecter</a></li>
+                <li><a href="connexion.php?deconnexion=oui">Se déconnecter</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

@@ -2,6 +2,16 @@
 //inclusion du header comprenant l'init
 include('inc/header.inc.php');
 
+if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+}else{
+    header('location: connexion.php');
+}
+
+
 // gestion des contenus de la BDD réalisations
 $resultat = $pdo -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id='1'");
 $resultat->execute();

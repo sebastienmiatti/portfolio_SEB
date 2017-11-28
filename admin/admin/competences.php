@@ -1,7 +1,7 @@
 <?php
-require('inc/inc.header.php');
+require('inc/header.inc.php');
 if(!$_SESSION['connexion']) {
-    header('location:../index_.php');
+    header('location: index.php');
 }
     // Gestion des contenus de la Base de données
     $sql = $pdo->prepare("SELECT * FROM t_competences WHERE utilisateur_id = '1' ");
