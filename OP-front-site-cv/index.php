@@ -1,9 +1,5 @@
 <?php
-require '../admin_maison/inc/header.inc.php';
- // récupération des infos utilisateur
-$resultat = $pdo -> prepare("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-$resultat->execute();
-$ligne_utilisateur = $resultat -> fetch(FETCH_ASSOC);
+require '../admin_maison/inc/init.inc.php';
 
 // gestion des contenus de la BDD réalisations
 $result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
@@ -13,7 +9,7 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
 
  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
     <head>
 

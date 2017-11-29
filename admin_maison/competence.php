@@ -15,7 +15,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 $resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id='1'");
 $resultat->execute();
 $nbr_competences = $resultat->rowCount();
-// $ligne_competence = $resultat -> fetch();
+//$ligne_competence = $resultat -> fetch();
 
 
 // insertion d'une compétence

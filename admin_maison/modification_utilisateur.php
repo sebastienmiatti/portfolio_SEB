@@ -3,13 +3,22 @@
 include('inc/header.inc.php');
 
 // mise a jour d'un utilisateur
-if(isset($_POST['utilisateurs'])){// par le nom du premier input
-    $utilisateur = addslashes($_POST['utilisateur']);
+if(isset($_POST['prenom'])){// par le nom du premier input
+    $id_utilisateur = $_POST['id_utilisateur'];
+    $prenom = addslashes($_POST['prenom']);
+    $nom = addslashes($_POST['nom']);
+    $email = addslashes($_POST['email']);
+    $telephone = addslashes($_POST['telephone']);
+    $pseudo = addslashes($_POST['pseudo']);
+    $age = addslashes($_POST['age']);
+    $date_naissance = addslashes($_POST['date_naissance']);
+    $adresse = addslashes($_POST['adresse']);
+    $code_postal = addslashes($_POST['code_postal']);
+    $ville = addslashes($_POST['ville']);
+    $pays = addslashes($_POST['pays']);
 
-    $id_utilisateur = $_POST['id_loisir'];
-
-    $pdo->exec("UPDATE t_utilisateurs SET loisir='$utilisateurs', id_loisir='$id_utilisateur' WHERE id_utilisateur ='$id_utilisateur'");
-    header('location: utilisateurs.php');
+    $pdo->exec("UPDATE t_utilisateurs SET prenom = '$prenom', nom ='$nom', email ='$email', telephone ='$telephone', pseudo='$pseudo', age='$age', date_naissance='$date_naissance', adresse='$adresse', code_postal='$code_postal', ville='$ville', pays='$pays' WHERE id_utilisateur = '$id_utilisateur'");
+    header('location: utilisateur.php');
     exit();
 }
 
@@ -32,8 +41,9 @@ $ligne_utilisateur = $resultat->fetch();
                     <div class="panel-heading"><b>Modification d'un utilisateur</b></div>
                     <div class="panel-body">
 
-                    <form action="utilisateur.php02" method="POST">
+                    <form action="modification_utilisateur.php" method="POST">
                     <div class="form-group">
+
                         <label for="prenom">Prenom :</label>
                         <input type="text" name="prenom" class="form-control" id="prenom" value="<?= $ligne_utilisateur['prenom']; ?>">
 
@@ -58,8 +68,8 @@ $ligne_utilisateur = $resultat->fetch();
                         <label for="age">Age :</label>
                         <input type="text" name="age" class="form-control" id="age" value="<?= $ligne_utilisateur['age']; ?>">
 
-                        <label for="date_de_naissance">Date de naissance :</label>
-                        <input type="text" name="date_de_naissance" class="form-control" id="date_de_naissance" value="<?= $ligne_utilisateur['date_de_naissance']; ?>">
+                        <label for="date_naissance">Date de naissance :</label>
+                        <input type="text" name="date_naissance" class="form-control" id="date_naissance" value="<?= $ligne_utilisateur['date_naissance']; ?>">
 
                         <label for="sexe">Sexe :</label>
                         <input type="text" name="sexe" class="form-control" id="sexe" value="<?= $ligne_utilisateur['sexe']; ?>">

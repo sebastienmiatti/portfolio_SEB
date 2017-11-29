@@ -14,7 +14,8 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 // gestion des contenus de la BDD utilisateur
 $resultat = $pdo -> prepare("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
 $resultat->execute();
-$nbr_utilisateur = $resultat->rowCount();// $ligne_realisation = $resultat -> fetch();
+$nbr_utilisateur = $resultat->rowCount();
+// $ligne_realisation = $resultat -> fetch();
 
 
 // insertion d'un utilisateur
@@ -31,7 +32,7 @@ if (isset($_POST['utilisateur']))
                 $pseudo = addslashes($_POST['pseudo']);
                 $avatar = addslashes($_POST['avatar']);
                 $age = addslashes($_POST['age']);
-                $date_de_naissance = addslashes($_POST['date_de_naissance']);
+                $date_naissance = addslashes($_POST['date_de_naiss']);
                 $sexe = addslashes($_POST['sexe']);
                 $etat_civil = addslashes($_POST['etat_civil']);
                 $adresse = addslashes($_POST['adresse']);
@@ -39,7 +40,7 @@ if (isset($_POST['utilisateur']))
                 $ville = addslashes($_POST['ville']);
                 $pays = addslashes($_POST['pays']);
                 $site_web = addslashes($_POST['site_web']);
-                $pdo -> exec("UPDATE INTO t_utilisateurs VALUES (NULL, '$utilisateur', '$prenom', '$nom', '$email', '$telephone', '$mdp', '$pseudo', '$avatar', '$age', '$etat_civil', '$sexe', '$etat_civil', '$adresse', '$code_postal', '$ville', '$pays', '$site_web', '1')");
+                $pdo -> exec("UPDATE INTO t_utilisateurs VALUES (NULL, '$utilisateur', '$prenom', '$nom', '$email', '$telephone', '$mdp', '$pseudo', '$avatar', '$age', '$date_naissance', '$sexe', '$etat_civil', '$adresse', '$code_postal', '$ville', '$pays', '$site_web', '1')");
                 //mettre $id_utilisateur quand on l'aura dans la variable de session
                 header("location: utilisateur.php");
                 exit();
@@ -71,7 +72,6 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
             <img src="..." alt="..."/>
                 <?php while ($ligne_utilisateur = $resultat -> fetch()) : ?>
                     <h3><?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?></h3>
-                    <p><?= $ligne_utilisateur['pseudo'];?></p>
                     <p><?= $ligne_utilisateur['nom'];?></p>
                     <p><?= $ligne_utilisateur['prenom'];?></p>
                     <p class="hidden"><?= $ligne_utilisateur['id_utilisateur'];?></p>
@@ -80,7 +80,7 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
                     <p><?= $ligne_utilisateur['mdp'];?></p>
                     <p><?= $ligne_utilisateur['pseudo'];?></p>
                     <p><?= $ligne_utilisateur['age'];?></p>
-                    <p><?= $ligne_utilisateur['date_de_naissance'];?></p>
+                    <p><?= $ligne_utilisateur['date_naissance'];?></p>
                     <p><?= $ligne_utilisateur['sexe'];?></p>
                     <p><?= $ligne_utilisateur['etat_civil'];?></p>
                     <p><?= $ligne_utilisateur['adresse'];?></p>

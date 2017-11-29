@@ -15,10 +15,7 @@ if(isset($_POST['r_titre'])){// par le nom du premier input
     exit();
 }
 
-// je récupère la compétence
-$id_realisation = $_GET['id_realisation']; // par l'id et $_GET
-$resultat = $pdo-> query("SELECT * FROM t_realisations WHERE id_realisation = '$id_realisation'"); // la requete est égal a l'id
-$ligne_realisation = $resultat->fetch();
+
 
 ?>
 

@@ -43,8 +43,8 @@ include 'inc/header.inc.php';
                          <label for="age">Age :</label>
                          <input type="text" name="age" class="form-control" id="age" value="">
 
-                         <label for="date_de_naissance">Date de naissance :</label>
-                         <input type="text" name="date_de_naissance" class="form-control" id="date_de_naissance" value="">
+                         <label for="date_de_naiss">Date de naissance :</label>
+                         <input type="text" name="date_de_naiss" class="form-control" id="date_de_naiss" value="">
 
                          <label for="sexe">Sexe :</label>
                          <input type="text" name="sexe" class="form-control" id="sexe" value="">

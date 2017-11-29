@@ -1,11 +1,4 @@
-<?php
-require('init.inc.php');
-
-// gestion des contenus de la BDD table utilisateurs
-$resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
-$ligne_utilisateur = $resultat -> fetch();
-?>
-
+<?php require('init.inc.php');?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>

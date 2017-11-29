@@ -1,4 +1,4 @@
-<?php require 'inc/init.inc.php';
+<?php require 'inc/header.inc.php';
 
  //à mettre dans toutes les pages de l'admin (même cette page)
     $msg_auth_err=''; // on initialise la variable en cas d'erreur
@@ -14,7 +14,6 @@
    header('location : connexion.php');
  } // ferme le isset de la déconnexion
 
-var_dump($_SESSION);
 
 if(isset($_POST['connexion'])){// on envoie le form avec le name du button(on a cliqué dessus et c'est ce qu'on obtient)
     $email = addslashes($_POST['email']);
@@ -34,7 +33,7 @@ if(isset($_POST['connexion'])){// on envoie le form avec le name du button(on a 
         header('location: index.php');
     }//fermeture du else
 }// ferme le isset
- include 'inc/header.inc.php';
+
 ?>
  <div class="container">
          <div class="row conexion">

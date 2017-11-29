@@ -11,3 +11,8 @@ $pdo -> exec('SET NAMES utf8');
 // define('RACINE_CV','/site_cv/');
 
 session_start();
+// gestion des contenus de la BDD table utilisateurs
+$resultat = $pdo -> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
+$ligne_utilisateur = $resultat -> fetch();
+
+?>
