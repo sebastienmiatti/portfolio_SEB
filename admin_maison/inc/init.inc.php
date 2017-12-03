@@ -8,7 +8,6 @@ $pdo = new PDO('mysql:host=' . $hote . ';dbname=' . $bdd, $utilisateur, $passe);
 // $pdoCv est le nom de la variable de la connexion qui sert partout où l'on doit se servir de cette connexion
 $pdo -> exec('SET NAMES utf8');
 
-// define('RACINE_CV','/site_cv/');
 
 session_start();
 // gestion des contenus de la BDD table utilisateurs

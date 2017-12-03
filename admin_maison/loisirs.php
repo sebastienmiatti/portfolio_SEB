@@ -41,10 +41,11 @@ if (isset($_GET['id_loisir']))
     } // ferme le if(isset)
 
 ?>
+<hr>
     <div class="panel panel-info">
         <div class="panel-heading text-center"><b>Liste des loisirs</b></div>
     </div>
-
+<hr>
 
     <div class="row">
         <div class="col-md-8">
@@ -89,5 +90,6 @@ if (isset($_GET['id_loisir']))
             </div>
         </div>
     </div>
+<hr>
 
 <?php require('inc/footer.inc.php') ?>

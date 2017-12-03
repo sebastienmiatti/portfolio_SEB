@@ -44,11 +44,11 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
 } // ferme le if(isset)
 
 ?>
-
-<div class="panel panel-info">
-    <div class="panel-heading text-center"><b>Liste des réalisations</b></div>
-</div>
-
+<hr>
+    <div class="panel panel-info">
+        <div class="panel-heading text-center"><b>Liste des réalisations</b></div>
+    </div>
+<hr>
 <div class="row">
     <div class="col-md-8">
     <div class="panel panel-info">
@@ -110,5 +110,6 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
         </div>
     </div>
 </div>
+<hr>
 
 <?php require('inc/footer.inc.php');?>

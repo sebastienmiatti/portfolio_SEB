@@ -9,15 +9,15 @@
         <link href="css/bootstrap.min.css" rel="stylesheet"><!-- importation bootstrap CSS -->
         <link rel="stylesheet" href="css/style_admin.css">
 
-        <title>Site cv-<?= ($ligne_utilisateur['prenom']); ?> <?= ($ligne_utilisateur['nom']); ?></title>
+        <title>Site cv - Admin :<?= ($ligne_utilisateur['prenom']); ?> <?= ($ligne_utilisateur['nom']); ?></title>
     </head>
 
     <body>
 
 <!---        NAVBAR         -->
 <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container-fluid geometrique">
+        <!--container-fluid pour un container full width-->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -42,6 +42,7 @@
                         <li><a href="formation.php">Formations</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="loisirs.php">Loisirs</a></li>
+                        <li><a href="titre_cv.php">Titre cv</a></li>
                     </ul>
                 </li>
 
@@ -56,4 +57,4 @@
 
 <!---        FIN NAVBAR          -->
 <div class="container">
-    <h1 class="well text-center">Admin : <?= ($ligne_utilisateur['prenom']); ?></h1>
+    <h1 class="well text-center">Admin - Port-folio : <?php echo($ligne_utilisateur['prenom']).' '.($ligne_utilisateur['nom']); ?></h1>

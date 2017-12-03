@@ -56,12 +56,13 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
 } // ferme le if(isset)
 
 ?>
+<hr>
+    <div class="panel panel-info">
+        <div class="panel-heading text-center"><b>Liste des Utilisateurs</b></div>
+    </div>
+<hr>
 
-<div class="panel panel-info">
-    <div class="panel-heading text-center"><b>Liste des Utilisateurs</b></div>
-</div>
-
-
+<div class="row">
 <div class="col-sm-4 col-md-6 col-md-offset-3">
     <div class="thumbnail">
 
@@ -88,20 +89,20 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
                     <p><?= $ligne_utilisateur['ville'];?></p>
                     <p><?= $ligne_utilisateur['pays'];?></p>
                     <p><?= $ligne_utilisateur['site_web'];?></p>
-
+                    <hr>
                 <td><a href="modification_utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
-                <td><a href="utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                <!-- <td><a href="utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td> -->
 
                 <?php endwhile ?>
         </div>
     </div>
+
+    </div>
 </div>
+<hr>
 
-
-</div>
-
-        <div class="panel-footer text-center">
+        <!-- <div class="panel-footer text-center">
             <a href="inscription.php">Insertion d'un nouvel utilisateur</a>
-        </div>
+        </div> -->
 
     <?php require('inc/footer.inc.php');?>

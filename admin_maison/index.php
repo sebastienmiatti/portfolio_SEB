@@ -2,6 +2,18 @@
 //inclusion du header comprenant l'init
 include('inc/header.inc.php');
 
+if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+}else{
+    header('location: connexion.php');
+}
+
+$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1  ");
+$ligne_titre_cv = $sql->fetch();
+
 ?>
 
     <div class="container">

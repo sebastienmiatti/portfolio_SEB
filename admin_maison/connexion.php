@@ -71,11 +71,7 @@ if(isset($_POST['connexion'])){// on envoie le form avec le name du button(on a 
                                       <a href="#">Mot de passe oublié ?</a>
                                   </small>
                              </div> -->
-                              <div class="col-md-offset-0">
-                                  <small id="inscription" class="form-text text-muted">
-                                       <a href="modification_utilisateur.php">S'inscrire </a>
-                                  </small>
-                             </div>
+                            
                          </div>
                   </form>
              </div>
