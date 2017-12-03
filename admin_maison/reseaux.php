@@ -50,7 +50,7 @@ if(isset($_GET['id_reseau'])) {// on récupère la comp. par son id ds l'url
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-info">
-            <div class="panel-heading">Il y a <?php echo $nbr_reseaux; ?> réseau<?php echo ($nbr_reseaux>1)?'x':'' ?> </div>
+            <div class="panel-heading">Il y a <?= $nbr_reseaux; ?> réseau<?= ($nbr_reseaux>1)?'x':'' ?> </div>
             <div class="panel-body">
             <table class="table table-bordered table-hover" border="2">
                      <tr>
@@ -62,10 +62,10 @@ if(isset($_GET['id_reseau'])) {// on récupère la comp. par son id ds l'url
 
                      <tr>
                          <?php while ($ligne_reseau = $sql->fetch()) { ?>
-                         <td><a href="<?php echo $ligne_reseau['url']; ?>"><?php echo $ligne_reseau['reseau']; ?></a></td>
-                         <td><a href="#"><?php echo $ligne_reseau['url']; ?></a></td>
-                         <td><a href="modification_reseaux.php?id_reseau=<?php echo $ligne_reseau['id_reseau']; ?>" class="btn btn-block btn-warning">modifier</a></td>
-                         <td><a href="reseaux.php?id_reseau=<?php echo $ligne_reseau['id_reseau']; ?>" class="btn btn-block btn-danger">supprimer</a></td>
+                         <td><a href="<?= $ligne_reseau['url']; ?>"><?= $ligne_reseau['reseau']; ?></a></td>
+                         <td><a href="#"><?= $ligne_reseau['url']; ?></a></td>
+                         <td><a href="modification_reseaux.php?id_reseau=<?= $ligne_reseau['id_reseau']; ?>" class="btn btn-block btn-warning">modifier</a></td>
+                         <td><a href="reseaux.php?id_reseau=<?= $ligne_reseau['id_reseau']; ?>" class="btn btn-block btn-danger">supprimer</a></td>
 
                      </tr>
                          <?php } ?>

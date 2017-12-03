@@ -47,9 +47,9 @@ if(isset($_POST['titre_cv'])) {// si on a posté une nouvelle comp.
 							</thead>
 							<tbody>
 								<tr>
-									<td><?php echo $ligne_titre_cv['titre_cv']; ?></td>
-									<td><?php echo $ligne_titre_cv['accroche']; ?></td>
-									<td><img src="img/<?php echo $ligne_titre_cv['logo']; ?>" width="100" height="100"></td>
+									<td><?= $ligne_titre_cv['titre_cv']; ?></td>
+									<td><?= $ligne_titre_cv['accroche']; ?></td>
+									<td><img src="img/<?= $ligne_titre_cv['logo']; ?>" width="100" height="100"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -65,15 +65,15 @@ if(isset($_POST['titre_cv'])) {// si on a posté une nouvelle comp.
 					<form action="titre_cv.php" method="post">
 						<div class="form-group">
 							<label for="titre_cv">Titre</label>
-							<input type="text" name="titre_cv" id="titre_cv" placeholder="Insérer le titre" class="form-control" value="<?php echo $ligne_titre_cv['titre_cv']; ?>">
+							<input type="text" name="titre_cv" id="titre_cv" placeholder="Insérer le titre" class="form-control" value="<?= $ligne_titre_cv['titre_cv']; ?>">
 						</div>
 						<div class="form-group">
 							<label for="accroche">Accroche</label>
-							<textarea name="accroche" id="accroche" class="form-control" placeholder="Insérer l'accroche"><?php echo $ligne_titre_cv['accroche']; ?></textarea>
+							<textarea name="accroche" id="accroche" class="form-control" placeholder="Insérer l'accroche"><?= $ligne_titre_cv['accroche']; ?></textarea>
 						</div>
 						<div class="form-group">
 								<label for="logo">Logo</label>
-								<input type="img" name="logo" id="logo" placeholder="Insérer le nom du logo" class="form-control" value="<?php echo $ligne_titre_cv['logo']; ?>">
+								<input type="img" name="logo" id="logo" placeholder="Insérer le nom du logo" class="form-control" value="<?= $ligne_titre_cv['logo']; ?>">
 						</div>
 						<button type="submit" class="btn btn-info btn-block">Insérez les infos</button>
 					</form>

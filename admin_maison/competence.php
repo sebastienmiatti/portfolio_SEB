@@ -1,6 +1,6 @@
 <?php
 //inclusion du header comprenant l'init
-include('inc/header.inc.php');
+require('inc/header.inc.php');
 
 if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
     $id_utilisateur = $_SESSION['id_utilisateur'];

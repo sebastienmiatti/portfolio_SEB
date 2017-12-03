@@ -1,18 +1,19 @@
-<?php require 'admin_maison/connexion.php';
-session_start();// à mettre dans toutes les pages de l'admin
+<?php
+//inclusion de l'init
+require('admin_maison/inc/init.inc.php');
 
-//pour se déconnecter de l'admin à mettre dans toutes les pages ??? ou juste sur la page login.php ?
-if(isset($_GET['quitter'])){//on récupère le terme quitter dans l'url
+$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1  ");
+$ligne_titre_cv = $sql->fetch();
 
-	$_SESSION['connexion']='';//on vide les variables de session
-	$_SESSION['id_utilisateur']='';
-	$_SESSION['prenom']='';
-	$_SESSION['nom']='';
 
-		unset($_SESSION['connexion']);
-		session_destroy();
-	//header('location:../index.php');
-}//ferme le if isset de la déconnexion
+if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+}else{
+    header('location: admin_maison/connexion.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,19 +34,11 @@ if(isset($_GET['quitter'])){//on récupère le terme quitter dans l'url
     <![endif]-->
 </head>
 <body>
-	<?php
-		$sql = $pdo->query(" SELECT * FROM t_utilisateurs WHERE id_utilisateur ='1' ");
-		$ligne_utilisateur = $sql->fetch();
-
-		$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1  ");
-		$ligne_titrecv = $sql->fetch();
-	?>
-
   <div class="container">
     <hr>
     <div class="row">
       <div class="col-xs-6">
-        <h1><?php echo($ligne_utilisateur['pseudo']); ?></h1>
+        <h1><?= ($ligne_utilisateur['pseudo']); ?></h1>
       </div>
       <div class="col-xs-6">
         <p class="text-right"><a href="">Download my Resume <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></p>
@@ -57,8 +50,8 @@ if(isset($_GET['quitter'])){//on récupère le terme quitter dans l'url
         <div class="media">
           <div class="media-left"> <a href="#"> <img class="media-object img-rounded" src="images/115X115.gif" alt="..."> </a> </div>
           <div class="media-body">
-            <h2 class="media-heading">Web Developer</h2>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, neque, in, accusamus optio architecto debitis dolor animi placeat ut ab corporis laboriosam itaque. Nobis, sapiente quo dolorum ut quod possimus doloremque suscipit ad doloribus quam dolor </div>
+            <h2 class="media-heading"><?= $ligne_titre_cv['titre_cv'] ;?></h2>
+            <?= $ligne_titre_cv['accroche']; ?></div>
         </div>
       </div>
       <div class="col-xs-5 well">
