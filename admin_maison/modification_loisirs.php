@@ -11,7 +11,6 @@ $ligne_loisir = $resultat->fetch();
 // mise a jour d'un loisir
 if(isset($_POST['loisir'])){// par le nom du premier input
     $loisir = addslashes($_POST['loisir']);
-
     $id_loisir = $_POST['id_loisir'];
 
     $pdo->exec("UPDATE t_loisirs SET loisir='$loisir', id_loisir='$id_loisir' WHERE id_loisir ='$id_loisir'");
@@ -22,7 +21,7 @@ if(isset($_POST['loisir'])){// par le nom du premier input
 ?>
 
 <div class="panel panel-info">
-    <div class="panel-heading">modification du loisir, <b><?php echo ($ligne_loisir['loisir']); ?></b></div>
+    <div class="panel-heading">modification du loisir <b><?php echo ($ligne_loisir['loisir']); ?></b></div>
     <div class="panel-body">
         <form action="modification_loisirs.php" method="POST">
             <div class="form-group">

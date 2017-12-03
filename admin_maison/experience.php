@@ -1,6 +1,6 @@
 <?php
 //inclusion du header comprenant l'init
-include('inc/header.inc.php');
+require('inc/header.inc.php');
 
 if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
     $id_utilisateur = $_SESSION['id_utilisateur'];
@@ -44,9 +44,9 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
 
 ?>
 <hr>
-<div class="panel panel-info">
-    <div class="panel-heading text-center"><b>Liste des expériences</b></div>
-</div>
+    <div class="panel panel-info">
+        <div class="panel-heading text-center"><b>Liste des expériences</b></div>
+    </div>
 <hr>
 
 <div class="row">
@@ -55,7 +55,6 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
         <div class="panel-heading"> J'ai <?= $nbr_experiences;?> expérience<?= ($nbr_experiences>1)?'s' : ''?></div>
         <div class="panel-body">
             <table class="table table-bordered table-hover" border="2">
-
                 <tr>
                   <th>Réalisation</th>
                   <th>Titre</th>
@@ -73,8 +72,8 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
                         <td><?= $ligne_experience['e_soustitre'];?></td>
                         <td><?= $ligne_experience['e_dates'];?></td>
                         <td><?= $ligne_experience['e_description'];?></td>
-                        <td><a href="modification_experience.php?id_experience=<?= $ligne_experience['id_experience'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
-                        <td><a href="experience.php?id_experience=<?= $ligne_experience['id_experience'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                        <td><a href="modification_experience.php?id_experience=<?= $ligne_experience['id_experience'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
+                        <td><a href="experience.php?id_experience=<?= $ligne_experience['id_experience'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                 </tr>
                   <?php endwhile ?>
 

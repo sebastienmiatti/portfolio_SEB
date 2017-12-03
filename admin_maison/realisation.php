@@ -73,8 +73,8 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                         <td><?= $ligne_realisation['r_soustitre'];?></td>
                         <td><?= $ligne_realisation['r_dates'];?></td>
                         <td><?= $ligne_realisation['r_description'];?></td>
-                        <td><a href="modification_realisation.php?id_realisation=<?= $ligne_realisation['id_realisation'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
-                        <td><a href="realisation.php?id_realisation=<?= $ligne_realisation['id_realisation'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                        <td><a href="modification_realisation.php?id_realisation=<?= $ligne_realisation['id_realisation'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
+                        <td><a href="realisation.php?id_realisation=<?= $ligne_realisation['id_realisation'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                 </tr>
                   <?php endwhile ?>
 

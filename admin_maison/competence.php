@@ -58,16 +58,16 @@ if (isset($_GET['id_competence']))
                         <tr>
                             <th>Compétences</th>
                             <th> Niveau </th>
-                            <th>Suppression</th>
                             <th>Modification</th>
+                            <th>Suppression</th>
                         </tr>
 
                         <tr>
                             <?php while ($ligne_competence = $resultat -> fetch()) : ?>
                                 <td><?= $ligne_competence['competence'];?></td>
                                 <td><?= $ligne_competence['c_niveau'];?></td>
-                                <td><a href="modification_competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></tdModifier</a></td>
-                                <td><a href="competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                                <td><a href="modification_competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></tdModifier</a></td>
+                                <td><a href="competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                         </tr>
                             <?php endwhile ?>
                     </table>

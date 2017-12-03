@@ -42,6 +42,7 @@
                         <li><a href="formation.php">Formations</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="loisirs.php">Loisirs</a></li>
+                        <li><a href="reseaux.php">Reseaux</a></li>
                         <li><a href="titre_cv.php">Titre cv</a></li>
                     </ul>
                 </li>

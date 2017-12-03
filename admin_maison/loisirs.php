@@ -65,8 +65,8 @@ if (isset($_GET['id_loisir']))
                             : ?>
 
                                 <td><?= $ligne_loisir['loisir'];?></td>
-                                <td class="modif"><a href="modification_loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modification</span></button></a></td>
-                                <td class="suppr"><a href="loisirs.php?id_loisir=<?=  $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                                <td class="modif"><a href="modification_loisirs.php?id_loisir=<?= $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modification</span></button></a></td>
+                                <td class="suppr"><a href="loisirs.php?id_loisir=<?=  $ligne_loisir['id_loisir'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
 
                     </tr>
                         <?php endwhile ?>

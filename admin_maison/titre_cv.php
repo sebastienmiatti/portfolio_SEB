@@ -61,7 +61,6 @@ if(isset($_POST['titre_cv'])) {// si on a posté une nouvelle comp.
 				<div class="panel panel-primary">
 				<div class="panel-heading"><b>Insertion et mise à jour d'un titre au cv<br> et de son accroche</b></div>
 	                <div class="panel-body">
-					<hr>
 		<!--formulaire d'insertion-->
 					<form action="titre_cv.php" method="post">
 						<div class="form-group">

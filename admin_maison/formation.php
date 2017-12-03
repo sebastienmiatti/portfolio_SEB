@@ -73,8 +73,8 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                         <td><?= $ligne_formation['f_soustitre'];?></td>
                         <td><?= $ligne_formation['f_dates'];?></td>
                         <td><?= $ligne_formation['f_description'];?></td>
-                        <td><a href="modification_formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
-                        <td><a href="formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
+                        <td><a href="modification_formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
+                        <td><a href="formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                 </tr>
                   <?php endwhile ?>
 

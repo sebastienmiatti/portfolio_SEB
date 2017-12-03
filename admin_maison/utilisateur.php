@@ -90,7 +90,7 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
                     <p><?= $ligne_utilisateur['pays'];?></p>
                     <p><?= $ligne_utilisateur['site_web'];?></p>
                     <hr>
-                <td><a href="modification_utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
+                <td><a href="modification_utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
                 <!-- <td><a href="utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td> -->
 
                 <?php endwhile ?>

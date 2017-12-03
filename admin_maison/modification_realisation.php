@@ -16,7 +16,6 @@ if(isset($_POST['r_titre'])){// par le nom du premier input
 }
 
 
-
 ?>
 
     <div class="panel panel-info">
