@@ -1,10 +1,43 @@
 <?php
-require '../admin_maison/inc/init.inc.php';
+require ('../admin_maison/inc/init.inc.php');
 
-// gestion des contenus de la BDD réalisations
-$result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
-$result->execute();
-$ligne_experience = $result -> fetch(FECTH_ASSOC);
+// gestion des contenus de la BDD expérirences
+// $result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
+// $result->execute();
+// $ligne_experience = $result -> fetch();
+
+// vérification des informations de session pour en connaitre l'état connexion/déconnexion
+if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+}else{
+    header('location: admin_maison/connexion.php');
+}
+
+// récupération des informations des bdd pour affichage
+$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1'"); ////ORDER BY id_titre_cv DESC LIMIT 1
+$ligne_titre_cv = $sql->fetch();
+
+$sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1'");
+$ligne_competences = $sql->fetch();
+
+$sql = $pdo->query(" SELECT * FROM t_realisations WHERE utilisateur_id ='1'");
+$ligne_realisations = $sql->fetch();
+
+$sql = $pdo->query(" SELECT * FROM t_experiences WHERE utilisateur_id ='1'");
+$ligne_experience = $sql->fetchAll();
+
+$sql = $pdo->query(" SELECT * FROM t_formations WHERE utilisateur_id ='1'");
+$ligne_formations = $sql->fetch();
+
+$sql = $pdo->query(" SELECT * FROM t_reseaux WHERE utilisateur_id ='1'");
+$ligne_reseaux = $sql->fetch();
+
+$sql = $pdo->query(" SELECT * FROM t_loisirs WHERE utilisateur_id ='1'");
+$ligne_loisirs = $sql->fetch();
+
 
 
  ?>
@@ -39,7 +72,6 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
         <link href="css/mdb.min.css" rel="stylesheet">
 
 
-
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
@@ -49,7 +81,11 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
     <body data-spy="scroll" data-target=".navbar-desktop">
         <!-- Start your project here-->
         <!--Navbar-->
-
+<!-- <?php
+echo '<pre>';
+print_r($titre_cv);
+echo '</pre>';
+?> -->
         <div class='preloader'><div class='loaded'>&nbsp;</div></div>
 
         <nav class="navbar navbar-fixed-top navbar-light bg-faded">
@@ -60,12 +96,10 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
                 <!--Content for large and medium screens-->
                 <div class="navbar-desktop">
                     <!--Navbar Brand-->
-                    <a class="navbar-brand" href="#home"><img src="img/logo.png" alt="" /></a>
+                    <a class="navbar-brand" href="index.php"><img src="img/.'<?= $ligne_titre_cv['logo'] ?>'" alt="logo" /></a>
                     <!--Links-->
                     <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#formations">Formations</a>
                         </li>
@@ -133,47 +167,49 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
                     <img src="img/homebenner.jpg"> <!-- random image -->
                     <div class="caption center-align">
                         <div class="single_home">
-                            <?php while ($ligne_utilisateur = $resultat -> fetch()) : ?>
-                            <h1><em><?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?></em></h1>
-                            <h3><em>Développeur Web full-stack</em></h3>
-                            <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+
+                            <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+                            <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+                            <p><?= $ligne_titre_cv['accroche']; ?></p>
+
                         </div>
                     </div>
                 </li>
                 <li>
-                    <img src="img/homebenner1.jpg"> <!-- random image -->
+                    <img src="img/homebenner.jpg"> <!-- random image -->
                     <div class="caption center-align">
                         <div class="single_home">
-                            <h1><em><?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?></em></h1>
-                            <h3><em>Développeur Web full-stack</em></h3>
-                            <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+                            <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+                            <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+                            <p><?= $ligne_titre_cv['accroche']; ?></p>
+
                         </div>
                     </div>
                 </li>
                 <li>
-                    <img src="img/homebenner2.jpg"> <!-- random image -->
+                    <img src="img/homebenner.jpg"> <!-- random image -->
                     <div class="caption center-align">
                         <div class="single_home">
-                            <h1><em><?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?></em></h1>
-                            <h3><em>Développeur Web full-stack</em></h3>
-                            <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
+                            <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+                            <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+                            <p><?= $ligne_titre_cv['accroche']; ?></p>
+
                         </div>
                     </div>
                 </li>
                 <li>
-                    <img src="img/homebenner3.jpg"> <!-- random image -->
+                    <img src="img/homebenner.jpg"> <!-- random image -->
                     <div class="caption center-align">
                         <div class="single_home">
-                            <h1><em><?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?></em></h1>
-                            <h3></em>Développeur Web full-stack</h3></p>
-                            <button type="button" class="btn btn-danger m-t-3 waves-effect waves-red">See More</button>
-                            <?php endwhile ?>
+                            <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+                            <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+                            <p><?= $ligne_titre_cv['accroche']; ?></p>
+
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-
 
 
 
@@ -183,33 +219,37 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
                     <div class="col-sm-12">
                         <div class="main_about_area">
                             <div class="head_title center m-y-3 wow fadeInUp">
-                                <?php while ($ligne_experience = $resultat -> fetch()) : ?>
-                                <h2><?= $ligne_experience['e_titre'];?></h2>
-                                <p><?= $ligne_experience['e_description'];?></p>
+
+
                             </div>
-                            <?php endwhile ?>
+
 
                             <div class="main_about_content">
                                 <div class="row">
                                     <div class="col-md-6">
-
+                                        <?php
+                                        echo '<pre>';
+                                        print_r($ligne_experience);
+                                        echo '</pre>';
+                                        ?>
                                         <div class="main_accordion wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-
+                                            <?php foreach($ligne_experience as $ligne_experiences) : ?>
                                             <div class="single_accordion">
-                                                <button class="accordion">Lorem ipsum dolor sit amet</button>
+
+                                                <button class="accordion"><?= $ligne_experience['e_titre'];?></button>
                                                 <div class="panel">
-                                                    <p>Consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla,
-                                                        eleifend Ut urna dui, interdum non blandit sed, hendrerit ultricies mi.
-                                                        Aliquam at scelerisque ligula. Curabitur id laoreet velit.</p>
+                                                    <h3><?= $ligne_experience['e_soustitre']; ?></h3>
+                                                    <p><em><?= $ligne_experience['e_description'];?></em></p>
                                                 </div>
                                             </div>
+                                        <?php endforeach ?>
 
-                                            <div class="single_accordion">
-                                                <button class="accordion active">Lorem ipsum dolor sit amet</button>
+
+                                            <!-- <div class="single_accordion">
+                                                <button class="accordion active"><?= $ligne_experience['e_titre'];?></button>
                                                 <div class="panel show">
-                                                    <p>Consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla,
-                                                        eleifend Ut urna dui, interdum non blandit sed, hendrerit ultricies mi.
-                                                        Aliquam at scelerisque ligula. Curabitur id laoreet velit.</p>
+                                                    <h3><?= $ligne_experience['e_soustitre']; ?></h3>
+                                                    <p><em><?= $ligne_experience['e_description'];?></em></p>
                                                 </div>
                                             </div>
 
@@ -221,7 +261,7 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
                                                         Aliquam at scelerisque ligula. Curabitur id laoreet velit.</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="col-md-6">
@@ -290,7 +330,7 @@ $ligne_experience = $result -> fetch(FECTH_ASSOC);
                                             <i class="fa fa-cog m-b-3"></i>
                                         </div>
                                         <div class="s_service_text text-sm-center text-xs-center">
-                                            <h4>Free support&updates</h4>
+                                            <h4>Free support and updates</h4>
                                             <p>Lorem ipsum dolor sit amet, conse tetuer adipiscing elit, sed diam nonu my nibh euismod
                                                 tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                                         </div>

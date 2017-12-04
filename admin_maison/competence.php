@@ -2,6 +2,7 @@
 //inclusion du header comprenant l'init
 require('inc/header.inc.php');
 
+// gestion de la connexion/déconnexion selon l'état de la session
 if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
     $id_utilisateur = $_SESSION['id_utilisateur'];
     $prenom = $_SESSION['prenom'];
@@ -44,9 +45,9 @@ if (isset($_GET['id_competence']))
 
 ?>
 <hr>
-<div class="panel panel-info">
-    <div class="panel-heading text-center"><b>Liste des compétences</b></div>
-</div>
+    <div class="panel panel-info">
+        <div class="panel-heading text-center"><b>Liste des compétences</b></div>
+    </div>
 <hr>
     <div class="row">
         <div class="col-md-8">

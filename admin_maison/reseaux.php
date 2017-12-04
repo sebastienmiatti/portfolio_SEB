@@ -13,7 +13,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
     header('location: connexion.php');
 }
 
-$sql = $pdo->prepare(" SELECT * FROM t_reseaux WHERE utilisateur_id ='1' ");
+$sql = $pdo->prepare("SELECT * FROM t_reseaux WHERE utilisateur_id ='1' ");
 $sql->execute();
 $nbr_reseaux = $sql->rowCount();
 //$ligne_loisir = $sql->fetch();
@@ -22,7 +22,8 @@ $nbr_reseaux = $sql->rowCount();
 //insertion d'une compétence
 if(isset($_POST['reseau']))
     {// si on a posté un loisir.
-	       if(!empty($_POST['reseau']!='') && !empty($_POST['url']!='')) {// si reseau n'est pas vide
+	       if(!empty($_POST['reseau']!='') && !empty($_POST['url']!=''))
+           {// si reseau n'est pas vide
 	             $reseau = addslashes($_POST['reseau']);
 	             $url = addslashes($_POST['url']);
 
