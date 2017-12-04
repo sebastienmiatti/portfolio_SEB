@@ -1,5 +1,5 @@
 <?php
-require ('../admin_maison/inc/init.inc.php');
+require('../admin_maison/inc/init.inc.php');
 
 // gestion des contenus de la BDD expérirences
 // $result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
@@ -7,38 +7,36 @@ require ('../admin_maison/inc/init.inc.php');
 // $ligne_experience = $result -> fetch();
 
 // vérification des informations de session pour en connaitre l'état connexion/déconnexion
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: admin_maison/connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: admin_maison/connexion.php');
+// }
 
 // récupération des informations des bdd pour affichage
 $sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1'"); ////ORDER BY id_titre_cv DESC LIMIT 1
 $ligne_titre_cv = $sql->fetch();
 
 $sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1'");
-$ligne_competences = $sql->fetch();
+$ligne_competences = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_realisations WHERE utilisateur_id ='1'");
-$ligne_realisations = $sql->fetch();
+$ligne_realisations = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_experiences WHERE utilisateur_id ='1'");
-$ligne_experience = $sql->fetchAll();
+$ligne_experiences = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_formations WHERE utilisateur_id ='1'");
 $ligne_formations = $sql->fetch();
 
 $sql = $pdo->query(" SELECT * FROM t_reseaux WHERE utilisateur_id ='1'");
-$ligne_reseaux = $sql->fetch();
+$ligne_reseaux = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_loisirs WHERE utilisateur_id ='1'");
-$ligne_loisirs = $sql->fetch();
-
-
+$ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
  ?>
 <!DOCTYPE html>
@@ -227,13 +225,14 @@ echo '</pre>';
                             <div class="main_about_content">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <?php
+                                        <!-- <?php
                                         echo '<pre>';
-                                        print_r($ligne_experience);
+                                        print_r($ligne_experiences);
                                         echo '</pre>';
-                                        ?>
+                                        ?> -->
+                                        <?php foreach($ligne_experiences as $ligne_experience) : ?>
                                         <div class="main_accordion wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-                                            <?php foreach($ligne_experience as $ligne_experiences) : ?>
+
                                             <div class="single_accordion">
 
                                                 <button class="accordion"><?= $ligne_experience['e_titre'];?></button>
@@ -242,7 +241,8 @@ echo '</pre>';
                                                     <p><em><?= $ligne_experience['e_description'];?></em></p>
                                                 </div>
                                             </div>
-                                        <?php endforeach ?>
+                                        </div>
+                                        <?php endforeach; ?>
 
 
                                             <!-- <div class="single_accordion">
