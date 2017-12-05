@@ -12,7 +12,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 }
 
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
+$resultat = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='$id_utilisateur'");
 $resultat->execute();
 $nbr_experiences = $resultat->rowCount();
 // $ligne_experience = $resultat -> fetch();
@@ -27,7 +27,7 @@ if (isset($_POST['e_titre']))
             $e_soustitre = addslashes($_POST['e_soustitre']);
             $e_dates = addslashes($_POST['e_dates']);
             $e_description = addslashes($_POST['e_description']);
-            $pdo -> exec("INSERT INTO t_experiences VALUES (NULL, '$e_titre', '$e_soustitre', '$e_dates', '$e_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            $pdo -> exec("INSERT INTO t_experiences VALUES (NULL, '$e_titre', '$e_soustitre', '$e_dates', '$e_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
             header("location: experience.php");
             exit();
         } // ferme le if n'est pas vide
@@ -35,7 +35,8 @@ if (isset($_POST['e_titre']))
 
 
 // Suppression d'une réalisation
-if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l'url
+if (isset($_GET['id_experience']))
+{ // on récupère la comp. par son id dans l'url
     $efface =  $_GET['id_experience'];
     $resultat = "DELETE FROM t_experiences WHERE id_experience = '$efface'";
     $pdo -> query($resultat); // on peut avec exec aussi si on veut
@@ -50,7 +51,7 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
 <hr>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
     <div class="panel panel-info">
         <div class="panel-heading"> J'ai <?= $nbr_experiences;?> expérience<?= ($nbr_experiences>1)?'s' : ''?></div>
         <div class="panel-body">
@@ -82,7 +83,7 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
     </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-primary">
         <div class="panel-heading">Insertion d'une expérience</div>
             <div class="panel-body">
@@ -92,17 +93,20 @@ if (isset($_GET['id_experience'])) { // on récupère la comp. par son id dans l
                         <input type="text" name="e_titre" class="form-control" id="e_titre" placeholder="Insérer un titre">
                     </div>
                     <div class="form-group">
-                        <label for="e_soustitre">Titre</label>
+                        <label for="e_soustitre">Sous-titre</label>
                         <input type="text" name="e_soustitre" class="form-control" id="e_soustitre" placeholder="Insérer un sous-titre">
                     </div>
+
                     <div class="form-group">
                         <label for="e_dates">Date</label>
                         <input type="text" name="e_dates" class="form-control" id="e_dates" placeholder="Insérer une date">
                     </div>
+
                     <div class="form-group">
-                        <label for="e_description">description</label>
-                        <input type="text" name="e_description" class="form-control" id="e_description" placeholder="Insérer une description">
+                        <label for="e_description">Description</label>
+                        <textarea class="form-control" id="e_description" name="e_description"><?= $ligne_experience['e_description']; ?></textarea>
                     </div>
+
                     <input type="submit" class="btn btn-success btn-block" value="Insérez">
                 </form>
             </div>

@@ -30,7 +30,7 @@ $sql = $pdo->query(" SELECT * FROM t_experiences WHERE utilisateur_id ='1'");
 $ligne_experiences = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_formations WHERE utilisateur_id ='1'");
-$ligne_formations = $sql->fetch();
+$ligne_formations = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_reseaux WHERE utilisateur_id ='1'");
 $ligne_reseaux = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -218,32 +218,31 @@ echo '</pre>';
                         <div class="main_about_area">
                             <div class="head_title center m-y-3 wow fadeInUp">
 
-
+                                <h2>Expériences professionnelles</h2>
+                                <hr>
                             </div>
 
 
                             <div class="main_about_content">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-10 col-md-offset-1">
                                         <!-- <?php
                                         echo '<pre>';
                                         print_r($ligne_experiences);
                                         echo '</pre>';
                                         ?> -->
-                                        <?php foreach($ligne_experiences as $ligne_experience) : ?>
+
+                                        <?php foreach($ligne_experiences as $ligne_experience) : ?> <!--boucle pour afficher les expériences-->
                                         <div class="main_accordion wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-
                                             <div class="single_accordion">
-
                                                 <button class="accordion"><?= $ligne_experience['e_titre'];?></button>
                                                 <div class="panel">
                                                     <h3><?= $ligne_experience['e_soustitre']; ?></h3>
-                                                    <p><em><?= $ligne_experience['e_description'];?></em></p>
+                                                    <p><?= $ligne_experience['e_description'];?></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <?php endforeach; ?>
-
 
                                             <!-- <div class="single_accordion">
                                                 <button class="accordion active"><?= $ligne_experience['e_titre'];?></button>
@@ -262,45 +261,11 @@ echo '</pre>';
                                                 </div>
                                             </div>
                                         </div> -->
-                                    </div>
 
-                                    <div class="col-md-6">
-                                        <div class="single_about about_progress">
-                                            <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-                                                <!-- progress start -->
-                                                <div class="progress">
-                                                    <div class="lead">Web Development 95%</div>
-                                                    <div class="progress-bar wow fadeInLeft" data-progress="95%" style="width: 95%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                                </div>
-                                                <!-- progress end -->
-                                                <!-- progress start -->
-                                                <div class="progress">
-                                                    <div class="lead">App Development 90%</div>
-                                                    <div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                                </div>
-                                                <!-- progress end -->
-                                                <!-- progress start -->
-                                                <div class="progress">
-                                                    <div class="lead">Software Development 85%</div>
-                                                    <div class="progress-bar wow fadeInLeft" data-progress="85%" style="width: 85%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                                </div>
-                                                <!-- progress end -->
-                                                <!-- progress start -->
-                                                <div class="progress">
-                                                    <div class="lead">Graphics Design 80%</div>
-                                                    <div class="progress-bar wow fadeInLeft" data-progress="80%" style="width: 80%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                                </div>
-                                                <!-- progress end -->
-                                                <!-- progress start -->
-                                                <div class="progress">
-                                                    <div class="lead">Marketing 70%</div>
-                                                    <div class="progress-bar wow fadeInLeft" data-progress="70%" style="width: 70%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                                </div>
-                                                <!-- PROGRESS END -->
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
+
                             </div>
                         </div>
                     </div>
@@ -321,26 +286,30 @@ echo '</pre>';
                     <div class="col-sm-12">
                         <div class="main_service_area">
                             <div class="head_title center m-y-3 wow fadeInUp">
-                                <h2>Our Service</h2>
+                                <h2>Diplômes et formations</h2>
+                                <hr>
                             </div>
                             <div class="row">
+                                <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les expériences-->
                                 <div class="col-md-4">
                                     <div class="jumbotron single_service  wow fadeInLeft">
                                         <div class="service_icon center">
                                             <i class="fa fa-cog m-b-3"></i>
                                         </div>
                                         <div class="s_service_text text-sm-center text-xs-center">
-                                            <h4>Free support and updates</h4>
-                                            <p>Lorem ipsum dolor sit amet, conse tetuer adipiscing elit, sed diam nonu my nibh euismod
-                                                tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                            <h4><?= $ligne_formation['f_titre']; ?></h4>
+                                            <p><?= $ligne_formation['f_description']; ?></p>
                                         </div>
 
                                         <div class="service_btn center">
-                                            <a href="#!" class="btn btn-danger waves-effect waves-red">See  More</a>
+                                            <a href="#!" class="btn btn-danger waves-effect waves-red"><?= $ligne_formation['f_dates']; ?></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                            <?php endforeach ?>
+                            </div>
+
+                                <!-- <div class="col-md-4">
                                     <div class="jumbotron single_service wow fadeInUp">
                                         <div class="service_icon center">
                                             <i class="fa fa-pied-piper m-b-3"></i>
@@ -371,7 +340,7 @@ echo '</pre>';
                                             <a href="#!" class="btn btn-danger waves-effect waves-red">See  More</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -404,54 +373,58 @@ echo '</pre>';
 
 
 
-
         <section id="offer" class="offer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="main_offer_area">
-                            <div class="head_title center m-y-3  wow fadeInUp">
-                                <h2>What we Offer</h2>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="single_about about_progress">
+                            <div class="head_title center m-y-3 wow fadeInUp">
+                                <h2>Compétences : web et informatique</h2>
+                                <hr>
                             </div>
-                            <div class="main_offer_content m-b-3  wow fadeInUp">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="single_offer m-t-3">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="single_offer_icon">
-                                                        <i class="fa fa-cloud"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <div class="single_offer_text">
-                                                        <h3>technical analysis</h3>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and
-                                                            typesetting industry.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="single_offer m-t-3">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="single_offer_icon">
-                                                        <i class="fa fa-cart-arrow-down"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <div class="single_offer_text">
-                                                        <h3>technical analysis</h3>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and
-                                                            typesetting industry.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                            <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                                 <?php foreach($ligne_competences as $ligne_competence) : ?>
+                                <div class="progress">
+                                    <div class="lead"><?= $ligne_competence['competence'] .' '. $ligne_competence['c_niveau']; ?> %</div>
+                                    <div class="progress-bar wow fadeInLeft" data-progress="<?= $ligne_competence['c_niveau']; ?>%" style="width: <?= $ligne_competence['c_niveau']; ?>%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </section>
+                                <!-- progress end
+                                <!-- progress start -->
+                                <!-- <div class="progress">
+                                    <div class="lead">App Development 90%</div>
+                                    <div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                                </div> -->
+                                <!-- progress end -->
+                                <!-- progress start -->
+                                <!-- <div class="progress">
+                                    <div class="lead">Software Development 85%</div>
+                                    <div class="progress-bar wow fadeInLeft" data-progress="<?= $ligne_competence['c_niveau'];?>%" style="width: <?= $ligne_competence['c_niveau'];?>%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                                </div> -->
+                                <!-- progress end -->
+                                <!-- progress start -->
+                                <!-- <div class="progress">
+                                    <div class="lead">Graphics Design 80%</div>
+                                    <div class="progress-bar wow fadeInLeft" data-progress="80%" style="width: 80%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                                </div> -->
+                                <!-- progress end -->
+                                <!-- progress start -->
+                                <!-- <div class="progress">
+                                    <div class="lead">Marketing 70%</div>
+                                    <div class="progress-bar wow fadeInLeft" data-progress="70%" style="width: 70%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                                </div> -->
+                                <!-- PROGRESS END -->
+
+
+                                    <!-- <div class="col-md-6">
                                         <div class="single_offer m-t-3">
                                             <div class="row">
                                                 <div class="col-sm-3">
@@ -487,16 +460,9 @@ echo '</pre>';
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr />
-        </section><!-- End of Offer Section -->
+                             End of Offer Section
 
-        <section id="client" class="client">
+        <!-- <section id="client" class="client">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
@@ -544,7 +510,7 @@ echo '</pre>';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!-- End of carouser item -->
+                                    </div><!-- End of carouser item
                                     <div class="carousel-item">
                                         <div class="single_client_area">
                                             <div class="single_client">
@@ -582,7 +548,7 @@ echo '</pre>';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!-- End of carouser item -->
+                                    </div><!-- End of carouser item
                                     <div class="carousel-item">
                                         <div class="single_client_area">
                                             <div class="single_client">
@@ -620,7 +586,7 @@ echo '</pre>';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!-- End of carouser item -->
+                                    </div><!-- End of carouser item
                                     <div class="carousel-item">
                                         <div class="single_client_area">
                                             <div class="single_client">
@@ -658,15 +624,15 @@ echo '</pre>';
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!-- End of carouser item -->
-                                </div><!-- End of carouser slider -->
+                                    </div><!-- End of carouser item
+                                </div><!-- End of carouser slider
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <hr />
-        </section><!-- End of client Section -->
+        </section><!-- End of client Section  -->
 
 
         <section id="counter" class="counter">
@@ -814,10 +780,10 @@ echo '</pre>';
                         <div class="main_portfolio_content center wow fadeInUp">
                             <div class="main_mix_menu m-y-2">
                                 <ul class="text-uppercase">
-                                    <li class="filter" data-filter="all">All</li>
-                                    <li class="filter" data-filter=".cat1">Photography</li>
-                                    <li class="filter" data-filter=".cat2">Graphic</li>
-                                    <li class="filter" data-filter=".cat3">Print</li>
+                                    <li class="filter" data-filter="all">Tout</li>
+                                    <li class="filter" data-filter=".cat1">Photographie</li>
+                                    <li class="filter" data-filter=".cat2">Graphique</li>
+                                    <li class="filter" data-filter=".cat3">impression</li>
                                     <li class="filter" data-filter=".cat4">Web</li>
                                 </ul>
                             </div>
@@ -825,6 +791,8 @@ echo '</pre>';
                             <div id="mixcontent" class="mixcontent  wow zoomIn">
                                 <div class="col-md-4 mix cat4 cat2">
                                     <div class="single_mixi_portfolio center">
+                                         <?php foreach($ligne_realisations as $ligne_realisation) : ?>
+
                                         <div class="single_portfolio_img">
                                             <img src="img/pf1.jpg" alt="" />
                                             <div class="mixi_portfolio_overlay">
@@ -833,9 +801,11 @@ echo '</pre>';
                                             </div>
                                         </div>
                                         <div class="single_portfolio_text">
-                                            <h3>Our Work Image 06</h3>
+                                            <h3><?= $ligne_realisation['r_titre']; ?></h3>
+                                            <h5><?= $ligne_realisation['r_soustitre']; ?></h5>
                                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                                         </div>
+                                    <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mix cat4 cat1">

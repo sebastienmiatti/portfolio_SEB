@@ -43,7 +43,7 @@ $ligne_formation = $resultat->fetch();
                     <input type="text" class="form-control" name="f_description" value="<?= $ligne_formation['f_description']; ?>">
                 </div>
 
-                <input hidden value="<?= $ligne_formation['id_formation']; ?>" name="id_realsisation">
+                <input hidden value="<?= $ligne_formation['id_formation']; ?>" name="id_formation">
                 <input type="submit" class="btn btn-success btn-block" value="mettre a jour">
 
             <div class="panel-footer">

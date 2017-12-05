@@ -12,7 +12,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 }
 
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_formations WHERE utilisateur_id='1'");
+$resultat = $pdo -> prepare("SELECT * FROM t_formations WHERE utilisateur_id='$id_utilisateur'");
 $resultat->execute();
 $nbr_formations = $resultat->rowCount();
 // $ligne_formation = $resultat -> fetch();
@@ -27,7 +27,7 @@ if (isset($_POST['f_titre']))
             $f_soustitre = addslashes($_POST['f_soustitre']);
             $f_dates = addslashes($_POST['f_dates']);
             $f_description = addslashes($_POST['f_description']);
-            $pdo -> exec("INSERT INTO t_formations VALUES (NULL, '$f_titre', '$f_soustitre', '$f_dates', '$f_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            $pdo -> exec("INSERT INTO t_formations VALUES (NULL, '$f_titre', '$f_soustitre', '$f_dates', '$f_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
             header("location: formation.php");
             exit();
         } // ferme le if n'est pas vide
@@ -50,7 +50,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
 <hr>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
     <div class="panel panel-info">
         <div class="panel-heading"> J'ai <?= $nbr_formations;?> formation<?= ($nbr_formations>1)?'s' : ''?></div>
         <div class="panel-body">
@@ -83,7 +83,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
     </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-primary">
         <div class="panel-heading">Insertion d'une expérience</div>
             <div class="panel-body">
@@ -93,7 +93,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                         <input type="text" name="f_titre" class="form-control" id="f_titre" placeholder="Insérer un titre">
                     </div>
                     <div class="form-group">
-                        <label for="f_soustitre">Titre</label>
+                        <label for="f_soustitre">Sous-titre</label>
                         <input type="text" name="f_soustitre" class="form-control" id="f_soustitre" placeholder="Insérer un sous-titre">
                     </div>
                     <div class="form-group">
@@ -101,9 +101,13 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                         <input type="text" name="f_dates" class="form-control" id="f_dates" placeholder="Insérer une date">
                     </div>
                     <div class="form-group">
-                        <label for="f_description">description</label>
-                        <input type="text" name="f_description" class="form-control" id="f_description" placeholder="Insérer une description">
+                        <label for="f_description">Description</label>
+                        <textarea class="form-control" id="editor1" name="f_description"><?= $ligne_formation['f_description']; ?></textarea>
                     </div>
+                    <script>
+                        CKEDITOR.replace('editor1');
+                    </script>
+
                     <input type="submit" class="btn btn-success btn-block" value="Insérez">
                 </form>
             </div>

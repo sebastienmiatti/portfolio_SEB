@@ -1,9 +1,19 @@
 <?php
 //inclusion du header comprenant l'init
-include('inc/header.inc.php');
+require('inc/header.inc.php');
+
+if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+    $id_utilisateur = $_SESSION['id_utilisateur'];
+    $prenom = $_SESSION['prenom'];
+    $nom = $_SESSION['nom'];
+
+}else{
+    header('location: connexion.php');
+}
 
 // mise a jour d'une compétences
-if(isset($_POST['competence'])){// par le nom du premier input
+if(isset($_POST['competence']))
+{// par le nom du premier input
     $competence = addslashes($_POST['competence']);
     $c_niveau = addslashes($_POST['c_niveau']);
     $id_competence = $_POST['id_competence'];
@@ -13,7 +23,7 @@ if(isset($_POST['competence'])){// par le nom du premier input
     exit();
 }
 
-// Récupération de la compétence
+// Récupération des compétences
 $id_competence = $_GET['id_competence']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_competences WHERE id_competence = '$id_competence'"); // la requete est égal a l'id
 $ligne_competence = $resultat->fetch();
@@ -44,6 +54,4 @@ $ligne_competence = $resultat->fetch();
         </form>
     </div>
 </div>
-
-
 <?php require('inc/footer.inc.php');?>

@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/style_admin.css">
 
         <title>Site cv - Admin :<?= ($ligne_utilisateur['prenom']); ?> <?= ($ligne_utilisateur['nom']); ?></title>
+
     </head>
 
     <body>

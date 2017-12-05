@@ -82,7 +82,7 @@ if(isset($_GET['id_reseau'])) {// on récupère la comp. par son id ds l'url
         		<!--formulaire d'insertion-->
         			<form action="reseaux.php" method="post">
         				<div class="form-group">
-            				<label for="reseau">réseau</label>
+            				<label for="reseau">Réseau</label>
             				<input type="text" name="reseau" id="reseau" placeholder="Insérer un réseau..." class="form-control">
         				</div>
         				<div class="form-group">

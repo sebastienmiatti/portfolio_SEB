@@ -13,7 +13,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 }
 
 // gestion des contenus de la BDD compétences
-$resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id='1'");
+$resultat = $pdo -> prepare("SELECT * FROM t_competences WHERE utilisateur_id='$id_utilisateur'");
 $resultat->execute();
 $nbr_competences = $resultat->rowCount();
 //$ligne_competence = $resultat -> fetch();
@@ -27,7 +27,7 @@ if (isset($_POST['competence']))
                 $competence = addslashes($_POST['competence']);
                 $c_niveau = addslashes($_POST['c_niveau']);
 
-                $pdo->exec("INSERT INTO t_competences VALUES (NULL, '$competence', '$c_niveau', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+                $pdo->exec("INSERT INTO t_competences VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
                 header("location: competence.php"); // pour revenir sur la page
                 exit();
             } // ferme le if n'est pas vide

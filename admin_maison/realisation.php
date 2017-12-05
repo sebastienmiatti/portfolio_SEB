@@ -12,8 +12,9 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 }
 
 
+
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id='1'");
+$resultat = $pdo -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id='$id_utilisateur'");
 $resultat->execute();
 $nbr_realisations = $resultat->rowCount();
 // $ligne_realisation = $resultat -> fetch();
@@ -28,7 +29,7 @@ if (isset($_POST['r_titre']))
             $r_soustitre = addslashes($_POST['r_soustitre']);
             $r_dates = addslashes($_POST['r_dates']);
             $r_description = addslashes($_POST['r_description']);
-            $pdo -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            $pdo -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
             header("location: realisation.php");
             exit();
         } // ferme le if n'est pas vide
@@ -44,13 +45,14 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
 } // ferme le if(isset)
 
 ?>
+
 <hr>
     <div class="panel panel-info">
         <div class="panel-heading text-center"><b>Liste des réalisations</b></div>
     </div>
 <hr>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
     <div class="panel panel-info">
         <div class="panel-heading"> J'ai <?= $nbr_realisations;?> réalisation<?= ($nbr_realisations>1)?'s' : ''?></div>
         <div class="panel-body">
@@ -83,7 +85,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
     </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-primary">
         <div class="panel-heading">Insertion d'une réalisation</div>
             <div class="panel-body">
@@ -93,7 +95,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                         <input type="text" name="r_titre" class="form-control" id="r_titre" placeholder="Insérer un titre">
                     </div>
                     <div class="form-group">
-                        <label for="r_soustitre">Titre</label>
+                        <label for="r_soustitre">Sous-titre</label>
                         <input type="text" name="r_soustitre" class="form-control" id="r_soustitre" placeholder="Insérer un sous-titre">
                     </div>
                     <div class="form-group">
@@ -101,9 +103,10 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                         <input type="text" name="r_dates" class="form-control" id="r_dates" placeholder="Insérer une date">
                     </div>
                     <div class="form-group">
-                        <label for="r_description">description</label>
-                        <input type="text" name="r_description" class="form-control" id="r_description" placeholder="Insérer une description">
+                        <label for="r_description">Description</label>
+                        <textarea class="form-control" id="r_description" name="r_description"><?= $ligne_realisation['r_description']; ?></textarea>
                     </div>
+
                     <input type="submit" class="btn btn-success btn-block" value="Insérez">
                 </form>
             </div>

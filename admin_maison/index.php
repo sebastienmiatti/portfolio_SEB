@@ -11,7 +11,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
     header('location: connexion.php');
 }
 
-$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1  ");
+$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='$id_utilisateur' ORDER BY id_titre_cv DESC LIMIT 1  ");
 $ligne_titre_cv = $sql->fetch();
 
 ?>
