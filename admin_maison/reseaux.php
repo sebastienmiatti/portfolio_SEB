@@ -13,7 +13,7 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
     header('location: connexion.php');
 }
 
-$sql = $pdo->prepare("SELECT * FROM t_reseaux WHERE utilisateur_id ='1' ");
+$sql = $pdo->prepare("SELECT * FROM t_reseaux WHERE utilisateur_id ='$id_utilisateur' ");
 $sql->execute();
 $nbr_reseaux = $sql->rowCount();
 //$ligne_loisir = $sql->fetch();
@@ -27,15 +27,16 @@ if(isset($_POST['reseau']))
 	             $reseau = addslashes($_POST['reseau']);
 	             $url = addslashes($_POST['url']);
 
-            $pdo->exec("INSERT INTO t_reseaux VALUES (NULL, '$reseau', '$url', '1') ");//mettre $id_utilisateur quand on l'aura dans la variable de session
+            $pdo->exec("INSERT INTO t_reseaux VALUES (NULL, '$reseau', '$url', '1')");//mettre $id_utilisateur quand on l'aura dans la variable de session
 		header("location: reseaux.php");//pour revenir sur la page
 		exit();
 	}//ferme le if n'est pas vide
 }//ferme le if isset du form
 
 // suppression d'une compétence
-if(isset($_GET['id_reseau'])) {// on récupère la comp. par son id ds l'url
-	$efface = $_GET['id_reseau'];//je mets cela ds une variable
+if(isset($_GET['id_reseau']))
+{// on récupère la comp. par son id ds l'url
+    $efface = $_GET['id_reseau'];//je mets cela ds une variable
 	$sql = " DELETE FROM t_reseaux WHERE id_reseau = '$efface' ";
 	$pdo->query($sql);// on peut avec exec aussi si on veut
 	header("location: reseaux.php");//pour revenir sur la page
@@ -95,7 +96,7 @@ if(isset($_GET['id_reseau'])) {// on récupère la comp. par son id ds l'url
         	</div>
         </div>
     </div>
-    <hr>
+<hr>
   <!-- <div class="row">
     <div class="text-center col-md-12">
       <div class="well">&nbsp;</div>
