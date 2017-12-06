@@ -69,7 +69,6 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
         <!-- Material Design Bootstrap -->
         <link href="css/mdb.min.css" rel="stylesheet">
 
-
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
@@ -79,11 +78,7 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
     <body data-spy="scroll" data-target=".navbar-desktop">
         <!-- Start your project here-->
         <!--Navbar-->
-<!-- <?php
-echo '<pre>';
-print_r($titre_cv);
-echo '</pre>';
-?> -->
+
         <div class='preloader'><div class='loaded'>&nbsp;</div></div>
 
         <nav class="navbar navbar-fixed-top navbar-light bg-faded">
@@ -226,11 +221,6 @@ echo '</pre>';
                             <div class="main_about_content">
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-1">
-                                        <!-- <?php
-                                        echo '<pre>';
-                                        print_r($ligne_experiences);
-                                        echo '</pre>';
-                                        ?> -->
 
                                         <?php foreach($ligne_experiences as $ligne_experience) : ?> <!--boucle pour afficher les expériences-->
                                         <div class="main_accordion wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
@@ -635,48 +625,7 @@ echo '</pre>';
         </section><!-- End of client Section  -->
 
 
-        <section id="counter" class="counter">
 
-            <div class="main_counter_area m-y-3">
-                <div class="overlay p-y-3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="main_counter_content center white-text wow fadeInUp">
-                                <div class="col-md-3">
-                                    <div class="single_counter p-y-2 m-t-1">
-                                        <i class="fa fa-heart m-b-1"></i>
-                                        <h2 class="statistic-counter">100</h2>
-                                        <p>Love Our Team</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_counter p-y-2 m-t-1">
-                                        <i class="fa fa-check m-b-1"></i>
-                                        <h2 class="statistic-counter">400</h2>
-                                        <p>Check Our</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_counter p-y-2 m-t-1">
-                                        <i class="fa fa-refresh m-b-1"></i>
-                                        <h2 class="statistic-counter">312</h2>
-                                        <p>repeat client</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="single_counter p-y-2 m-t-1">
-                                        <i class="fa fa-beer m-b-1"></i>
-                                        <h2 class="statistic-counter">480</h2>
-                                        <p>Pizzas Ordered</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr />
-        </section><!-- End of counter Section -->
 
 
 
@@ -686,30 +635,33 @@ echo '</pre>';
                     <div class="col-sm-12">
                         <div class="main_team_area m-y-3">
                             <div class="head_title center  wow fadeInUp">
-                                <h2>Meet Our Team</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec odio ipsum. Suspendisse
-                                    cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p>
+                                <h2>Réalisations</h2>
+                                <p>Voivi l'apercu de quelques de mes réalisation, inspirations et projet en cours</p>
                             </div>
-
+                            <hr>
                             <div class="main_team_content center">
                                 <div class="row">
+                                    <?php foreach($ligne_realisations as $ligne_realisation) : ?>
                                     <div class="col-md-3">
                                         <div class="single_team white-text m-t-2 wow zoomIn">
                                             <img src="img/team1.jpg" alt="team" />
                                             <div class="single_team_overlay">
-                                                <h4>Mahabubul Islam</h4>
-                                                <p>Html-Coder</p>
+                                                <h4><?= $ligne_realisation['r_titre']; ?></h4>
+                                                <p><?= $ligne_realisation['r_soustitre']; ?></p>
+                                                <p><?= $ligne_realisation['r_description']; ?></p>
+                                                <p><?= $ligne_realisation['r_dates']; ?></p>
                                                 <div class="team_socail">
                                                     <a href="#!"><i class="fa fa-facebook"></i></a>
                                                     <a href="#!"><i class="fa fa-twitter"></i></a>
-                                                    <a href="#!"><i class="fa fa-pinterest-p"></i></a>
-                                                    <a href="#!"><i class="fa fa-dribbble"></i></a>
-                                                    <a href="#!"><i class="fa fa-behance"></i></a>
+                                                    <a href="#!"><i class="fa fa-github"></i></a>
+                                                    <a href="#!"><i class="fa fa-linkedin"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                <?php endforeach ?>
+
+                                    <!-- <div class="col-md-3">
                                         <div class="single_team white-text m-t-2 wow zoomIn">
                                             <img src="img/team2.jpg" alt="team" />
                                             <div class="single_team_overlay">
@@ -766,8 +718,55 @@ echo '</pre>';
             <hr />
         </section><!-- End of Team section -->
 
+        <section id="counter" class="counter">
 
-        <section id="portfolio" class="portfolio">
+            <div class="main_counter_area m-y-3">
+                <div class="overlay p-y-3">
+                    <div class="container">
+                        <div class="row">
+
+                            <?php foreach($ligne_loisirs as $ligne_loisir) : ?>
+                            <div class="main_counter_content center white-text wow fadeInUp">
+                                <div class="col-md-3">
+                                    <div class="single_counter p-y-2 m-t-1">
+                                        <i class="fa fa-heart m-b-1"></i>
+                                        <!-- <h2 class="statistic-counter"><?= $ligne_loisir['l_niveau']; ?></h2> -->
+                                        <p><?= $ligne_loisir['loisir']; ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+
+                                <!-- <div class="col-md-3">
+                                    <div class="single_counter p-y-2 m-t-1">
+                                        <i class="fa fa-check m-b-1"></i>
+                                        <h2 class="statistic-counter">400</h2>
+                                        <p>Check Our</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="single_counter p-y-2 m-t-1">
+                                        <i class="fa fa-refresh m-b-1"></i>
+                                        <h2 class="statistic-counter">312</h2>
+                                        <p>repeat client</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="single_counter p-y-2 m-t-1">
+                                        <i class="fa fa-beer m-b-1"></i>
+                                        <h2 class="statistic-counter">480</h2>
+                                        <p>Pizzas Ordered</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </section><!-- End of counter Section -->
+
+
+        <!-- <section id="portfolio" class="portfolio">
             <div class="container">
                 <div class="row">
                     <div class="main_portfolio_area m-y-3">
@@ -789,24 +788,28 @@ echo '</pre>';
                             </div>
 
                             <div id="mixcontent" class="mixcontent  wow zoomIn">
-                                <div class="col-md-4 mix cat4 cat2">
+                                <div class="col-md-4 mix cat4 cat2 cat1 cat3">
                                     <div class="single_mixi_portfolio center">
-                                         <?php foreach($ligne_realisations as $ligne_realisation) : ?>
 
+                                        <?php foreach($ligne_realisations as $ligne_realisation) : ?>
                                         <div class="single_portfolio_img">
-                                            <img src="img/pf1.jpg" alt="" />
+                                            <img src="img/pf1.jpg" alt="image de realisation" />
                                             <div class="mixi_portfolio_overlay">
                                                 <a href="#!"><i class="fa fa-search"></i></a>
                                                 <a href="img/pf1.jpg" class="gallery-img"><i class="fa fa-link"></i></a>
                                             </div>
                                         </div>
+
                                         <div class="single_portfolio_text">
                                             <h3><?= $ligne_realisation['r_titre']; ?></h3>
                                             <h5><?= $ligne_realisation['r_soustitre']; ?></h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                            <p><?= $ligne_realisation['r_description']; ?></p>
+                                            <p><?= $ligne_realisation['r_dates']; ?></p>
                                         </div>
-                                    <?php endforeach; ?>
+                                        <?php endforeach; ?>
                                     </div>
+                                </div>
+                                </div>
                                 </div>
                                 <div class="col-md-4 mix cat4 cat1">
                                     <div class="single_mixi_portfolio center">
@@ -882,7 +885,7 @@ echo '</pre>';
                                             <p>Lorem ipsum dolor sit amet, consectetur</p>
                                         </div>
                                     </div>
-                                </div><!-- End of col-md-4 -->
+                                </div><!-- End of col-md-4
 
                             </div>
                         </div>
@@ -899,16 +902,19 @@ echo '</pre>';
                 <div class="row">
                     <div class="main_works_area center m-y-3">
                         <div class="head_title center  wow fadeInUp">
-                            <h2>Our Awesome Works</h2>
+                            <h2>Réseaux sociaux</h2>
                         </div>
-
+                        <hr>
                         <div class="main_works_content p-y-3">
+                            <?php foreach($ligne_reseaux as $ligne_reseau) : ?>
                             <div class="col-md-3">
                                 <div class="single_works wow zoomIn">
-                                    <img src="img/works1.png" alt="" />
+                                    <a href="<?= $ligne_reseau['url'];?>" target="_blank"><i class="fa fa-<?= $ligne_reseau['titre'];?>"></i></a>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                        <?php endforeach; ?>
+                            <!-- <?= $ligne_reseau['titre']; ?> a rajouté dans limage
+                             <div class="col-md-3">
                                 <div class="single_works wow zoomIn">
                                     <img src="img/works2.png" alt="" />
                                 </div>
@@ -922,8 +928,9 @@ echo '</pre>';
                                 <div class="single_works wow zoomIn">
                                     <img src="img/works4.png" alt="" />
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -931,7 +938,8 @@ echo '</pre>';
         </section><!-- End of works Section -->
 
 
-        <section id="newsletter" class="newsletter">
+
+        <!-- <section id="newsletter" class="newsletter">
             <div class="container">
                 <div class="row">
                     <div class="main_newsletter white-text p-y-2 m-t-3">
@@ -969,10 +977,10 @@ echo '</pre>';
                                         The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
                                     <div class="socail_f_widget">
                                         <a href="#!" ><i class="fa fa-facebook"></i></a>
-                                        <a href="#!" ><i class="fa fa-google-plus"></i></a>
                                         <a href="#!" ><i class="fa fa-twitter"></i></a>
-                                        <a href="#!" ><i class="fa fa-vimeo"></i></a>
+                                        <a href="#!" ><i class="fa fa-github"></i></a>
                                         <a href="#!" ><i class="fa fa-linkedin"></i></a>
+                                        <a href="#!" ><i class="fa fa-codepen"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -1027,18 +1035,22 @@ echo '</pre>';
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">
                             <div class="copyright_text m-t-2 text-xs-center">
-                                <p class="wow zoomIn" data-wow-duration="1s">Made with <i class="fa fa-heart"></i> by <a target="_black" href="http://bootstrapthemes.co"> Bootstrap Themes</a> 2016. All Rights Reserved</p>
+                                <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; &middot; tous droits réservés &middot; Créé par <i class="fa fa-heart"></i><a target="_black" hreh="index.php"> Sébastien miatti</a><i class="fa fa-heart"></i>
+                                    <?php
+            		                    $date = date("d-m-Y");
+            		                    $heure = date("H:i");
+            		                    Print("le $date, à $heure");
+                		            ?>
+                	            </p></p>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="socail_coppyright text-sm-right m-t-2 text-xs-center wow zoomIn">
                                 <a href="#!"><i class="fa fa-facebook"></i></a>
                                 <a href="#!"><i class="fa fa-twitter"></i></a>
-                                <a href="#!"><i class="fa fa-google-plus"></i></a>
-                                <a href="#!"><i class="fa fa-rss"></i></a>
-                                <a href="#!"><i class="fa fa-vimeo"></i></a>
-                                <a href="#!"><i class="fa fa-pinterest"></i></a>
+                                <a href="#!"><i class="fa fa-github"></i></a>
                                 <a href="#!"><i class="fa fa-linkedin"></i></a>
+                                <a href="#!"><i class="fa fa-codepen"></i></a>
                             </div>
                         </div>
                     </div>
