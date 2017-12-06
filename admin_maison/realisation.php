@@ -29,7 +29,8 @@ if (isset($_POST['r_titre']))
             $r_soustitre = addslashes($_POST['r_soustitre']);
             $r_dates = addslashes($_POST['r_dates']);
             $r_description = addslashes($_POST['r_description']);
-            $pdo -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            $r_img = addslashes($_POST['r_img']);
+            $pdo -> exec("INSERT INTO t_realisations VALUES (NULL, '$r_titre', '$r_soustitre', '$r_dates', '$r_description', '$r_img', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
             header("location: realisation.php");
             exit();
         } // ferme le if n'est pas vide
@@ -64,6 +65,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                   <th>Sous-titre</th>
                   <th>Dates</th>
                   <th>Description</th>
+                  <th>Image</th>
                   <th>Modification</th>
                   <th>Suppression</th>
                 </tr>
@@ -75,6 +77,7 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                         <td><?= $ligne_realisation['r_soustitre'];?></td>
                         <td><?= $ligne_realisation['r_dates'];?></td>
                         <td><?= $ligne_realisation['r_description'];?></td>
+                        <td><?= $ligne_realisation['r_img'];?></td>
                         <td><a href="modification_realisation.php?id_realisation=<?= $ligne_realisation['id_realisation'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
                         <td><a href="realisation.php?id_realisation=<?= $ligne_realisation['id_realisation'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                 </tr>
@@ -105,6 +108,10 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
                     <div class="form-group">
                         <label for="r_description">Description</label>
                         <textarea class="form-control" id="r_description" name="r_description"><?= $ligne_realisation['r_description']; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="r_img">Image</label>
+                        <input type="text" name="r_img" class="form-control" id="r_img" placeholder="Insérer une image">
                     </div>
 
                     <input type="submit" class="btn btn-success btn-block" value="Insérez">

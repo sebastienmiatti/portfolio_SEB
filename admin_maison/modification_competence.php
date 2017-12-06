@@ -16,9 +16,10 @@ if(isset($_POST['competence']))
 {// par le nom du premier input
     $competence = addslashes($_POST['competence']);
     $c_niveau = addslashes($_POST['c_niveau']);
+    $c_categorie = addslashes($_POST['c_categorie']);
     $id_competence = $_POST['id_competence'];
 
-    $pdo->exec("UPDATE t_competences SET competence='$competence', c_niveau='$c_niveau' WHERE id_competence ='$id_competence'");
+    $pdo->exec("UPDATE t_competences SET competence='$competence', c_niveau='$c_niveau', c_categorie='$c_categorie' WHERE id_competence ='$id_competence'");
     header('location: competence.php');
     exit();
 }
@@ -37,15 +38,23 @@ $ligne_competence = $resultat->fetch();
         <form action="modification_competence.php" method="POST">
             <div class="form-group">
                 <label for="competence">Compétence :</label>
-                <input type="text" name="competence" class="form-control" value="<?php echo $ligne_competence['competence']; ?>">
+                <input type="text" name="competence" class="form-control" value="<?= $ligne_competence['competence']; ?>">
             </div>
 
             <div class="form-group">
                 <label for="c_niveau">Niveau :</label>
-                <input type="number" name="c_niveau" class="form-control" value="<?php echo $ligne_competence['c_niveau']; ?>">
+                <input type="number" name="c_niveau" class="form-control" value="<?= $ligne_competence['c_niveau']; ?>">
             </div>
 
-                <input hidden value="<?php echo $ligne_competence['id_competence']; ?>" name="id_competence">
+            <div class="form-group">
+                <label for="c_categorie">Categorie :</label>
+                <select name="c_categorie">
+                    <option type="radio" name="c_categorie" class="form-control" id="back" value="back">Back</option>
+                    <option type="radio" name="c_categorie" class="form-control" id="front" value="front">Front</option>
+                </select>
+            </div>
+
+                <input hidden value="<?= $ligne_competence['id_competence']; ?>" name="id_competence">
                 <input type="submit" class="btn btn-success btn-block" value="mettre a jour">
 
                 <div class="panel-footer">

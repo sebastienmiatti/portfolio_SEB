@@ -11,9 +11,10 @@ $ligne_loisir = $resultat->fetch();
 // mise a jour d'un loisir
 if(isset($_POST['loisir'])){// par le nom du premier input
     $loisir = addslashes($_POST['loisir']);
+    $l_logo = addslashes($_POST['l_logo']);
     $id_loisir = $_POST['id_loisir'];
 
-    $pdo->exec("UPDATE t_loisirs SET loisir='$loisir', id_loisir='$id_loisir' WHERE id_loisir ='$id_loisir'");
+    $pdo->exec("UPDATE t_loisirs SET loisir='$loisir', l_logo='$l_logo', id_loisir='$id_loisir' WHERE id_loisir ='$id_loisir'");
     header('location: loisirs.php');
     exit();
 }
@@ -29,6 +30,10 @@ if(isset($_POST['loisir'])){// par le nom du premier input
                 <input type="text" name="loisir" class="form-control" value="<?php echo $ligne_loisir['loisir']; ?>">
             </div>
 
+            <div class="form-group">
+                <label for="l_logo">Logo :</label>
+                <input type="text" name="l_logo" class="form-control" value="<?php echo $ligne_loisir['l_logo']; ?>">
+            </div>
             <input hidden value="<?php echo $ligne_loisir['id_loisir']; ?>" name="id_loisir">
             <input type="submit" class="btn btn-success btn-block" value="Mettre à jour">
 

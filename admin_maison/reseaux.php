@@ -26,8 +26,9 @@ if(isset($_POST['reseau']))
            {// si reseau n'est pas vide
 	             $reseau = addslashes($_POST['reseau']);
 	             $url = addslashes($_POST['url']);
+	             $logo = addslashes($_POST['logo']);
 
-            $pdo->exec("INSERT INTO t_reseaux VALUES (NULL, '$reseau', '$url', '1')");//mettre $id_utilisateur quand on l'aura dans la variable de session
+            $pdo->exec("INSERT INTO t_reseaux VALUES (NULL, '$reseau', '$url', '$logo', '1')");//mettre $id_utilisateur quand on l'aura dans la variable de session
 		header("location: reseaux.php");//pour revenir sur la page
 		exit();
 	}//ferme le if n'est pas vide
@@ -58,6 +59,7 @@ if(isset($_GET['id_reseau']))
                      <tr>
                          <th>Nom des réseaux</th>
                          <th>URL</th>
+                         <th>Logo</th>
                          <th>Modification</th>
                          <th>Suppression</th>
                      </tr>
@@ -66,6 +68,7 @@ if(isset($_GET['id_reseau']))
                          <?php while ($ligne_reseau = $sql->fetch()) { ?>
                          <td><a href="<?= $ligne_reseau['url']; ?>"><?= $ligne_reseau['reseau']; ?></a></td>
                          <td><a href="#"><?= $ligne_reseau['url']; ?></a></td>
+                         <td><a href="#"><?= $ligne_reseau['logo']; ?></a></td>
                          <td><a href="modification_reseaux.php?id_reseau=<?= $ligne_reseau['id_reseau']; ?>" class="btn btn-block btn-warning">modifier</a></td>
                          <td><a href="reseaux.php?id_reseau=<?= $ligne_reseau['id_reseau']; ?>" class="btn btn-block btn-danger">supprimer</a></td>
 
@@ -89,6 +92,10 @@ if(isset($_GET['id_reseau']))
         				<div class="form-group">
             				<label for="url">URL</label>
             				<input type="text" name="url" id="url" placeholder="... et son url" class="form-control">
+        				</div>
+        				<div class="form-group">
+            				<label for="logo">Logo</label>
+            				<input type="text" name="logo" id="logo" placeholder="... et son url" class="form-control">
         				</div>
         				<button type="submit" class="btn btn-info btn-block">Insérez un réseau</button>
         			</form>

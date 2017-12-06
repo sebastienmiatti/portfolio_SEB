@@ -27,7 +27,9 @@ if (isset($_POST['f_titre']))
             $f_soustitre = addslashes($_POST['f_soustitre']);
             $f_dates = addslashes($_POST['f_dates']);
             $f_description = addslashes($_POST['f_description']);
-            $pdo -> exec("INSERT INTO t_formations VALUES (NULL, '$f_titre', '$f_soustitre', '$f_dates', '$f_description', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            $f_logo = addslashes($_POST['f_logo']);
+
+            $pdo -> exec("INSERT INTO t_formations VALUES (NULL, '$f_titre', '$f_soustitre', '$f_dates', '$f_description', '$f_logo', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
             header("location: formation.php");
             exit();
         } // ferme le if n'est pas vide
@@ -62,6 +64,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                   <th>Sous-titre</th>
                   <th>Dates</th>
                   <th>Description</th>
+                  <th>Logo</th>
                   <th>Modification</th>
                   <th>Suppression</th>
                 </tr>
@@ -73,6 +76,7 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                         <td><?= $ligne_formation['f_soustitre'];?></td>
                         <td><?= $ligne_formation['f_dates'];?></td>
                         <td><?= $ligne_formation['f_description'];?></td>
+                        <td><?= $ligne_formation['f_logo'];?></td>
                         <td><a href="modification_formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
                         <td><a href="formation.php?id_formation=<?= $ligne_formation['id_formation'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                 </tr>
@@ -102,7 +106,11 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                     </div>
                     <div class="form-group">
                         <label for="f_description">Description</label>
-                        <textarea class="form-control" id="editor1" name="f_description"><?= $ligne_formation['f_description']; ?></textarea>
+                        <textarea class="form-control" name="f_description"><?= $ligne_formation['f_description']; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="f_logo">Description</label>
+                        <textarea class="form-control" name="f_logo"><?= $ligne_formation['f_logo']; ?></textarea>
                     </div>
                     <script>
                         CKEDITOR.replace('editor1');

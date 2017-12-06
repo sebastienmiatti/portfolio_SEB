@@ -19,8 +19,9 @@ if(isset($_POST['reseau']))
     $id_reseau = $_POST['id_reseau'];
     $reseau = addslashes($_POST['reseau']);
     $url = addslashes($_POST['url']);
+    $logo = addslashes($_POST['logo']);
 
-    $pdo->exec("UPDATE t_reseaux SET reseau='$reseau', url='$url' WHERE id_reseau ='$id_reseau'");
+    $pdo->exec("UPDATE t_reseaux SET reseau='$reseau', url='$url', logo='$logo' WHERE id_reseau ='$id_reseau'");
     header('location: reseaux.php');
     exit();
 }
@@ -40,9 +41,15 @@ $ligne_reseau = $resultat->fetch();
                     <label for="reseau">Titre du réseau :</label>
                     <input type="text" name="reseau" class="form-control" value="<?php echo $ligne_reseau['reseau']; ?>">
                 </div>
+
                 <div class="form-group">
                     <label for="url">URL :</label>
                     <input type="text" name="url" class="form-control" value="<?php echo $ligne_reseau['url']; ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="logo">Logo :</label>
+                    <input type="text" name="logo" class="form-control" value="<?php echo $ligne_reseau['logo']; ?>">
                 </div>
 
                 <input hidden value="<?php echo $ligne_reseau['id_reseau']; ?>" name="id_reseau">

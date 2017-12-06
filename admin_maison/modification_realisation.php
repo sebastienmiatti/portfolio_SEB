@@ -18,8 +18,9 @@ if(isset($_POST['r_titre'])){// par le nom du premier input
     $r_soustitre = addslashes($_POST['r_soustitre']);
     $r_dates = addslashes($_POST['r_dates']);
     $r_description = addslashes($_POST['r_description']);
+    $r_img = addslashes($_POST['r_img']);
 
-    $pdo->exec("UPDATE t_realisations SET r_titre='$r_titre', r_soustitre='$r_soustitre', r_dates='$r_dates', r_description='$r_description' WHERE id_realisation ='$id_realisation'");
+    $pdo->exec("UPDATE t_realisations SET r_titre='$r_titre', r_soustitre='$r_soustitre', r_dates='$r_dates', r_description='$r_description', r_img='$r_img' WHERE id_realisation ='$id_realisation'");
     header('location: realisation.php');
     exit();
 }
@@ -51,6 +52,10 @@ $ligne_realisation = $resultat->fetch();
                 <div class="form-group">
                     <label for="r_description">Description :</label>
                     <textarea class="form-control" name="r_description" id="r_description"><?= $ligne_realisation['r_description']; ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="r_img">Image :</label>
+                    <textarea class="form-control" name="r_img" id="r_img"><?= $ligne_realisation['r_img']; ?></textarea>
                 </div>
 
                 <input hidden value="<?= $ligne_realisation['id_realisation']; ?>" name="id_realisation">

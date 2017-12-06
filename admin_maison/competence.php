@@ -26,8 +26,9 @@ if (isset($_POST['competence']))
             { // Si compétence n'est pas vide
                 $competence = addslashes($_POST['competence']);
                 $c_niveau = addslashes($_POST['c_niveau']);
+                $c_categorie = addslashes($_POST['c_categorie']);
 
-                $pdo->exec("INSERT INTO t_competences VALUES (NULL, '$competence', '$c_niveau', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+                $pdo->exec("INSERT INTO t_competences VALUES (NULL, '$competence', '$c_niveau', '$c_categorie',  '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
                 header("location: competence.php"); // pour revenir sur la page
                 exit();
             } // ferme le if n'est pas vide
@@ -59,6 +60,7 @@ if (isset($_GET['id_competence']))
                         <tr>
                             <th>Compétences</th>
                             <th> Niveau </th>
+                            <th> Catégorie </th>
                             <th>Modification</th>
                             <th>Suppression</th>
                         </tr>
@@ -67,6 +69,7 @@ if (isset($_GET['id_competence']))
                             <?php while ($ligne_competence = $resultat -> fetch()) : ?>
                                 <td><?= $ligne_competence['competence'];?></td>
                                 <td><?= $ligne_competence['c_niveau'];?></td>
+                                <td><?= $ligne_competence['c_categorie'];?></td>
                                 <td><a href="modification_competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></tdModifier</a></td>
                                 <td><a href="competence.php?id_competence=<?= $ligne_competence['id_competence'];?>"><button type="button" class="btn btn-block btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td>
                         </tr>
@@ -88,6 +91,14 @@ if (isset($_GET['id_competence']))
                         <div class="form-group">
                             <label for="c_niveau">Niveau :</label>
                             <input type="text" name="c_niveau" class="form-control" id="c_niveau" placeholder="Insérer le niveau">
+                        </div>
+                        <div class="form-group">
+                            <label for="c_categorie">Categorie :</label>
+                            <select name="c_categorie">
+                            <option type="radio" name="c_categorie" class="form-control" id="back" value="back">Back</option>
+                            <option type="radio" name="c_categorie" class="form-control" id="front" value="front">Front</option>
+                        </select><br>
+
                         </div>
                         <input type="submit" class="btn btn-success btn-block" value="Insérez">
                     </form>
