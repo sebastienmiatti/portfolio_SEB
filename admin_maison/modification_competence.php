@@ -29,7 +29,7 @@ $resultat = $pdo-> query("SELECT * FROM t_competences WHERE id_competence = '$id
 $ligne_competence = $resultat->fetch();
 
 ?>
-
+<hr>
 <div class="panel panel-info">
     <div class="panel-heading">modification de la competence, <b><?= ($ligne_competence['competence']); ?></b></div>
     <div class="panel-body">

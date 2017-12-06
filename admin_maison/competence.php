@@ -39,7 +39,7 @@ if (isset($_GET['id_competence']))
     { // on récupère la comp. par son id dans l'url
         $efface =  $_GET['id_competence'];
         $resultat = "DELETE FROM t_competences WHERE id_competence = '$efface'";
-        $pdo -> query($resultat); // on peut avec exec aussi si on veut
+        $pdo->query($resultat); // on peut avec exec aussi si on veut
         header("location: competence.php"); // pour revenir sur la page
     } // ferme le if(isset)
 
@@ -76,24 +76,20 @@ if (isset($_GET['id_competence']))
             </div>
         </div>
 
-    <div class="col-md-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Insertion d'une compétence</div>
+        <div class="col-sm-4 col-md-4 text-justify">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Insertion d'une compétence</div>
                 <div class="panel-body">
                     <form action="competence.php" method="post">
-
                         <div class="form-group">
                             <label for="competence">Compétence :</label>
                             <input type="text" name="competence" class="form-control" id="competence" placeholder="Insérer une compétence">
                         </div>
-
                         <div class="form-group">
                             <label for="c_niveau">Niveau :</label>
                             <input type="text" name="c_niveau" class="form-control" id="c_niveau" placeholder="Insérer le niveau">
                         </div>
-
                         <input type="submit" class="btn btn-success btn-block" value="Insérez">
-
                     </form>
                 </div>
             </div>
