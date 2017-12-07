@@ -20,6 +20,9 @@ require('../admin_maison/inc/init.inc.php');
 $sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1'"); ////ORDER BY id_titre_cv DESC LIMIT 1
 $ligne_titre_cv = $sql->fetch();
 
+$sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1'");
+$ligne_competences = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 $sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1' AND c_categorie = 'back' ");
 $ligne_competences_back = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -96,13 +99,13 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
                 <a class="navbar-brand" href="index.php"><img src="img/.'<?= $ligne_titre_cv['logo'] ?>'" alt="logo" /></a>
                 <!--Links-->
                 <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#formations">Formations</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#experiences">Expériences</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#formations">Formations</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#competences">Compétences</a>
                     </li>
@@ -131,10 +134,10 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#formations">Formations</a>
+                        <a class="nav-link" href="#experiences">Expériences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#experiences">Expériences</a>
+                        <a class="nav-link" href="#formations">Formations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#competences">Compétences</a>
@@ -210,17 +213,15 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-    <section id="about" class="about">
+    <section id="experiences" class="about">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="main_about_area">
                         <div class="head_title center m-y-3 wow fadeInUp">
-
                             <h2>Expériences professionnelles</h2>
                             <hr>
                         </div>
-
 
                         <div class="main_about_content">
                             <div class="row">
@@ -274,7 +275,7 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-<section id="service" class="service">
+<section id="formations" class="service">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -369,13 +370,13 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 
 
 
-    <section id="offer" class="offer">
+    <section id="competences" class="offer">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 col-md-offset-1">
                     <div class="single_about about_progress">
                         <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Compétences : web et informatique</h2>
+                            <h2>Compétences : Back-end</h2>
                             <hr>
                         </div>
 
@@ -395,7 +396,7 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="single_about about_progress">
                         <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Compétences : web et informatique</h2>
+                            <h2>Compétences : Front-end</h2>
                             <hr>
                         </div>
                         <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
@@ -658,7 +659,7 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”.
 
 
 
-<section id="team" class="team">
+<section id="realisations" class="team">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -748,7 +749,7 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”.
 <hr />
 </section><!-- End of Team section -->
 
-<section id="counter" class="counter">
+<section id="loisirs" class="counter">
 
     <div class="main_counter_area m-y-3">
         <div class="overlay p-y-3">
@@ -928,7 +929,7 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
 
 
 
-<section id="works" class="works">
+<section id="reseaux" class="works">
     <div class="container">
         <div class="row">
             <div class="main_works_area center m-y-4">
@@ -1068,11 +1069,11 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
                 <div class="row">
                     <div class="col-sm-6 col-xs-12">
                         <div class="copyright_text m-t-2 text-xs-center">
-                            <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; &middot; tous droits réservés &middot; Créé par <i class="fa fa-heart"></i><a target="_black" hreh="index.php"> Sébastien miatti</a><i class="fa fa-heart"></i>
+                            <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="../admin_maison/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-heart"></i> Sébastien miatti<i class="fa fa-heart"></i>
                                 <?php
                                 $date = date("d-m-Y");
                                 $heure = date("H:i");
-                                Print("le $date, à $heure");
+                                Print("le $date &middot; $heure");
                                 ?>
                             </p></p>
                         </div>
@@ -1090,6 +1091,46 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-offset-3 col-xs-12 col-lg-6">
+        <div class="jumbotron">
+          <div class="row text-center">
+            <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
+            <div class="text-center col-lg-12">
+              <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
+              <form role="form" id="feedbackForm" class="text-center">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                  <span class="help-block" style="display: none;">Please enter your name.</span></div>
+                <div class="form-group">
+                  <label for="email">E-Mail</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+                  <span class="help-block" style="display: none;">Please enter a valid e-mail address.</span></div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message"></textarea>
+                  <span class="help-block" style="display: none;">Please enter a message.</span></div>
+                <span class="help-block" style="display: none;">Please enter a the security code.</span>
+                <button type="submit" id="feedbackSubmit" class="btn btn-primary btn-lg" style=" margin-top: 10px;"> Send</button>
+              </form>
+              <!-- END CONTACT FORM -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
