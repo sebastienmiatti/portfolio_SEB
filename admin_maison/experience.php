@@ -57,7 +57,7 @@ if (isset($_GET['id_experience']))
         <div class="panel-body">
             <table class="table table-bordered table-hover" border="2">
                 <tr>
-                  <th>Réalisation</th>
+                  <th>Expérience</th>
                   <th>Titre</th>
                   <th>Sous-titre</th>
                   <th>Dates</th>
@@ -104,7 +104,7 @@ if (isset($_GET['id_experience']))
 
                     <div class="form-group">
                         <label for="e_description">Description</label>
-                        <textarea class="form-control" id="e_description" name="e_description"><?= $ligne_experience['e_description']; ?></textarea>
+                        <textarea class="form-control" id="e_description" name="e_description"></textarea>
                     </div>
 
                     <input type="submit" class="btn btn-success btn-block" value="Insérez">

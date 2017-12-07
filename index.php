@@ -17,16 +17,16 @@ require('admin_maison/inc/init.inc.php');
 // }
 
 // récupération des informations des bdd pour affichage
-$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1'"); ////ORDER BY id_titre_cv DESC LIMIT 1
+$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1"); ////ORDER BY id_titre_cv DESC LIMIT 1
 $ligne_titre_cv = $sql->fetch();
 
 $sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1'");
 $ligne_competences = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1' AND c_categorie = 'back' ");
+$sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1' AND c_categorie = 'back' ORDER BY c_niveau DESC");
 $ligne_competences_back = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1' AND c_categorie = 'front' ");
+$sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1' AND c_categorie = 'front' ORDER BY c_niveau DESC");
 $ligne_competences_front = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_realisations WHERE utilisateur_id ='1'");
@@ -44,7 +44,7 @@ $ligne_reseaux = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->query(" SELECT * FROM t_loisirs WHERE utilisateur_id ='1'");
 $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='1'");
+$sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='1' ORDER BY id_texte DESC LIMIT 1");
 $ligne_texte = $sql->fetch();
 
 ?>
@@ -133,9 +133,6 @@ $ligne_texte = $sql->fetch();
             <div class="navbar-mobile">
 
                 <ul class="side-nav" id="mobile-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Accueil<span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#experiences">Expériences</a>
                     </li>
@@ -236,7 +233,8 @@ $ligne_texte = $sql->fetch();
                                                 <button class="accordion"><?= $ligne_experience['e_titre'];?></button>
                                                 <div class="panel">
                                                     <h3><?= $ligne_experience['e_soustitre']; ?></h3>
-                                                    <p><?= $ligne_experience['e_description'];?></p>
+                                                    <p><?= $ligne_experience['e_dates'];?></p>
+                                                    <p><em><?= $ligne_experience['e_description'];?></em></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -291,24 +289,23 @@ $ligne_texte = $sql->fetch();
                         <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les expériences-->
                             <div class="col-md-4">
                                 <div class="jumbotron single_service  wow fadeInLeft">
-                                    <?php $f_logo = (substr($ligne_formation['f_logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_formation['f_logo'] . "' aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_formation['f_logo'] . "' alt=''>"; ?>
+                                    <?php $f_logo = (substr($ligne_formation['f_logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_formation['f_logo'] . "' m-b-3 aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_formation['f_logo'] . "' alt=''>"; ?>
                                     <div class="service_icon center">
                                         <p><?= $f_logo ?></p>
                                     </div>
 
                                     <div class="s_service_text text-sm-center text-xs-center">
                                         <h4><?= $ligne_formation['f_titre']; ?></h4>
-                                        <p><?= $ligne_formation['f_description']; ?></p>
+                                        <p><?= $ligne_formation['f_description'];?></p>
                                     </div>
 
                                     <div class="service_btn center">
-                                        <a href="#!" class="btn btn-danger waves-effect waves-red"><?= $ligne_formation['f_dates']; ?></a>
+                                        <a class="btn btn-danger waves-effect waves-red"><?= $ligne_formation['f_dates']; ?></a>
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach ?>
                     </div>
-
                     <!-- <div class="col-md-4">
                     <div class="jumbotron single_service wow fadeInUp">
                     <div class="service_icon center">
@@ -361,7 +358,7 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                         <h2 class="text-uppercase m-b-3"><?= $ligne_texte['t_head']; ?></h2>
                         <p>“ <?= $ligne_texte['t_body']; ?>”</p>
 
-                            <a href="#!" class="btn btn-danger waves-effect waves-red">Join with us</a>
+                            <a target="_blank" href="img/cv_seb_web.pdf" class="btn btn-danger waves-effect waves-red">Telecharger mon CV</a>
                         </div>
                     </div>
                 </div>
@@ -684,15 +681,17 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”.
                                             <p><?= $ligne_realisation['r_description']; ?></p>
                                             <p><?= $ligne_realisation['r_dates']; ?></p>
                                             <div class="team_socail">
-                                                <a href="#!"><i class="fa fa-facebook"></i></a>
-                                                <a href="#!"><i class="fa fa-twitter"></i></a>
-                                                <a href="#!"><i class="fa fa-github"></i></a>
-                                                <a href="#!"><i class="fa fa-linkedin"></i></a>
+                                                <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
+                                                <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
+                                                <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
+                                                <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                                                <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             <?php endforeach ?>
+
 
                             <!-- <div class="col-md-3">
                             <div class="single_team white-text m-t-2 wow zoomIn">
@@ -1027,7 +1026,7 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
                                                 <span class="help-block" style="display: none;">Please enter a the security code</span>
-                                                <button type="submit" id="feedbackSubmit" class="btn btn-primary btn-lg" style=" margin-top: 10px;">Envoyer</button>
+                                                <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg" style=" margin-top: 10px;">Envoyer</button>
                                         </form>
                                                     <!-- END CONTACT FORM -->
                                     </div>

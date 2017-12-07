@@ -41,7 +41,7 @@ $ligne_formation = $resultat->fetch();
                 </div>
                 <div class="form-group">
                     <label for="formation">Description :</label>
-                    <input type="text" class="form-control" name="f_description" value="<?= $ligne_formation['f_description']; ?>">
+                    <textarea class="form-control" name="f_description"><?= $ligne_formation['f_description']; ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="f_logo">Logo :</label>

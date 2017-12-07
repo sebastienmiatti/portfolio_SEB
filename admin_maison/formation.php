@@ -109,8 +109,9 @@ if (isset($_GET['id_formation'])) { // on récupère la comp. par son id dans l'
                         <textarea class="form-control" name="f_description"><?= $ligne_formation['f_description']; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="f_logo">Description</label>
-                        <textarea class="form-control" name="f_logo"><?= $ligne_formation['f_logo']; ?></textarea>
+                        <label for="f_logo">Logo</label>
+                        <input type="text" name="f_logo" class="form-control" id="f_logo" placeholder="<?= $ligne_formation['f_logo']; ?>">
+
                     </div>
                     <script>
                         CKEDITOR.replace('editor1');
