@@ -44,6 +44,9 @@ $ligne_reseaux = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->query(" SELECT * FROM t_loisirs WHERE utilisateur_id ='1'");
 $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='1'");
+$ligne_texte = $sql->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +58,7 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
 
-    <title>Site cv-<?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?> </title>
+    <title>Site cv- <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?>  </title>
 
     <!-- Font Awesome -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,300,300italic,700' rel='stylesheet' type='text/css'>
@@ -355,9 +358,8 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                 <div class="col-sm-12">
                     <div class="main_joinus_content center white-text wow fadeInUp">
                         <i class="fa fa-user-plus m-b-1"></i>
-                        <h2 class="text-uppercase m-b-3">Join Our Creative company</h2>
-                        <p>“ Hello! Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                            tincidunt ut laoreet dolore magna aliquam erat volutpat.”</p>
+                        <h2 class="text-uppercase m-b-3"><?= $ligne_texte['t_head']; ?></h2>
+                        <p>“ <?= $ligne_texte['t_body']; ?>”</p>
 
                             <a href="#!" class="btn btn-danger waves-effect waves-red">Join with us</a>
                         </div>
@@ -376,7 +378,7 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="single_about about_progress">
                         <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Compétences : Back-end</h2>
+                            <h2>Compétences : <br>Back-end</h2>
                             <hr>
                         </div>
 
@@ -396,7 +398,7 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="single_about about_progress">
                         <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Compétences : Front-end</h2>
+                            <h2>Compétences : <br> Front-end</h2>
                             <hr>
                         </div>
                         <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
@@ -927,9 +929,7 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
 <hr />
 </section><!-- End of Portfolio Section -->
 
-
-
-<section id="reseaux" class="works">
+<section id="reseau" class="works">
     <div class="container">
         <div class="row">
             <div class="main_works_area center m-y-4">
@@ -1003,185 +1003,177 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
     <div class="container">
         <div class="row">
             <div class="main_footer_area white-text p-b-3">
-                <div class="col-md-3">
-                    <div class="single_f_widget p-t-3 wow fadeInUp">
-                        <img src="img/logo.png" alt="" />
-                        <div class="single_f_widget_text">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
-                                <div class="socail_f_widget">
-                                    <a href="#!" ><i class="fa fa-facebook"></i></a>
-                                    <a href="#!" ><i class="fa fa-twitter"></i></a>
-                                    <a href="#!" ><i class="fa fa-github"></i></a>
-                                    <a href="#!" ><i class="fa fa-linkedin"></i></a>
-                                    <a href="#!" ><i class="fa fa-codepen"></i></a>
+                <div class="single_f_widget m-t-3 wow fadeInUp">
+                    <div class="single_f_widget_text f_reatures">
+                        <div class="col-lg-offset-2 col-xs-10 col-lg-5 col-md-3">
+                            <div class="jumbotron">
+                                <div class="row text-center">
+                                    <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
+                                    <div class="text-center col-lg-12">
+                                        <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
+                                        <form role="form" id="feedbackForm" class="text-center">
+                                            <div class="form-group">
+                                                <label for="name">Nom</label>
+                                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                                                <span class="help-block" style="display: none;">Merci d'inserer votre nom</span></div>
+                                                <div class="form-group">
+                                                    <label for="email">E-Mail</label>
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Addresse email">
+                                                    <span class="help-block" style="display: none;">Merci de rentrer une adresse email valide</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message">Message</label>
+                                                    <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message"></textarea>
+                                                    <span class="help-block" style="display: none;">Merci de rentrer un message</span>
+                                                </div>
+                                                <span class="help-block" style="display: none;">Please enter a the security code</span>
+                                                <button type="submit" id="feedbackSubmit" class="btn btn-primary btn-lg" style=" margin-top: 10px;">Envoyer</button>
+                                        </form>
+                                                    <!-- END CONTACT FORM -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="single_f_widget m-t-3 wow fadeInUp">
-                            <h4 class="text-lowercase">Some features</h4>
-                            <div class="single_f_widget_text f_reatures">
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="single_f_widget p-t-3 wow fadeInUp">
+                        <img src="img/<?= $ligne_utilisateur['logo'];?>" alt="" />
+                        <div class="single_f_widget_text">
+                            <p><?= $ligne_texte['t_foot']; ?></p>
+                                <div class="socail_f_widget">
+                                    <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
+                                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                                    <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                                <!-- <div class="single_f_widget m-t-3 wow fadeInUp">
+                                <h4 class="text-lowercase">Some features</h4>
+                                <div class="single_f_widget_text f_reatures">
                                 <ul>
-                                    <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet</li>
-                                    <li><i class="fa fa-check"></i>Aliquam tincidunt cons ectetuer</li>
-                                    <li><i class="fa fa-check"></i>Vestibulum auctor dapibus con</li>
-                                    <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet auctor dapibus</li>
-                                </ul>
-                            </div>
+                                <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet</li>
+                                <li><i class="fa fa-check"></i>Aliquam tincidunt cons ectetuer</li>
+                                <li><i class="fa fa-check"></i>Vestibulum auctor dapibus con</li>
+                                <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet auctor dapibus</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="single_f_widget m-t-3 wow fadeInUp">
-                            <h4 class="text-lowercase">Tags</h4>
-                            <div class="single_f_widget_text f_tags">
-                                <a href="#!">corporate</a>
-                                <a href="#!">agency</a>
-                                <a href="#!">portfolio</a>
-                                <a href="#!">blog</a>
-                                <a href="#!">elegant</a>
-                                <a href="#!">professional</a>
-                                <a href="#!">business</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="single_f_widget m-t-3 wow fadeInUp">
-                            <h4 class="text-lowercase">Flicker Posts</h4>
-                            <div class="single_f_widget_text f_flicker">
-                                <img src="img/flipcker1.jpg" alt="" />
-                                <img src="img/flipcker2.jpg" alt="" />
-                                <img src="img/flipcker3.jpg" alt="" />
-                                <img src="img/flipcker4.jpg" alt="" />
-                                <img src="img/flipcker3.jpg" alt="" />
-                                <img src="img/flipcker2.jpg" alt="" />
-                                <img src="img/flipcker4.jpg" alt="" />
-                                <img src="img/flipcker1.jpg" alt="" />
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+
+                    <!-- <div class="col-md-3">
+                    <div class="single_f_widget m-t-3 wow fadeInUp">
+                    <h4 class="text-lowercase">Tags</h4>
+                    <div class="single_f_widget_text f_tags">
+                    <a href="#!">corporate</a>
+                    <a href="#!">agency</a>
+                    <a href="#!">portfolio</a>
+                    <a href="#!">blog</a>
+                    <a href="#!">elegant</a>
+                    <a href="#!">professional</a>
+                    <a href="#!">business</a>
                 </div>
             </div>
         </div>
-        <div class="main_coppyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-xs-12">
-                        <div class="copyright_text m-t-2 text-xs-center">
-                            <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="../admin_maison/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-heart"></i> Sébastien miatti<i class="fa fa-heart"></i>
-                                <?php
-                                $date = date("d-m-Y");
-                                $heure = date("H:i");
-                                Print("le $date &middot; $heure");
-                                ?>
-                            </p></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="socail_coppyright text-sm-right m-t-2 text-xs-center wow zoomIn">
-                            <a href="#!"><i class="fa fa-facebook"></i></a>
-                            <a href="#!"><i class="fa fa-twitter"></i></a>
-                            <a href="#!"><i class="fa fa-github"></i></a>
-                            <a href="#!"><i class="fa fa-linkedin"></i></a>
-                            <a href="#!"><i class="fa fa-codepen"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-    <div class="container">
-    <div class="row">
-      <div class="col-lg-offset-3 col-xs-12 col-lg-6">
-        <div class="jumbotron">
-          <div class="row text-center">
-            <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
-            <div class="text-center col-lg-12">
-              <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-              <form role="form" id="feedbackForm" class="text-center">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                  <span class="help-block" style="display: none;">Please enter your name.</span></div>
-                <div class="form-group">
-                  <label for="email">E-Mail</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
-                  <span class="help-block" style="display: none;">Please enter a valid e-mail address.</span></div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message"></textarea>
-                  <span class="help-block" style="display: none;">Please enter a message.</span></div>
-                <span class="help-block" style="display: none;">Please enter a the security code.</span>
-                <button type="submit" id="feedbackSubmit" class="btn btn-primary btn-lg" style=" margin-top: 10px;"> Send</button>
-              </form>
-              <!-- END CONTACT FORM -->
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="col-md-3">
+        <div class="single_f_widget m-t-3 wow fadeInUp">
+        <h4 class="text-lowercase">Flicker Posts</h4>
+        <div class="single_f_widget_text f_flicker">
+        <img src="img/flipcker1.jpg" alt="" />
+        <img src="img/flipcker2.jpg" alt="" />
+        <img src="img/flipcker3.jpg" alt="" />
+        <img src="img/flipcker4.jpg" alt="" />
+        <img src="img/flipcker3.jpg" alt="" />
+        <img src="img/flipcker2.jpg" alt="" />
+        <img src="img/flipcker4.jpg" alt="" />
+        <img src="img/flipcker1.jpg" alt="" />
     </div>
-  </div>
+</div>
+</div> -->
+        </div>
+    </div>
+</div>
+<div class="main_coppyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="copyright_text m-t-2 text-xs-center">
+                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="../admin_maison/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-heart"></i> Sébastien miatti<i class="fa fa-heart"></i>
+                        <?php
+                        $date = date("d-m-Y");
+                        $heure = date("H:i");
+                        Print("le $date &middot; $heure");
+                        ?>
+                    </p></p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="socail_coppyright text-sm-right m-t-2 text-xs-center wow zoomIn">
+                    <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
+                    <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
+                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                    <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 
 
 
+<!-- /Start your project here-->
 
 
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
 
 
-    <!-- /Start your project here-->
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
 
-    <!-- SCRIPTS -->
+<!-- Wow js -->
+<script type="text/javascript" src="js/wow.min.js"></script>
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+<!-- Mixitup js -->
+<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
 
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/tether.min.js"></script>
+<!-- Magnific-popup js -->
+<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
 
+<!-- accordion js -->
+<script type="text/javascript" src="js/accordion.js"></script>
 
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/materialize.js"></script>
 
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+<script>
+$(".button-collapse").sideNav();
+</script>
 
-    <!-- Wow js -->
-    <script type="text/javascript" src="js/wow.min.js"></script>
+<!-- wow js active -->
+<script type="text/javascript">
+new WOW().init();
+</script>
 
-    <!-- Mixitup js -->
-    <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
-
-    <!-- Magnific-popup js -->
-    <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
-
-    <!-- accordion js -->
-    <script type="text/javascript" src="js/accordion.js"></script>
-
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/materialize.js"></script>
-
-    <script>
-    $(".button-collapse").sideNav();
-    </script>
-
-    <!-- wow js active -->
-    <script type="text/javascript">
-    new WOW().init();
-    </script>
-
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 
 </body>

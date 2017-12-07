@@ -1,5 +1,5 @@
 <?php
-require 'inc/header.inc.php';
+require('inc/header.inc.php');
 // gestion des contenus de la BDD compétences
 
 if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
@@ -12,12 +12,14 @@ if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
 }
 
 //insertion d'une compétence
-if(isset($_POST['titre_cv'])) {// si on a posté une nouvelle comp.
-	if($_POST['titre_cv']!='' && $_POST['accroche']!='' && $_POST['logo']!='') {// si compétence n'est pas vide
+if(isset($_POST['titre_cv']))
+{// si on a posté une nouvelle comp.
+	if($_POST['titre_cv']!='' && $_POST['accroche']!='' && $_POST['logo']!='')
+    {// si compétence n'est pas vide
 		$titre_cv = addslashes($_POST['titre_cv']);
 		$accroche = addslashes($_POST['accroche']);
 		$logo = addslashes($_POST['logo']);
-		$pdo->exec(" INSERT INTO t_titre_cv VALUES (NULL, '$titre_cv', '$accroche', '$logo', '1') ");//mettre $id_utilisateur quand on l'aura dans la variable de session
+		$pdo->exec(" INSERT INTO t_titre_cv VALUES (NULL, '$titre_cv', '$accroche', '$logo', '$id_utilisateur') ");//mettre $id_utilisateur quand on l'aura dans la variable de session
 		header("location: titre_cv.php");//pour revenir sur la page
 		exit();
 	}//ferme le if n'est pas vide

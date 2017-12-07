@@ -54,7 +54,8 @@
             <ul class="dropdown-menu" role="menu">
                 <li><a href="../index.php">Site public</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="titre_cv.php">Modification titre</a></li>
+                <li><a href="titre_cv.php">Modification de titre</a></li>
+                <li><a href="texte.php">Modification de texte</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="connexion.php?deconnexion=oui">Se déconnecter</a></li>
             </ul>
