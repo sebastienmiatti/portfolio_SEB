@@ -685,7 +685,7 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”.
                                                 <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
                                                 <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
                                                 <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
-                                                <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github">
+                                                <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
                                             </div>
                                         </div>
                                     </div>
