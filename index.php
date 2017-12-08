@@ -47,6 +47,47 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='1' ORDER BY id_texte DESC LIMIT 1");
 $ligne_texte = $sql->fetch();
 
+//créé un formulaire
+//Formulaire/index.php
+// on récupère la classe Contact
+include('Contact.class.php');
+
+// on vérifie que le formulaire a été posté
+if (!empty($_POST))
+{
+	// on éclate le $_POST en tableau qui permet d'accéder directement aux champs par des variables
+    extract($_POST);
+
+    // on effectue une validation des données du formulaire et on vérifie la validité de l'email
+     $valid = (empty($co_nom) || empty($co_email) || !filter_var($co_email, FILTER_VALIDATE_EMAIL) || empty($co_sujet) || empty($co_message)) ? false : true; // écriture ternaire pour if / else
+     $erreurnom = (empty($co_nom)) ? 'Indiquez votre nom' : null;
+     $erreuremail = (empty($co_email) || !filter_var($co_email, FILTER_VALIDATE_EMAIL)) ? 'Entrez un email valide' : null;
+     $erreursujet = (empty($co_sujet)) ? 'Indiquez un sujet' : null;
+     $erreurmessage = (empty($co_message)) ? 'Parlez donc !!' : null;
+
+    // si tous les champs sont correctement renseignés
+    if ($valid)
+    {
+    	// on crée un nouvel objet (ou une instance) de la class Contact.class.php
+        $contact = new Contact();
+        // on utilise la méthode insertContact pour insérer en BDD
+        $contact->insertContact($co_nom, $co_email, $co_sujet, $co_message);
+    }
+}
+
+// on utilise la méthode sendMail de la classe Contact.class.php
+// $contact->sendEmail($sujet, $email, $message);
+
+// on efface les valeurs du formulaires
+unset($nom);
+unset($sujet);
+unset($message);
+unset($email);
+unset($contact);
+
+// on créé une variable de succès
+$success = 'Message envoyé !';
+
 ?>
 
 <!DOCTYPE html>
@@ -663,33 +704,27 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”.
         <div class="row">
             <div class="col-sm-12">
                 <div class="main_team_area m-y-3">
-                    <div class="head_title center  wow fadeInUp">
+                    <div class="head_title center wow fadeInUp">
                         <h2>Réalisations</h2>
                         <p>Voivi l'apercu de quelques de mes réalisation, inspirations et projet en cours</p>
                     </div>
                     <hr>
                     <div class="main_team_content center">
                         <div class="row">
-
                             <?php foreach($ligne_realisations as $ligne_realisation) : ?>
-                                <div class="col-md-3">
+                                <a target="_blank" href="img/<?= $ligne_realisation['r_img']; ?>">
+                                <div class="col-md-5 col-md-offset-1">
                                     <div class="single_team white-text m-t-2 wow zoomIn">
-                                        <img src="img/<?= $ligne_realisation['r_img']; ?>" height="100" alt="team" />
+                                        <img src="img/<?= $ligne_realisation['r_img']; ?>" height="250" alt="team" />
                                         <div class="single_team_overlay">
-                                            <h4><?= $ligne_realisation['r_titre']; ?></h4>
+                                            <h5><?= $ligne_realisation['r_titre']; ?></h5>
                                             <p><?= $ligne_realisation['r_soustitre']; ?></p>
                                             <p><?= $ligne_realisation['r_description']; ?></p>
                                             <p><?= $ligne_realisation['r_dates']; ?></p>
-                                            <div class="team_socail">
-                                                <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
-                                                <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
-                                                <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
-                                                <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
-                                                <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                </a>
                             <?php endforeach ?>
 
 
@@ -1010,19 +1045,24 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
                                     <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
                                     <div class="text-center col-lg-12">
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-                                        <form role="form" id="feedbackForm" class="text-center">
+                                        <form role="form" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
-                                                <label for="name">Nom</label>
-                                                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                                                <label for="co_name">Nom</label>
+                                                <input type="text" class="form-control" id="nom" name="co_nom" placeholder="Nom">
                                                 <span class="help-block" style="display: none;">Merci d'inserer votre nom</span></div>
                                                 <div class="form-group">
-                                                    <label for="email">E-Mail</label>
-                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Addresse email">
+                                                    <label for="co_email">E-Mail</label>
+                                                    <input type="email" class="form-control" id="email" name="co_email" placeholder="Addresse email">
                                                     <span class="help-block" style="display: none;">Merci de rentrer une adresse email valide</span>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label for="co_sujet">Sujet</label>
+                                                    <input type="text" class="form-control" id="sujet" name="co_sujet" placeholder="Sujet">
+                                                    <span class="help-block" style="display: none;">Merci de rentrer un sujet correct:</span>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="message">Message</label>
-                                                    <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message"></textarea>
+                                                    <textarea rows="10" cols="100" class="form-control" id="message" name="co_message" placeholder="Message"></textarea>
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
                                                 <span class="help-block" style="display: none;">Please enter a the security code</span>
