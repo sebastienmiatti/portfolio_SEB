@@ -8,7 +8,8 @@ class Contact
    private $co_message;
 
    // fonction d'insertion en BDD
-   public function insertContact($co_nom, $co_email, $co_sujet, $co_message) {
+   public function insertContact($co_nom, $co_email, $co_sujet, $co_message)
+   {
     	// on récupère les données rentrées par l'utilisateur
         $this->co_nom = strip_tags($co_nom);
 		$this->co_email = strip_tags($co_email);

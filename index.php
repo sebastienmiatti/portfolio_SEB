@@ -1045,7 +1045,7 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
                                     <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
                                     <div class="text-center col-lg-12">
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-                                        <form role="form" id="feedbackForm" class="text-center" method="POST">
+                                        <form role="form" action="index.php" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
                                                 <label for="co_name">Nom</label>
                                                 <input type="text" class="form-control" id="nom" name="co_nom" placeholder="Nom">
