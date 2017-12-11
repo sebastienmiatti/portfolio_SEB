@@ -140,7 +140,7 @@ $success = 'Message envoyé !';
             <!--Content for large and medium screens-->
             <div class="navbar-desktop">
                 <!--Navbar Brand-->
-                <a class="navbar-brand" href="index.php"><img src="img/.'<?= $ligne_titre_cv['logo'] ?>'" alt="logo" /></a>
+                <a class="navbar-brand" href="index.php"><img src="img/<?= $ligne_titre_cv['logo']; ?>" alt="logo" /></a>
                 <!--Links-->
                 <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
                     <li class="nav-item">
@@ -204,8 +204,22 @@ $success = 'Message envoyé !';
 
     <div id="home" class="slider">
         <ul class="slides">
+
             <li>
-                <img src="img/homebenner.jpg"> <!-- random image -->
+
+                <div class='banner-wrapper' id='banner-wrapper'>
+                    <div class='banner design'>
+                        <div class='banner-content'>
+                            <img src='https://goo.gl/L35vUt'>
+                        </div>
+                    </div>
+                    <div class='banner dev'>
+                        <div class='banner-content'>
+                            <img src='https://goo.gl/JDWFxe'>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="caption center-align">
                     <div class="single_home">
 
@@ -216,8 +230,9 @@ $success = 'Message envoyé !';
                     </div>
                 </div>
             </li>
-            <li>
-                <img src="img/homebenner.jpg"> <!-- random image -->
+
+            <!-- <li>
+                <img src="img/homebenner.jpg"> <!-- random image
                 <div class="caption center-align">
                     <div class="single_home">
                         <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
@@ -228,7 +243,7 @@ $success = 'Message envoyé !';
                 </div>
             </li>
             <li>
-                <img src="img/homebenner.jpg"> <!-- random image -->
+                <img src="img/homebenner.jpg"> <!-- random image
                 <div class="caption center-align">
                     <div class="single_home">
                         <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
@@ -239,7 +254,7 @@ $success = 'Message envoyé !';
                 </div>
             </li>
             <li>
-                <img src="img/homebenner.jpg"> <!-- random image -->
+                <img src="img/homebenner.jpg"> <!-- random image
                 <div class="caption center-align">
                     <div class="single_home">
                         <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
@@ -248,7 +263,7 @@ $success = 'Message envoyé !';
 
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 
@@ -341,7 +356,7 @@ $success = 'Message envoyé !';
                                     </div>
 
                                     <div class="service_btn center">
-                                        <a class="btn btn-danger waves-effect waves-red"><?= $ligne_formation['f_dates']; ?></a>
+                                        <div class="btn btn-danger waves-effect waves-red"><?= $ligne_formation['f_dates']; ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +431,7 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                 <div class="col-md-5 col-md-offset-1">
                     <div class="single_about about_progress">
                         <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Compétences : <br>Back-end</h2>
+                            <h2 class="flickr">Compétences : <br>Back-end</h2>
                             <hr>
                         </div>
 
@@ -430,13 +445,14 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                             <?php endforeach; ?>
 
                         </div>
+
                     </div>
                 </div>
 
                 <div class="col-md-5 col-md-offset-1">
                     <div class="single_about about_progress">
                         <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Compétences : <br> Front-end</h2>
+                            <h2 class="flickr">Compétences : <br> Front-end</h2>
                             <hr>
                         </div>
                         <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
@@ -1212,6 +1228,7 @@ new WOW().init();
 </script>
 
 <script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/waypoints/lib/noframework.waypoints.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 

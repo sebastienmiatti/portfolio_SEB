@@ -29,7 +29,6 @@ class Contact
 
             // on ferme la requête pour protéger des injections
             $req->closeCursor();
-
       }
 
     // Bonus - envoi d'un email
@@ -45,4 +44,5 @@ class Contact
         // on utilise la fonction mail() de PHP
         mail($this->to, $this->sujet, $this->message, $this->headers);
     }
+
 }
