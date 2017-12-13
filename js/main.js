@@ -137,7 +137,10 @@ var waypoint = new Waypoint({
   offset:800
 })
 
-
+// offsetValue = 400;
+// $('body').data().scrollspy.options.offset = offsetValue;
+// // force scrollspy to recalculate the offsets to your targets
+// $('body').data().scrollspy.process();
 
     // $(function(){
     //     flicker.init("h2.flickr",1,10, 50);
