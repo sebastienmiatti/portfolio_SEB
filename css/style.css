@@ -1,4 +1,4 @@
-/* 
+/*
 
 Authore Name : Bootstrapthemes
 Authore link : http://bootstrapthemes.co
@@ -7,7 +7,7 @@ Authore link : http://bootstrapthemes.co
 html,
 body{
     font-size:18px;
-    background:#fff; 
+    background:#fff;
     font-family: "Roboto";
     font-weight: 300;
 }
@@ -49,7 +49,7 @@ h4 {
     background: rgba(0, 0, 0, 0.5);
 }
 /*==========================================
-PRE LOADER 
+PRE LOADER
 ==========================================*/
 .preloader {
     position: fixed;
@@ -185,7 +185,7 @@ input[type=date], input[type=datetime-local], input[type=email], input[type=numb
 .single_about .panel-default>.panel-heading p{
     margin-top: 0;
     margin-bottom: 0;
-} 
+}
 
 .panel-heading.bgg.bg{
     background:url(../img/accordion.png) no-repeat right 7px #ec4848;
@@ -495,7 +495,7 @@ div.panel.show {
 
 
 /*.main_portfolio_area{
-    overflow: hidden;  
+    overflow: hidden;
 }*/
 .main_mixi_content{
     max-height: 900px;
@@ -551,7 +551,7 @@ div.panel.show {
     -webkit-transform-origin: 50% 0;
 }
 /*======================================================================
-                    ours works 
+                    ours works
 ========================================================================*/
 
 .main_works_area{

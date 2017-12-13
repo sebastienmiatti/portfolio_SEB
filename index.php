@@ -55,20 +55,20 @@ include('Contact.class.php');
 // on vérifie que le formulaire a été posté
 if (!empty($_POST))
 {
-	// on éclate le $_POST en tableau qui permet d'accéder directement aux champs par des variables
+    // on éclate le $_POST en tableau qui permet d'accéder directement aux champs par des variables
     extract($_POST);
 
     // on effectue une validation des données du formulaire et on vérifie la validité de l'email
-     $valid = (empty($co_nom) || empty($co_email) || !filter_var($co_email, FILTER_VALIDATE_EMAIL) || empty($co_sujet) || empty($co_message)) ? false : true; // écriture ternaire pour if / else
-     $erreurnom = (empty($co_nom)) ? 'Indiquez votre nom' : null;
-     $erreuremail = (empty($co_email) || !filter_var($co_email, FILTER_VALIDATE_EMAIL)) ? 'Entrez un email valide' : null;
-     $erreursujet = (empty($co_sujet)) ? 'Indiquez un sujet' : null;
-     $erreurmessage = (empty($co_message)) ? 'Parlez donc !!' : null;
+    $valid = (empty($co_nom) || empty($co_email) || !filter_var($co_email, FILTER_VALIDATE_EMAIL) || empty($co_sujet) || empty($co_message)) ? false : true; // écriture ternaire pour if / else
+    $erreurnom = (empty($co_nom)) ? 'Indiquez votre nom' : null;
+    $erreuremail = (empty($co_email) || !filter_var($co_email, FILTER_VALIDATE_EMAIL)) ? 'Entrez un email valide' : null;
+    $erreursujet = (empty($co_sujet)) ? 'Indiquez un sujet' : null;
+    $erreurmessage = (empty($co_message)) ? 'Parlez donc !!' : null;
 
     // si tous les champs sont correctement renseignés
     if ($valid)
     {
-    	// on crée un nouvel objet (ou une instance) de la class Contact.class.php
+        // on crée un nouvel objet (ou une instance) de la class Contact.class.php
         $contact = new Contact();
         // on utilise la méthode insertContact pour insérer en BDD
         $contact->insertContact($co_nom, $co_email, $co_sujet, $co_message);
@@ -94,10 +94,25 @@ $success = 'Message envoyé !';
 <html lang="fr">
 
 <head>
+    <!-- Google analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111096839-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111096839-1');
+    </script>
+    <!-- fin google analytics -->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Miatti Sébastien-developpeur integrateur web technologies-html-css-php-mysql-jquery-javascrip-silex-ajax-boostrap-wordpress ">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
 
     <title>Site cv- <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?>  </title>
 
@@ -140,7 +155,7 @@ $success = 'Message envoyé !';
             <!--Content for large and medium screens-->
             <div class="navbar-desktop">
                 <!--Navbar Brand-->
-                <a class="navbar-brand" href="index.php"><img src="img/<?= $ligne_titre_cv['logo']; ?>" alt="logo" /></a>
+                <a class="navbar-brand" href="index.php"><img src="img/<?= $ligne_titre_cv['logo']; ?>" alt="logo" height="80px" /></a>
                 <!--Links-->
                 <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
                     <li class="nav-item">
@@ -207,116 +222,116 @@ $success = 'Message envoyé !';
 
             <li>
 
-                <div class='banner-wrapper' id='banner-wrapper'>
-                    <div class='banner design'>
-                        <div class='banner-content'>
-                            <img src='https://goo.gl/L35vUt'>
-                        </div>
-                    </div>
-                    <div class='banner dev'>
-                        <div class='banner-content'>
-                            <img src='https://goo.gl/JDWFxe'>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="caption center-align">
-                    <div class="single_home">
-
-                        <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
-                        <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
-                        <p><?= $ligne_titre_cv['accroche']; ?></p>
-
-                    </div>
-                </div>
-            </li>
-
-            <!-- <li>
-                <img src="img/homebenner.jpg"> <!-- random image
-                <div class="caption center-align">
-                    <div class="single_home">
-                        <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
-                        <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
-                        <p><?= $ligne_titre_cv['accroche']; ?></p>
-
-                    </div>
-                </div>
-            </li>
-            <li>
-                <img src="img/homebenner.jpg"> <!-- random image
-                <div class="caption center-align">
-                    <div class="single_home">
-                        <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
-                        <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
-                        <p><?= $ligne_titre_cv['accroche']; ?></p>
-
-                    </div>
-                </div>
-            </li>
-            <li>
-                <img src="img/homebenner.jpg"> <!-- random image
-                <div class="caption center-align">
-                    <div class="single_home">
-                        <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
-                        <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
-                        <p><?= $ligne_titre_cv['accroche']; ?></p>
-
-                    </div>
-                </div>
-            </li> -->
-        </ul>
-    </div>
-
-
-
-    <section id="experiences" class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main_about_area">
-                        <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2>Expériences professionnelles</h2>
-                            <hr>
-                        </div>
-
-                        <div class="main_about_content">
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-
-                                    <?php foreach($ligne_experiences as $ligne_experience) : ?> <!--boucle pour afficher les expériences-->
-                                        <div class="main_accordion wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-                                            <div class="single_accordion">
-                                                <button class="accordion"><?= $ligne_experience['e_titre'];?></button>
-                                                <div class="panel">
-                                                    <h3><?= $ligne_experience['e_soustitre']; ?></h3>
-                                                    <p><?= $ligne_experience['e_dates'];?></p>
-                                                    <p><em><?= $ligne_experience['e_description'];?></em></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-
-                                    <!-- <div class="single_accordion">
-                                    <button class="accordion active"><?= $ligne_experience['e_titre'];?></button>
-                                    <div class="panel show">
-                                    <h3><?= $ligne_experience['e_soustitre']; ?></h3>
-                                    <p><em><?= $ligne_experience['e_description'];?></em></p>
-                                </div>
-                            </div>
-
-                            <div class="single_accordion">
-                            <button class="accordion">Lorem ipsum dolor sit amet</button>
-                            <div class="panel">
-                            <p>Consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla,
-                            eleifend Ut urna dui, interdum non blandit sed, hendrerit ultricies mi.
-                            Aliquam at scelerisque ligula. Curabitur id laoreet velit.</p>
-                        </div>
-                    </div>
-                </div> -->
-
+                <!-- <div class='banner-wrapper' id='banner-wrapper'>
+                <div class='banner design'>
+                <div class='banner-content'>
+                <img src='https://goo.gl/L35vUt'>
             </div>
         </div>
+        <div class='banner dev'>
+        <div class='banner-content'>
+        <img src='https://goo.gl/JDWFxe'>
     </div>
+    </div>
+    </div> -->
+    <img src="img/homebener.jpg">
+    <div class="caption center-align">
+        <div class="single_home">
+
+            <h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+            <h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+            <p><?= $ligne_titre_cv['accroche']; ?></p>
+
+        </div>
+    </div>
+    </li>
+
+<!-- <li>
+<img src="img/homebenner.jpg"> <!-- random image
+<div class="caption center-align">
+<div class="single_home">
+<h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+<h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+<p><?= $ligne_titre_cv['accroche']; ?></p>
+
+</div>
+</div>
+</li>
+<li>
+<img src="img/homebenner.jpg"> <!-- random image
+<div class="caption center-align">
+<div class="single_home">
+<h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+<h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+<p><?= $ligne_titre_cv['accroche']; ?></p>
+
+</div>
+</div>
+</li>
+<li>
+<img src="img/homebenner.jpg"> <!-- random image
+<div class="caption center-align">
+<div class="single_home">
+<h1><em><?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?></em></h1>
+<h2><b><?= $ligne_titre_cv['titre_cv'] ;?></b></h2>
+<p><?= $ligne_titre_cv['accroche']; ?></p>
+
+</div>
+</div>
+</li> -->
+</ul>
+</div>
+
+
+
+<section id="experiences" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main_about_area">
+                    <div class="head_title center m-y-3 wow fadeInUp">
+                        <h2>Expériences professionnelles</h2>
+                        <hr>
+                    </div>
+
+                    <div class="main_about_content">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+
+                                <?php foreach($ligne_experiences as $ligne_experience) : ?> <!--boucle pour afficher les expériences-->
+                                    <div class="main_accordion wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                                        <div class="single_accordion">
+                                            <button class="accordion"><?= $ligne_experience['e_titre'];?></button>
+                                            <div class="panel">
+                                                <h3><?= $ligne_experience['e_soustitre']; ?></h3>
+                                                <p><?= $ligne_experience['e_dates'];?></p>
+                                                <p><em><?= $ligne_experience['e_description'];?></em></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+
+                                <!-- <div class="single_accordion">
+                                <button class="accordion active"><?= $ligne_experience['e_titre'];?></button>
+                                <div class="panel show">
+                                <h3><?= $ligne_experience['e_soustitre']; ?></h3>
+                                <p><em><?= $ligne_experience['e_description'];?></em></p>
+                            </div>
+                        </div>
+
+                        <div class="single_accordion">
+                        <button class="accordion">Lorem ipsum dolor sit amet</button>
+                        <div class="panel">
+                        <p>Consectetur adipiscing elit. Aliquam sagittis nulla non elit dignissim suscipit. Duis lorem nulla,
+                        eleifend Ut urna dui, interdum non blandit sed, hendrerit ultricies mi.
+                        Aliquam at scelerisque ligula. Curabitur id laoreet velit.</p>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</div>
 
 </div>
 </div>
@@ -413,71 +428,70 @@ tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                         <i class="fa fa-user-plus m-b-1"></i>
                         <h2 class="text-uppercase m-b-3"><?= $ligne_texte['t_head']; ?></h2>
                         <p>“ <?= $ligne_texte['t_body']; ?>”</p>
-
-                            <a target="_blank" href="img/cv_seb_web.pdf" class="btn btn-danger waves-effect waves-red">Telecharger mon CV</a>
-                        </div>
+                        <a target="_blank" href="img/cv_seb_web.pdf" class="btn btn-danger waves-effect waves-red">Telecharger mon CV</a>
                     </div>
                 </div>
             </div>
         </div>
-        <hr />
-    </section> <!-- End of JoinUs section -->
+    </div>
+    <hr />
+</section> <!-- End of JoinUs section -->
 
 
 
-    <section id="competences" class="offer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-md-offset-1">
-                    <div class="single_about about_progress">
-                        <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2 class="flickr">Compétences : <br>Back-end</h2>
-                            <hr>
-                        </div>
+<section id="competences" class="offer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <div class="single_about about_progress">
+                    <div class="head_title center m-y-3 wow fadeInUp">
+                        <h2 class="flickr">Compétences : <br>Back-end</h2>
+                        <hr>
+                    </div>
 
-                        <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+                    <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
 
-                            <?php foreach($ligne_competences_back as $ligne_competence) : ?>
-                                <div class="progress">
-                                    <div class="lead"><?= $ligne_competence['competence'] .' '. $ligne_competence['c_niveau']; ?> %</div>
-                                    <div class="progress-bar wow fadeInLeft" data-progress="<?= $ligne_competence['c_niveau']; ?>%" style="width: <?= $ligne_competence['c_niveau']; ?>%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                </div>
-                            <?php endforeach; ?>
-
-                        </div>
+                        <?php foreach($ligne_competences_back as $ligne_competence) : ?>
+                            <div class="progress">
+                                <div class="lead"><?= $ligne_competence['competence'] .' '. $ligne_competence['c_niveau']; ?> %</div>
+                                <div class="progress-bar wow fadeInLeft" data-progress="<?= $ligne_competence['c_niveau']; ?>%" style="width: <?= $ligne_competence['c_niveau']; ?>%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                            </div>
+                        <?php endforeach; ?>
 
                     </div>
+
                 </div>
-
-                <div class="col-md-5 col-md-offset-1">
-                    <div class="single_about about_progress">
-                        <div class="head_title center m-y-3 wow fadeInUp">
-                            <h2 class="flickr">Compétences : <br> Front-end</h2>
-                            <hr>
-                        </div>
-                        <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-
-                            <?php foreach($ligne_competences_front as $ligne_competence) : ?>
-                                <div class="progress">
-                                    <div class="lead"><?= $ligne_competence['competence'] .' '. $ligne_competence['c_niveau']; ?> %</div>
-                                    <div class="progress-bar wow fadeInLeft" data-progress="<?= $ligne_competence['c_niveau']; ?>%" style="width: <?= $ligne_competence['c_niveau']; ?>%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
-                                </div>
-                            <?php endforeach; ?>
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
-        <hr />
 
-    </section>
-    <!-- progress end
-    progress start -->
-    <!-- <div class="progress">
-    <div class="lead">App Development 90%</div>
-    <div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+            <div class="col-md-5 col-md-offset-1">
+                <div class="single_about about_progress">
+                    <div class="head_title center m-y-3 wow fadeInUp">
+                        <h2 class="flickr">Compétences : <br> Front-end</h2>
+                        <hr>
+                    </div>
+                    <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+
+                        <?php foreach($ligne_competences_front as $ligne_competence) : ?>
+                            <div class="progress">
+                                <div class="lead"><?= $ligne_competence['competence'] .' '. $ligne_competence['c_niveau']; ?> %</div>
+                                <div class="progress-bar wow fadeInLeft" data-progress="<?= $ligne_competence['c_niveau']; ?>%" style="width: <?= $ligne_competence['c_niveau']; ?>%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
+                            </div>
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr />
+
+</section>
+<!-- progress end
+progress start -->
+<!-- <div class="progress">
+<div class="lead">App Development 90%</div>
+<div class="progress-bar wow fadeInLeft" data-progress="90%" style="width: 90%;" data-wow-duration="1.5s" data-wow-delay="1.2s"></div>
 </div> -->
 <!-- progress end -->
 <!-- progress start -->
@@ -729,17 +743,17 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s”.
                         <div class="row">
                             <?php foreach($ligne_realisations as $ligne_realisation) : ?>
                                 <a target="_blank" href="img/<?= $ligne_realisation['r_img']; ?>">
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="single_team white-text m-t-2 wow zoomIn">
-                                        <img src="img/<?= $ligne_realisation['r_img']; ?>" height="250" alt="team" />
-                                        <div class="single_team_overlay">
-                                            <h5><?= $ligne_realisation['r_titre']; ?></h5>
-                                            <p><?= $ligne_realisation['r_soustitre']; ?></p>
-                                            <p><?= $ligne_realisation['r_description']; ?></p>
-                                            <p><?= $ligne_realisation['r_dates']; ?></p>
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div class="single_team white-text m-t-2 wow zoomIn">
+                                            <img src="img/<?= $ligne_realisation['r_img']; ?>" height="250" alt="team" />
+                                            <div class="single_team_overlay">
+                                                <h5><?= $ligne_realisation['r_titre']; ?></h5>
+                                                <p><?= $ligne_realisation['r_soustitre']; ?></p>
+                                                <p><?= $ligne_realisation['r_description']; ?></p>
+                                                <p><?= $ligne_realisation['r_dates']; ?></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
                             <?php endforeach ?>
 
@@ -1064,40 +1078,40 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
                                         <form role="form" action="index.php" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
                                                 <label for="co_name">Nom</label>
-                                                <input type="text" class="form-control" id="nom" name="co_nom" placeholder="Nom">
+                                                <input type="text" class="form-control" id="co_nom" name="co_nom" placeholder="Nom">
                                                 <span class="help-block" style="display: none;">Merci d'inserer votre nom</span></div>
                                                 <div class="form-group">
                                                     <label for="co_email">E-Mail</label>
-                                                    <input type="email" class="form-control" id="email" name="co_email" placeholder="Addresse email">
+                                                    <input type="email" class="form-control" id="co_email" name="co_email" placeholder="Addresse email">
                                                     <span class="help-block" style="display: none;">Merci de rentrer une adresse email valide</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="co_sujet">Sujet</label>
-                                                    <input type="text" class="form-control" id="sujet" name="co_sujet" placeholder="Sujet">
+                                                    <input type="text" class="form-control" id="co_sujet" name="co_sujet" placeholder="Sujet">
                                                     <span class="help-block" style="display: none;">Merci de rentrer un sujet correct:</span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="message">Message</label>
-                                                    <textarea rows="10" cols="100" class="form-control" id="message" name="co_message" placeholder="Message"></textarea>
+                                                    <textarea rows="10" cols="100" class="form-control" id="co_message" name="co_message" placeholder="Message"></textarea>
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
                                                 <span class="help-block" style="display: none;">Please enter a the security code</span>
                                                 <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg" style=" margin-top: 10px;">Envoyer</button>
-                                        </form>
-                                                    <!-- END CONTACT FORM -->
+                                            </form>
+                                            <!-- END CONTACT FORM -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="col-md-3">
-                    <div class="single_f_widget p-t-3 wow fadeInUp">
-                        <img src="img/<?= $ligne_utilisateur['logo'];?>" alt="" />
-                        <div class="single_f_widget_text">
-                            <p><?= $ligne_texte['t_foot']; ?></p>
+                    <div class="col-md-3">
+                        <div class="single_f_widget p-t-3 wow fadeInUp">
+                            <img src="img/<?= $ligne_utilisateur['logo'];?>" alt="" />
+                            <div class="single_f_widget_text">
+                                <p><?= $ligne_texte['t_foot']; ?></p>
                                 <div class="socail_f_widget">
                                     <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
                                     <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
@@ -1111,49 +1125,49 @@ cursus malesuada facilisis.Lorem ipsum dolor sit amet, consectetur facilisis.</p
 
 
 
-                                <!-- <div class="single_f_widget m-t-3 wow fadeInUp">
-                                <h4 class="text-lowercase">Some features</h4>
-                                <div class="single_f_widget_text f_reatures">
-                                <ul>
-                                <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet</li>
-                                <li><i class="fa fa-check"></i>Aliquam tincidunt cons ectetuer</li>
-                                <li><i class="fa fa-check"></i>Vestibulum auctor dapibus con</li>
-                                <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet auctor dapibus</li>
-                            </ul>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-md-3">
-                    <div class="single_f_widget m-t-3 wow fadeInUp">
-                    <h4 class="text-lowercase">Tags</h4>
-                    <div class="single_f_widget_text f_tags">
-                    <a href="#!">corporate</a>
-                    <a href="#!">agency</a>
-                    <a href="#!">portfolio</a>
-                    <a href="#!">blog</a>
-                    <a href="#!">elegant</a>
-                    <a href="#!">professional</a>
-                    <a href="#!">business</a>
-                </div>
+                    <!-- <div class="single_f_widget m-t-3 wow fadeInUp">
+                    <h4 class="text-lowercase">Some features</h4>
+                    <div class="single_f_widget_text f_reatures">
+                    <ul>
+                    <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet</li>
+                    <li><i class="fa fa-check"></i>Aliquam tincidunt cons ectetuer</li>
+                    <li><i class="fa fa-check"></i>Vestibulum auctor dapibus con</li>
+                    <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet auctor dapibus</li>
+                </ul>
             </div>
-        </div>
-        <div class="col-md-3">
+        </div> -->
+
+        <!-- <div class="col-md-3">
         <div class="single_f_widget m-t-3 wow fadeInUp">
-        <h4 class="text-lowercase">Flicker Posts</h4>
-        <div class="single_f_widget_text f_flicker">
-        <img src="img/flipcker1.jpg" alt="" />
-        <img src="img/flipcker2.jpg" alt="" />
-        <img src="img/flipcker3.jpg" alt="" />
-        <img src="img/flipcker4.jpg" alt="" />
-        <img src="img/flipcker3.jpg" alt="" />
-        <img src="img/flipcker2.jpg" alt="" />
-        <img src="img/flipcker4.jpg" alt="" />
-        <img src="img/flipcker1.jpg" alt="" />
+        <h4 class="text-lowercase">Tags</h4>
+        <div class="single_f_widget_text f_tags">
+        <a href="#!">corporate</a>
+        <a href="#!">agency</a>
+        <a href="#!">portfolio</a>
+        <a href="#!">blog</a>
+        <a href="#!">elegant</a>
+        <a href="#!">professional</a>
+        <a href="#!">business</a>
     </div>
 </div>
+</div>
+<div class="col-md-3">
+<div class="single_f_widget m-t-3 wow fadeInUp">
+<h4 class="text-lowercase">Flicker Posts</h4>
+<div class="single_f_widget_text f_flicker">
+<img src="img/flipcker1.jpg" alt="" />
+<img src="img/flipcker2.jpg" alt="" />
+<img src="img/flipcker3.jpg" alt="" />
+<img src="img/flipcker4.jpg" alt="" />
+<img src="img/flipcker3.jpg" alt="" />
+<img src="img/flipcker2.jpg" alt="" />
+<img src="img/flipcker4.jpg" alt="" />
+<img src="img/flipcker1.jpg" alt="" />
+</div>
+</div>
 </div> -->
-        </div>
-    </div>
+</div>
+</div>
 </div>
 <div class="main_coppyright">
     <div class="container">
