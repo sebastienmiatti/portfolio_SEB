@@ -1,6 +1,10 @@
 <?php
 require('inc/init.inc.php');
 
+// on récupère la classe Contact
+include('inc/Contact.class.php');
+
+
 // gestion des contenus de la BDD expérirences
 // $result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
 // $result->execute();
@@ -29,7 +33,7 @@ $ligne_competences_back = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->query(" SELECT * FROM t_competences WHERE utilisateur_id ='1' AND c_categorie = 'front' ORDER BY c_niveau DESC");
 $ligne_competences_front = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-$sql = $pdo->query(" SELECT * FROM t_realisations WHERE utilisateur_id ='1'");
+$sql = $pdo->query(" SELECT * FROM t_realisations WHERE utilisateur_id ='1' ORDER BY r_dates ASC");
 $ligne_realisations = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $sql = $pdo->query(" SELECT * FROM t_experiences WHERE utilisateur_id ='1'");
@@ -49,8 +53,6 @@ $ligne_texte = $sql->fetch();
 
 //créé un formulaire
 //Formulaire/index.php
-// on récupère la classe Contact
-include('inc/Contact.class.php');
 
 // on vérifie que le formulaire a été posté
 if (!empty($_POST))
@@ -66,10 +68,10 @@ if (!empty($_POST))
     $erreurmessage = (empty($co_message)) ? 'Parlez donc !!' : null;
 
     // si tous les champs sont correctement renseignés
-    if ($valid)
+    if($valid)
     {
         // on crée un nouvel objet (ou une instance) de la class Contact.class.php
-        $contact = new Contact();
+        $contact = new Contact($pdo);
         // on utilise la méthode insertContact pour insérer en BDD
         $contact->insertContact($co_nom, $co_email, $co_sujet, $co_message);
     }
@@ -79,11 +81,11 @@ if (!empty($_POST))
 // $contact->sendEmail($sujet, $email, $message);
 
 // on efface les valeurs du formulaires
-unset($nom);
-unset($sujet);
-unset($message);
-unset($email);
-unset($contact);
+// unset($nom);
+// unset($sujet);
+// unset($message);
+// unset($email);
+// unset($contact);
 
 // on créé une variable de succès
 $success = 'Message envoyé !';
@@ -137,6 +139,7 @@ $success = 'Message envoyé !';
 
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/style_admin.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
 
 </head>
@@ -241,7 +244,7 @@ $success = 'Message envoyé !';
             <div class="col-sm-12">
                 <div class="main_about_area">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2>Expériences professionnelles</h2>
+                        <h2 class="flow">Expériences professionnelles</h2>
                         <hr>
                     </div>
 
@@ -284,7 +287,7 @@ $success = 'Message envoyé !';
             <div class="col-sm-12">
                 <div class="main_service_area">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2>Diplômes et formations</h2>
+                        <h2 class="flow">Diplômes et formations</h2>
                         <hr>
                     </div>
                     <div class="row">
@@ -344,7 +347,7 @@ $success = 'Message envoyé !';
             <div class="col-md-5 col-md-offset-1">
                 <div class="single_about about_progress">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2 class="flickr">Compétences : <br>Back-end</h2>
+                        <h2 class="flickr flow">Compétences : <br>Back-end</h2>
                         <hr>
                     </div>
 
@@ -365,7 +368,7 @@ $success = 'Message envoyé !';
             <div class="col-md-5 col-md-offset-1">
                 <div class="single_about about_progress">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2 class="flickr">Compétences : <br> Front-end</h2>
+                        <h2 class="flickr flow">Compétences : <br> Front-end</h2>
                         <hr>
                     </div>
                     <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
@@ -394,13 +397,13 @@ $success = 'Message envoyé !';
             <div class="col-sm-12">
                 <div class="main_team_area m-y-3">
                     <div class="head_title center wow fadeInUp">
-                        <h2>Réalisations</h2>
+                        <h2 class="flow">Réalisations</h2>
                         <p>Voivi l'apercu de quelques de mes réalisation, inspirations et projet en cours</p>
                     </div>
                     <hr>
                     <div class="main_team_content center">
                         <div class="row">
-                            <?php foreach($ligne_realisations as $ligne_realisation) : ?>
+                            <?php foreach($ligne_realisations as $ligne_realisation) : ?> <!-- boucle de récupération des images de réalisation ainsi que soit lien url ou lien photo -->
                                 <?php $l_rea = (substr($ligne_realisation['r_img'], 0, 4) == "site")? "<a href= 'img/" . $ligne_realisation['r_img'] . "' target='_blank'>" : "<a href='Old_site/" . substr($ligne_realisation['r_img'], 0, strlen($ligne_realisation['r_img']) - 4) . "' target='_blank'>"; ?>
                                     <?= $l_rea ?>
                                 <!-- <a target='_blank' href="" alt=''> -->
@@ -458,7 +461,7 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="main_works_area center m-y-4">
                 <div class="head_title center wow fadeInUp">
-                    <h2>Réseaux sociaux</h2>
+                    <h2 class="flow">Réseaux sociaux</h2>
                 </div>
                 <hr>
                 <div class="main_works_content p-y-4">
@@ -490,7 +493,7 @@ $success = 'Message envoyé !';
                                     <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
                                     <div class="text-center col-lg-12">
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-                                        <form role="form" action="index.php" id="feedbackForm" class="text-center" method="POST">
+                                        <form role="form" action="#" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
                                                 <label for="co_name">Nom</label>
                                                 <input type="text" class="form-control" id="co_nom" name="co_nom" placeholder="Nom">
@@ -510,8 +513,9 @@ $success = 'Message envoyé !';
                                                     <textarea rows="10" cols="100" class="form-control" id="co_message" name="co_message" placeholder="Message"></textarea>
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
-                                                <span class="help-block" style="display: none;">Please enter a the security code</span>
+
                                                 <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg" style=" margin-top: 10px;">Envoyer</button>
+                                                <?= $success ?>
                                             </form>
                                             <!-- END CONTACT FORM -->
                                         </div>
@@ -545,7 +549,7 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="copyright_text m-t-2 text-xs-center">
-                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <!--<a target="_black" href="admin/index.php">-->&middot;<!--</a>--> tous droits réservés &middot; Créé par <i class="fa fa-heart"></i> Sébastien miatti<i class="fa fa-heart"></i>
+                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <!--<a target="_black" href="admin/index.php">-->&middot;<!--</a>--> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
                         <?php
                         $date = date("d-m-Y");
                         $heure = date("H:i");
