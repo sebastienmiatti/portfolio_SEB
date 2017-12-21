@@ -1,19 +1,19 @@
 <?php
 
-//inclusion du header comprenant l'init
-require('inc/header.inc.php');
+//inclusion de l'init
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // gestion des contenus de la BDD utilisateur
-$resultat = $pdo -> prepare("SELECT * FROM t_utilisateurs WHERE id_utilisateur='$id_utilisateur'");
+$resultat = $pdo -> prepare("SELECT * FROM t_utilisateurs WHERE id_utilisateur='1'");
 $resultat->execute();
 $nbr_utilisateur = $resultat->rowCount();
 // $ligne_realisation = $resultat -> fetch();
@@ -55,6 +55,9 @@ if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans 
     $pdo -> query($resultat); // on peut avec exec aussi si on veut
     header("location: utilisateur.php"); // pour revenir sur la page
 } // ferme le if(isset)
+
+//inclusion du header
+require('inc/header.inc.php');
 
 ?>
 <hr>

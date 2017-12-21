@@ -34,6 +34,7 @@ class Contact
             // on ferme la requête pour protéger des injections
             $req->closeCursor();
       }
+      
 
     // // Bonus - envoi d'un email
     // public function sendEmail($sujet, $email, $message) {

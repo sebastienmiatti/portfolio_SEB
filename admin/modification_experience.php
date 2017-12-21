@@ -2,16 +2,16 @@
 
 
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // mise a jour d'une experience
 if(isset($_POST['e_titre']))
@@ -32,6 +32,8 @@ $id_experience = $_GET['id_experience']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_experiences WHERE id_experience = '$id_experience'"); // la requete est égal a l'id
 $ligne_experience = $resultat->fetch();
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 
     <div class="panel panel-info">

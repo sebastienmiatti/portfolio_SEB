@@ -244,7 +244,7 @@ $success = 'Message envoyé !';
             <div class="col-sm-12">
                 <div class="main_about_area">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2>Expériences professionnelles</h2>
+                        <h2 class="flow">Expériences professionnelles</h2>
                         <hr>
                     </div>
 
@@ -287,7 +287,7 @@ $success = 'Message envoyé !';
             <div class="col-sm-12">
                 <div class="main_service_area">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2>Diplômes et formations</h2>
+                        <h2 class="flow">Diplômes et formations</h2>
                         <hr>
                     </div>
                     <div class="row">
@@ -347,7 +347,7 @@ $success = 'Message envoyé !';
             <div class="col-md-5 col-md-offset-1">
                 <div class="single_about about_progress">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2 class="flickr">Compétences : <br>Back-end</h2>
+                        <h2 class="flickr flow">Compétences : <br>Back-end</h2>
                         <hr>
                     </div>
 
@@ -368,7 +368,7 @@ $success = 'Message envoyé !';
             <div class="col-md-5 col-md-offset-1">
                 <div class="single_about about_progress">
                     <div class="head_title center m-y-3 wow fadeInUp">
-                        <h2 class="flickr">Compétences : <br> Front-end</h2>
+                        <h2 class="flickr flow">Compétences : <br> Front-end</h2>
                         <hr>
                     </div>
                     <div class="skill wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
@@ -397,7 +397,7 @@ $success = 'Message envoyé !';
             <div class="col-sm-12">
                 <div class="main_team_area m-y-3">
                     <div class="head_title center wow fadeInUp">
-                        <h2>Réalisations</h2>
+                        <h2 class="flow">Réalisations</h2>
                         <p>Voivi l'apercu de quelques de mes réalisation, inspirations et projet en cours</p>
                     </div>
                     <hr>
@@ -461,7 +461,7 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="main_works_area center m-y-4">
                 <div class="head_title center wow fadeInUp">
-                    <h2>Réseaux sociaux</h2>
+                    <h2 class="flow">Réseaux sociaux</h2>
                 </div>
                 <hr>
                 <div class="main_works_content p-y-4">
@@ -487,10 +487,10 @@ $success = 'Message envoyé !';
             <div class="main_footer_area white-text p-b-3">
                 <div class="single_f_widget m-t-3 wow fadeInUp">
                     <div class="single_f_widget_text f_reatures">
-                        <div class="col-lg-offset-2 col-xs-10 col-lg-5 col-md-3">
+                        <div class="col-lg-offset-2 col-xs-12 col-lg-5 col-md-12">
                             <div class="jumbotron">
                                 <div class="row text-center">
-                                    <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
+                                    <div class="text-center col-xs-8 col-sm-12 col-md-12 col-lg-12"> </div>
                                     <div class="text-center col-lg-12">
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
                                         <form role="form" action="#" id="feedbackForm" class="text-center" method="POST">
@@ -549,7 +549,7 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="copyright_text m-t-2 text-xs-center">
-                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <!--<a target="_black" href="admin/index.php">-->&middot;<!--</a>--> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
+                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
                         <?php
                         $date = date("d-m-Y");
                         $heure = date("H:i");

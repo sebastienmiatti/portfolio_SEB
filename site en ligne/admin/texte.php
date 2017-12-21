@@ -1,17 +1,17 @@
 <?php
 
-
-require('inc/header.inc.php');
+// inclusions de l'init
+require('inc/init.inc.php');
 // gestion des contenus de la BDD compétences
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // insertion de textes
 if (isset($_POST['t_head']))
@@ -21,7 +21,7 @@ if (isset($_POST['t_head']))
             $t_head = addslashes($_POST['t_head']);
             $t_body = addslashes($_POST['t_body']);
             $t_foot = addslashes($_POST['t_foot']);
-            $pdo->exec(" INSERT INTO t_textes VALUES (NULL, '$t_head', '$t_body', '$t_foot', '$id_utilisateur')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
+            $pdo->exec(" INSERT INTO t_textes VALUES (NULL, '$t_head', '$t_body', '$t_foot', '1')"); // mettre $id_utilisateur quand on l'aura dans la variable de session
             header("location: texte.php");
             exit();
         } // ferme le if n'est pas vide
@@ -29,8 +29,12 @@ if (isset($_POST['t_head']))
 
 // pas de suppression des texte du CV on prends le dernier à jour
 
-		$sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='$id_utilisateur' ORDER BY id_texte DESC LIMIT 1 ");
+		$sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='1' ORDER BY id_texte DESC LIMIT 1 ");
 		$ligne_texte = $sql->fetch();
+
+//inclusion du header
+require('inc/header.inc.php');
+
 ?>
 
   <hr>

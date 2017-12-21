@@ -1,16 +1,16 @@
 <?php
 
-//inclusion du header comprenant l'init
-require('inc/header.inc.php');
+//inclusion de l'init
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // mise a jour d'un utilisateur
 if(isset($_POST['prenom']))
@@ -37,6 +37,9 @@ if(isset($_POST['prenom']))
 $id_utilisateur = $_GET['id_utilisateur']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_utilisateurs WHERE id_utilisateur = '$id_utilisateur'"); // la requete est égal a l'id
 $ligne_utilisateur = $resultat->fetch();
+
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 
 <div class="row">

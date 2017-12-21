@@ -1,18 +1,18 @@
 <?php
 
 
-//inclusion du header comprenant l'init
-require('inc/header.inc.php');
+//inclusion de l'init
+require('inc/init.inc.php');
 
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // Récupération des loisirs
 $id_loisir = $_GET['id_loisir']; // par l'id et $_GET
@@ -30,6 +30,9 @@ if(isset($_POST['loisir'])){// par le nom du premier input
     header('location: loisirs.php');
     exit();
 }
+
+//inclusion du header
+require('inc/header.inc.php');
 
 ?>
 

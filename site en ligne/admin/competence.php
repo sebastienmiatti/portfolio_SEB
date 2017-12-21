@@ -1,6 +1,6 @@
 <?php
-//inclusion du header comprenant l'init
-require('inc/header.inc.php');
+//inclusion de l'init
+require('inc/init.inc.php');
 
 // gestion de la connexion/déconnexion selon l'état de la session
 if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
@@ -44,6 +44,8 @@ if (isset($_GET['id_competence']))
         header("location: competence.php"); // pour revenir sur la page
     } // ferme le if(isset)
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 <hr>
     <div class="panel panel-info">

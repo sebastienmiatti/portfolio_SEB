@@ -1,24 +1,27 @@
 <?php
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }
+// else{
+//     header('location: connexion.php');
+// }
 
-}else{
-    header('location: connexion.php');
-}
-
-$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='$id_utilisateur' ORDER BY id_titre_cv DESC LIMIT 1  ");
+$sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1  ");
 $ligne_titre_cv = $sql->fetch();
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 
     <div class="container">
       <ol class="breadcrumb text-center">
-        <li><h1>Site cv <?= ($ligne_utilisateur['prenom']); ?> <?= ($ligne_utilisateur['nom']); ?></h1></li>
+        <li><h1>Site cv <?= ($_SESSION['prenom']); ?> <?= ($_SESSION['nom']); ?></h1></li>
         <hr>
       </ol>
 

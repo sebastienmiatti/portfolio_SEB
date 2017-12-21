@@ -2,19 +2,19 @@
 
 
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
+require('inc/init.inc.php');
 
-// gestion des contenus de la BDD compétences
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
+// // gestion des contenus de la BDD compétences
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
-}else{
-    header('location: connexion.php');
-}
-
-$sql = $pdo->prepare("SELECT * FROM t_reseaux WHERE utilisateur_id ='$id_utilisateur' ");
+$sql = $pdo->prepare("SELECT * FROM t_reseaux WHERE utilisateur_id ='1' ");
 $sql->execute();
 $nbr_reseaux = $sql->rowCount();
 //$ligne_loisir = $sql->fetch();
@@ -43,6 +43,9 @@ if(isset($_GET['id_reseau']))
 	$pdo->query($sql);// on peut avec exec aussi si on veut
 	header("location: reseaux.php");//pour revenir sur la page
 }//ferme le if isset
+
+//inclusion du header
+require('inc/header.inc.php');
 
 ?>
 

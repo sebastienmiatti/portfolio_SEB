@@ -1,19 +1,19 @@
 <?php
 
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='$id_utilisateur'");
+$resultat = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
 $resultat->execute();
 $nbr_experiences = $resultat->rowCount();
 // $ligne_experience = $resultat -> fetch();
@@ -44,6 +44,8 @@ if (isset($_GET['id_experience']))
     header("location: experience.php"); // pour revenir sur la page
 } // ferme le if(isset)
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 <hr>
     <div class="panel panel-info">

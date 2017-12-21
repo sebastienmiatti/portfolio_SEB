@@ -1,4 +1,3 @@
-<?php require('init.inc.php');?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -53,11 +52,12 @@
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="../index.php">Site public</a></li>
+                <li><a href="contact.php">Messages</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="titre_cv.php">Modification de titre</a></li>
                 <li><a href="texte.php">Modification de texte</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="connexion.php?deconnexion=oui">Se déconnecter</a></li>
+                <li><a href="deconnexion.php">Se déconnecter</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

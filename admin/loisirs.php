@@ -2,20 +2,20 @@
 
 
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
+require('inc/init.inc.php');
 
-
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+//
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // gestion des contenus de la BDD loisir
-$resultat = $pdo -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id='$id_utilisateur'");
+$resultat = $pdo -> prepare("SELECT * FROM t_loisirs WHERE utilisateur_id='1'");
 $resultat->execute();
 $nbr_loisir = $resultat->rowCount();
 // $ligne_competence = $resultat -> fetch();
@@ -44,6 +44,8 @@ if (isset($_GET['id_loisir']))
         header("location: loisirs.php"); // pour revenir sur la page
     } // ferme le if(isset)
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 <hr>
     <div class="panel panel-info">

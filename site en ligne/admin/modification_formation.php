@@ -2,16 +2,16 @@
 
 
 //inclusion du header comprenant l'init
-require('inc/header.inc.php');
-
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+require('inc/init.inc.php');
+// 
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // mise a jour d'une formation
 if(isset($_POST['f_titre'])){// par le nom du premier input
@@ -32,6 +32,8 @@ $id_formation = $_GET['id_formation']; // par l'id et $_GET
 $resultat = $pdo-> query("SELECT * FROM t_formations WHERE id_formation = '$id_formation'"); // la requete est égal a l'id
 $ligne_formation = $resultat->fetch();
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 
     <div class="panel panel-info">

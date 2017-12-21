@@ -487,10 +487,10 @@ $success = 'Message envoyé !';
             <div class="main_footer_area white-text p-b-3">
                 <div class="single_f_widget m-t-3 wow fadeInUp">
                     <div class="single_f_widget_text f_reatures">
-                        <div class="col-lg-offset-2 col-xs-10 col-lg-5 col-md-3">
+                        <div class="col-lg-offset-2 col-xs-12 col-lg-5 col-md-12">
                             <div class="jumbotron">
                                 <div class="row text-center">
-                                    <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12"> </div>
+                                    <div class="text-center col-xs-8 col-sm-12 col-md-12 col-lg-12"> </div>
                                     <div class="text-center col-lg-12">
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
                                         <form role="form" action="#" id="feedbackForm" class="text-center" method="POST">
@@ -549,7 +549,7 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="copyright_text m-t-2 text-xs-center">
-                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <!--<a target="_black" href="admin/index.php">-->&middot;<!--</a>--> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
+                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
                         <?php
                         $date = date("d-m-Y");
                         $heure = date("H:i");

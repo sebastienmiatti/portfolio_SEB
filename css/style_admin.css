@@ -21,7 +21,7 @@
 
 .flow{
 	background-image: url(https://media.giphy.com/media/3o7aCQTyoPLEVwVtZK/giphy.gif);
-	/* background-size: cover; */
+	background-size: cover;
 	color: transparent;
 	-moz-background-clip: text;
 	-webkit-background-clip: text;

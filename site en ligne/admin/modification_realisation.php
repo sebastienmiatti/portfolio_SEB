@@ -1,16 +1,16 @@
 <?php
 
-//inclusion du header comprenant l'init
-require('inc/header.inc.php');
+//inclusion de l'init
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 // mise a jour d'une realisation
 if(isset($_POST['r_titre'])){// par le nom du premier input
@@ -31,7 +31,8 @@ $id_realisation = $_GET['id_realisation']; // par l'id et $_GET
 $resultat = $pdo->query("SELECT * FROM t_realisations WHERE id_realisation = '$id_realisation'"); // la requete est égal a l'id
 $ligne_realisation = $resultat->fetch();
 
-
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 
     <div class="panel panel-info">

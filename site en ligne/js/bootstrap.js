@@ -2083,7 +2083,8 @@ var Modal = (function ($) {
       value: function _resetScrollbar() {
         document.body.style.paddingRight = this._originalBodyPadding;
       }
-    }, {
+    },
+    {
       key: '_getScrollbarWidth',
       value: function _getScrollbarWidth() {
         // thx d.walsh

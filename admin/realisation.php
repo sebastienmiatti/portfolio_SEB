@@ -1,22 +1,22 @@
 <?php
 
 
-//inclusion du header comprenant l'init
-require('inc/header.inc.php');
+//inclusion de l'init
+require('inc/init.inc.php');
 
-if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-    $id_utilisateur = $_SESSION['id_utilisateur'];
-    $prenom = $_SESSION['prenom'];
-    $nom = $_SESSION['nom'];
-
-}else{
-    header('location: connexion.php');
-}
+// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
+//     $id_utilisateur = $_SESSION['id_utilisateur'];
+//     $prenom = $_SESSION['prenom'];
+//     $nom = $_SESSION['nom'];
+//
+// }else{
+//     header('location: connexion.php');
+// }
 
 
 
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id='$id_utilisateur'");
+$resultat = $pdo -> prepare("SELECT * FROM t_realisations WHERE utilisateur_id='1'");
 $resultat->execute();
 $nbr_realisations = $resultat->rowCount();
 // $ligne_realisation = $resultat -> fetch();
@@ -47,6 +47,8 @@ if (isset($_GET['id_realisation'])) { // on récupère la comp. par son id dans 
     header("location: realisation.php"); // pour revenir sur la page
 } // ferme le if(isset)
 
+//inclusion du header
+require('inc/header.inc.php');
 ?>
 
 <hr>

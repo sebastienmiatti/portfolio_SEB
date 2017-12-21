@@ -1960,7 +1960,7 @@ $(document).ready(function(){
         }
         else {
           // Insert as text;
-          toast.innerHTML = html; 
+          toast.innerHTML = html;
         }
         // Bind hammer
         var hammerHandler = new Hammer(toast, {prevent_default: false});
@@ -2539,9 +2539,9 @@ $(document).ready(function(){
 		    var offset = $(this.hash).offset().top + 1;
 
 //          offset - 200 allows elements near bottom of page to scroll
-			
+
 	    	$('html, body').animate({ scrollTop: offset - 200 }, {duration: 400, queue: false, easing: 'easeOutCubic'});
-			
+
 		  });
 		});
 		options = options || {
@@ -2742,7 +2742,7 @@ $(document).ready(function(){
         $(this).addClass('tabbed');
         var $this = $(this);
         $this.one('blur', function(e) {
-          
+
           $(this).removeClass('tabbed');
         });
         return;
@@ -3420,8 +3420,8 @@ $(document).ready(function(){
             var velocityX = e.gesture.velocityX;
 
             $curr_slide = $slider.find('.active');
-            $curr_slide.velocity({ translateX: x
-                }, {duration: 50, queue: false, easing: 'easeOutQuad'});
+            // $curr_slide.velocity({ translateX: x
+            //     }, {duration: 50, queue: false, easing: 'easeOutQuad'});
 
             // Swipe Left
             if (direction === 4 && (x > ($this.innerWidth() / 2) || velocityX < -0.65)) {
@@ -4092,7 +4092,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 }
 
 
-                // Trigger queued the “start�? and “render�? events.
+                // Trigger queued the “start��? and “render��? events.
                 return P.trigger( 'start' ).trigger( 'render' )
             }, //start
 
@@ -4106,7 +4106,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 if ( entireComponent ) P.$root.html( createWrappedComponent() )
                 else P.$root.find( '.' + CLASSES.box ).html( P.component.nodes( STATE.open ) )
 
-                // Trigger the queued “render�? events.
+                // Trigger the queued “render��? events.
                 return P.trigger( 'render' )
             }, //render
 
@@ -4141,7 +4141,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 ELEMENT.type = STATE.type
                 ELEMENT.readOnly = false
 
-                // Trigger the queued “stop�? events.
+                // Trigger the queued “stop��? events.
                 P.trigger( 'stop' )
 
                 // Reset the picker states.
@@ -4160,16 +4160,16 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 // If it’s already open, do nothing.
                 if ( STATE.open ) return P
 
-                // Add the “active�? class.
+                // Add the “active��? class.
                 $ELEMENT.addClass( CLASSES.active )
                 aria( ELEMENT, 'expanded', true )
 
                 // * A Firefox bug, when `html` has `overflow:hidden`, results in
-                //   killing transitions :(. So add the “opened�? state on the next tick.
+                //   killing transitions :(. So add the “opened��? state on the next tick.
                 //   Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=625289
                 setTimeout( function() {
 
-                    // Add the “opened�? class to the picker root.
+                    // Add the “opened��? class to the picker root.
                     P.$root.addClass( CLASSES.opened )
                     aria( P.$root[0], 'hidden', false )
 
@@ -4230,7 +4230,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                         }
 
 
-                        // Check if there is a key movement or “enter�? keypress on the element.
+                        // Check if there is a key movement or “enter��? keypress on the element.
                         else if ( target == P.$root[0] && ( keycodeToMove || keycode == 13 ) ) {
 
                             // Prevent the default action to stop page movement.
@@ -4241,14 +4241,14 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                                 PickerConstructor._.trigger( P.component.key.go, P, [ PickerConstructor._.trigger( keycodeToMove ) ] )
                             }
 
-                            // On “enter�?, if the highlighted item isn’t disabled, set the value and close.
+                            // On “enter��?, if the highlighted item isn’t disabled, set the value and close.
                             else if ( !P.$root.find( '.' + CLASSES.highlighted ).hasClass( CLASSES.disabled ) ) {
                                 P.set( 'select', P.component.item.highlight ).close()
                             }
                         }
 
 
-                        // If the target is within the root and “enter�? is pressed,
+                        // If the target is within the root and “enter��? is pressed,
                         // prevent the default action and trigger a click on the target instead.
                         else if ( $.contains( P.$root[0], target ) && keycode == 13 ) {
                             event.preventDefault()
@@ -4257,7 +4257,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                     })
                 }
 
-                // Trigger the queued “open�? events.
+                // Trigger the queued “open��? events.
                 return P.trigger( 'open' )
             }, //open
 
@@ -4278,16 +4278,16 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                     }, 0 )
                 }
 
-                // Remove the “active�? class.
+                // Remove the “active��? class.
                 $ELEMENT.removeClass( CLASSES.active )
                 aria( ELEMENT, 'expanded', false )
 
                 // * A Firefox bug, when `html` has `overflow:hidden`, results in
-                //   killing transitions :(. So remove the “opened�? state on the next tick.
+                //   killing transitions :(. So remove the “opened��? state on the next tick.
                 //   Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=625289
                 setTimeout( function() {
 
-                    // Remove the “opened�? and “focused�? class from the picker root.
+                    // Remove the “opened��? and “focused��? class from the picker root.
                     P.$root.removeClass( CLASSES.opened + ' ' + CLASSES.focused )
                     aria( P.$root[0], 'hidden', true )
 
@@ -4309,7 +4309,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 // Unbind the document events.
                 $document.off( '.' + STATE.id )
 
-                // Trigger the queued “close�? events.
+                // Trigger the queued “close��? events.
                 return P.trigger( 'close' )
             }, //close
 
@@ -4365,7 +4365,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                     P.render()
                 }
 
-                // When the method isn’t muted, trigger queued “set�? events and pass the `thingObject`.
+                // When the method isn’t muted, trigger queued “set��? events and pass the `thingObject`.
                 return options.muted ? P : P.trigger( 'set', thingObject )
             }, //set
 
@@ -4537,7 +4537,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
             // Store the picker data by component name.
             data(NAME, P).
 
-            // Add the “input�? class name.
+            // Add the “input��? class name.
             addClass(CLASSES.input).
 
             // Remove the tabindex.
@@ -4589,7 +4589,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 keydown: handleKeydownEvent,
 
                 // When something within the root is focused, stop from bubbling
-                // to the doc and remove the “focused�? state from the root.
+                // to the doc and remove the “focused��? state from the root.
                 focusin: function( event ) {
                     P.$root.removeClass( CLASSES.focused )
                     event.stopPropagation()
@@ -4622,7 +4622,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 }
             }).
 
-            // Add/remove the “target�? class on focus and blur.
+            // Add/remove the “target��? class on focus and blur.
             on({
                 focus: function() {
                     $ELEMENT.addClass( CLASSES.target )
@@ -4632,7 +4632,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                 }
             }).
 
-            // Open the picker and adjust the root “focused�? state
+            // Open the picker and adjust the root “focused��? state
             on( 'focus.toOpen', handleFocusToOpenEvent ).
 
             // If there’s a click on an actionable element, carry out the actions.
@@ -4662,7 +4662,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
                     P.set( 'select', targetData.pick )
                 }
 
-                // If a “clear�? button is pressed, empty the values and close with focus.
+                // If a “clear��? button is pressed, empty the values and close with focus.
                 else if ( targetData.clear ) {
                     P.clear().close( true )
                 }
@@ -4736,7 +4736,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
             // Check if one of the delete keys was pressed.
             isKeycodeDelete = /^(8|46)$/.test(keycode)
 
-        // For some reason IE clears the input value on “escape�?.
+        // For some reason IE clears the input value on “escape��?.
         if ( keycode == 27 ) {
             P.close()
             return false
@@ -4763,7 +4763,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
         // Stop the event from propagating to the doc.
         event.stopPropagation()
 
-        // If it’s a focus event, add the “focused�? class to the root.
+        // If it’s a focus event, add the “focused��? class to the root.
         if ( event.type == 'focus' ) {
             P.$root.addClass( CLASSES.focused )
         }
@@ -5152,7 +5152,7 @@ function DatePicker( picker, settings ) {
         calendar.set( 'select', valueString, { format: formatString })
     }
 
-    // If there’s no value, default to highlighting “today�?.
+    // If there’s no value, default to highlighting “today��?.
     else {
         calendar.
             set( 'select', null ).
@@ -5316,7 +5316,7 @@ DatePicker.prototype.create = function( type, value, options ) {
 
 /**
  * Create a range limit object using an array, date object,
- * literal “true�?, or integer relative to another time.
+ * literal “true��?, or integer relative to another time.
  */
 DatePicker.prototype.createRange = function( from, to ) {
 
@@ -5632,7 +5632,7 @@ DatePicker.prototype.disabled = function( dateToVerify ) {
                 return dateToVerify.pick === calendar.create( dateToDisable ).pick
             }
 
-            // If it’s an object, match a date within the “from�? and “to�? range.
+            // If it’s an object, match a date within the “from��? and “to��? range.
             if ( $.isPlainObject( dateToDisable ) ) {
                 return calendar.withinRange( dateToDisable, dateToVerify )
             }
@@ -5644,7 +5644,7 @@ DatePicker.prototype.disabled = function( dateToVerify ) {
             $.isPlainObject( dateToDisable ) && dateToDisable.inverted
     }).length
 
-    // Check the calendar “enabled�? flag and respectively flip the
+    // Check the calendar “enabled��? flag and respectively flip the
     // disabled state. Then also check if it’s beyond the min/max limits.
     return calendar.item.enable === -1 ? !isDisabledMatch : isDisabledMatch ||
         dateToVerify.pick < calendar.item.min.pick ||
@@ -5825,7 +5825,7 @@ DatePicker.prototype.isDateExact = function( one, two ) {
         return one === two
     }
 
-    // When we’re working with date representations, compare the “pick�? value.
+    // When we’re working with date representations, compare the “pick��? value.
     if (
         ( _.isDate( one ) || $.isArray( one ) ) &&
         ( _.isDate( two ) || $.isArray( two ) )
@@ -5833,7 +5833,7 @@ DatePicker.prototype.isDateExact = function( one, two ) {
         return calendar.create( one ).pick === calendar.create( two ).pick
     }
 
-    // When we’re working with range objects, compare the “from�? and “to�?.
+    // When we’re working with range objects, compare the “from��? and “to��?.
     if ( $.isPlainObject( one ) && $.isPlainObject( two ) ) {
         return calendar.isDateExact( one.from, two.from ) && calendar.isDateExact( one.to, two.to )
     }
@@ -5870,7 +5870,7 @@ DatePicker.prototype.isDateOverlap = function( one, two ) {
 
 
 /**
- * Flip the “enabled�? state.
+ * Flip the “enabled��? state.
  */
 DatePicker.prototype.flipEnable = function(val) {
     var itemObject = this.item
@@ -5879,7 +5879,7 @@ DatePicker.prototype.flipEnable = function(val) {
 
 
 /**
- * Mark a collection of dates as “disabled�?.
+ * Mark a collection of dates as “disabled��?.
  */
 DatePicker.prototype.deactivate = function( type, datesToDisable ) {
 
@@ -5938,7 +5938,7 @@ DatePicker.prototype.deactivate = function( type, datesToDisable ) {
 
 
 /**
- * Mark a collection of dates as “enabled�?.
+ * Mark a collection of dates as “enabled��?.
  */
 DatePicker.prototype.activate = function( type, datesToEnable ) {
 
@@ -5983,7 +5983,7 @@ DatePicker.prototype.activate = function( type, datesToEnable ) {
                     break
                 }
 
-                // When an overlapped match is found, add the “inverted�? state to it.
+                // When an overlapped match is found, add the “inverted��? state to it.
                 else if ( calendar.isDateOverlap( disabledUnit, unitToEnable ) ) {
                     if ( $.isPlainObject( unitToEnable ) ) {
                         unitToEnable.inverted = true
@@ -6009,7 +6009,7 @@ DatePicker.prototype.activate = function( type, datesToEnable ) {
             }
 
             // In the event that we’re dealing with an exact range of dates,
-            // make sure there are no “inverted�? dates because of it.
+            // make sure there are no “inverted��? dates because of it.
             if ( isExactRange ) for ( index = 0; index < disabledItemsCount; index += 1 ) {
                 if ( calendar.isDateOverlap( disabledItems[index], unitToEnable ) ) {
                     disabledItems[index] = null
@@ -6381,7 +6381,7 @@ return _.node(
 
      +
 
-    // * For Firefox forms to submit, make sure to set the buttons’ `type` attributes as “button�?.
+    // * For Firefox forms to submit, make sure to set the buttons’ `type` attributes as “button��?.
     _.node(
         'div',
         _.node( 'button', settings.today, "btn-flat picker__today",
