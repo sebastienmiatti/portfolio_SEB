@@ -72,7 +72,7 @@ require('inc/header.inc.php');
                                  </div>
                               <div>
                                   <div class="form-group">
-                                 <input class= "btn btn-primary btn-block" name="connexion" id="connexion" type="submit" value="Connexion"/>
+                                 <input class= "btn btn-primary btn-block" name="connexion" id="connexion" type="submit" value="connexion"/>
                              </div>
                               <!-- <div class="col-md-offset-0">
                                   <small id="mdplost" class="form-text text-muted">
