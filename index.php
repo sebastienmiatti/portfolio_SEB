@@ -121,7 +121,7 @@ $success = 'Message envoyé !';
     <!-- Font Awesome -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,300,300italic,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
+    <link rel="icon" href="img/SebLogo.png">
     <!-- Material Design Bootstrap -->
     <link href="css/materialize.css" rel="stylesheet">
 
@@ -327,7 +327,7 @@ $success = 'Message envoyé !';
             <div class="row">
                 <div class="col-sm-12">
                     <div class="main_joinus_content center white-text wow fadeInUp">
-                        <i class="fa fa-user-plus m-b-1"></i>
+                        <i class="fa fa-envelope m-b-1"></i>
                         <h2 class="text-uppercase m-b-3"><?= $ligne_texte['t_head']; ?></h2>
                         <p>“ <?= $ligne_texte['t_body']; ?>”</p>
                         <a target="_blank" href="img/cv_seb_web.pdf" class="btn btn-danger waves-effect waves-red">Telecharger mon CV</a>
