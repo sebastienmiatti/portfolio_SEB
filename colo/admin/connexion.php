@@ -2,7 +2,7 @@
 session_start();
 // $pdo = new PDO('mysql:host=localhost;dbname=site_cv', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 $hote='localhost';
-$bdd ='site_cv';
+$bdd ='site_colo';
 $utilisateur='root';
 $passe='';
 $identifiant = (isset($_SESSION['connexion'])?$_SESSION['prenom'] . ' ' . $_SESSION['nom']:"");
@@ -79,7 +79,6 @@ require('inc/header.inc.php');
                                       <a href="#">Mot de passe oublié ?</a>
                                   </small>
                              </div> -->
-
                          </div>
                   </form>
              </div>

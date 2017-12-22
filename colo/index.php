@@ -378,6 +378,35 @@ $success = 'Message envoyé !';
                 </div>
             </div>
         </div>
+        <div class="main_coppyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-offset-3 col-sm-6 col-xs-12">
+                        <div class="copyright_text m-t-2 text-xs-center text-center">
+                            <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="admin/index.php">&middot;</a> tous droits réservés &middot;
+                                <?php
+                                $date = date("d-m-Y");
+                                $heure = date("H:i");
+                                Print("le $date &middot; $heure");
+                                ?>
+                            </p>
+                            <p>Créé par <i class="fa fa-code blue"></i> Miatti Sébastien <i class="fa fa-code blue"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-3 col-sm-6 col-xs-12">
+                        <div class="socail_coppyright text-sm-right m-t-2 text-xs-center text-center wow zoomIn">
+                            <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
+                            <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
+                            <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                            <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!--CONTACT SECTION END-->
 

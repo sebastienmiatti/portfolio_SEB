@@ -49,12 +49,12 @@ if (isset($_POST['utilisateur']))
     } // ferme le if(isset) du form
 
 // Suppression d'un utilisateur
-if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans l'url
-    $efface =  $_GET['id_utilisateur'];
-    $resultat = "DELETE FROM t_utilisateurs WHERE id_utilisateur = '$efface'";
-    $pdo -> query($resultat); // on peut avec exec aussi si on veut
-    header("location: utilisateur.php"); // pour revenir sur la page
-} // ferme le if(isset)
+// if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans l'url
+//     $efface =  $_GET['id_utilisateur'];
+//     $resultat = "DELETE FROM t_utilisateurs WHERE id_utilisateur = '$efface'";
+//     $pdo -> query($resultat); // on peut avec exec aussi si on veut
+//     header("location: utilisateur.php"); // pour revenir sur la page
+// } // ferme le if(isset)
 
 //inclusion du header
 require('inc/header.inc.php');
@@ -76,25 +76,25 @@ require('inc/header.inc.php');
             </div>
             <img src="..." alt="..."/>
                 <?php while ($ligne_utilisateur = $resultat -> fetch()) : ?>
-                    <h3><?= $ligne_utilisateur['nom'];?> <?= $ligne_utilisateur['prenom'];?></h3>
-                    <p><?= $ligne_utilisateur['nom'];?></p>
-                    <p><?= $ligne_utilisateur['prenom'];?></p>
+                    <h3><?= $ligne_utilisateur['nom']; ?> <?= $ligne_utilisateur['prenom']; ?></h3>
+                    <p><?= $ligne_utilisateur['nom']; ?></p>
+                    <p><?= $ligne_utilisateur['prenom']; ?></p>
                     <p class="hidden"><?= $ligne_utilisateur['id_utilisateur'];?></p>
-                    <p><?= $ligne_utilisateur['email'];?></p>
-                    <p><?= $ligne_utilisateur['telephone'];?></p>
-                    <p><?= $ligne_utilisateur['mdp'];?></p>
-                    <p><?= $ligne_utilisateur['pseudo'];?></p>
-                    <p><?= $ligne_utilisateur['age'];?></p>
-                    <p><?= $ligne_utilisateur['date_naissance'];?></p>
-                    <p><?= $ligne_utilisateur['sexe'];?></p>
-                    <p><?= $ligne_utilisateur['etat_civil'];?></p>
-                    <p><?= $ligne_utilisateur['adresse'];?></p>
-                    <p><?= $ligne_utilisateur['code_postal'];?></p>
-                    <p><?= $ligne_utilisateur['ville'];?></p>
-                    <p><?= $ligne_utilisateur['pays'];?></p>
-                    <p><?= $ligne_utilisateur['site_web'];?></p>
+                    <p><?= $ligne_utilisateur['email']; ?></p>
+                    <p><?= $ligne_utilisateur['telephone']; ?></p>
+                    <p><?= $ligne_utilisateur['mdp']; ?></p>
+                    <p><?= $ligne_utilisateur['pseudo']; ?></p>
+                    <p><?= $ligne_utilisateur['age']; ?></p>
+                    <p><?= $ligne_utilisateur['date_naissance']; ?></p>
+                    <p><?= $ligne_utilisateur['sexe']; ?></p>
+                    <p><?= $ligne_utilisateur['etat_civil']; ?></p>
+                    <p><?= $ligne_utilisateur['adresse']; ?></p>
+                    <p><?= $ligne_utilisateur['code_postal']; ?></p>
+                    <p><?= $ligne_utilisateur['ville']; ?></p>
+                    <p><?= $ligne_utilisateur['pays']; ?></p>
+                    <p><?= $ligne_utilisateur['site_web']; ?></p>
                     <hr>
-                <td><a href="modification_utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
+                <td><a href="modification_utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur']; ?>"><button type="button" class="btn btn-block btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Modifier</span></button></a></td>
                 <!-- <td><a href="utilisateur.php?id_utilisateur=<?= $ligne_utilisateur['id_utilisateur'];?>"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Supprimer</span></button></a></td> -->
 
                 <?php endwhile ?>
