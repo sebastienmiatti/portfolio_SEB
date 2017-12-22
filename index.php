@@ -111,6 +111,7 @@ $success = 'Message envoyé !';
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Miatti Sébastien-developpeur integrateur web technologies-html-css-php-mysql-jquery-javascrip-silex-ajax-boostrap-wordpress ">
+    <meta name="author" content="Miatti Sebastien" />
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -178,7 +179,7 @@ $success = 'Message envoyé !';
                         <a class="nav-link" href="#loisirs">Loisirs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reseau">Réseau</a>
+                        <a class="nav-link" href="#reseau">Réseaux</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#!"><i class="fa fa-search fa-lg"></i></a>
@@ -291,7 +292,7 @@ $success = 'Message envoyé !';
                         <hr>
                     </div>
                     <div class="row">
-                        <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les expériences-->
+                        <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les formations-->
                             <div class="col-md-4">
                                 <div class="jumbotron single_service  wow fadeInLeft">
                                     <?php $f_logo = (substr($ligne_formation['f_logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_formation['f_logo'] . "' m-b-3 aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_formation['f_logo'] . "' alt=''>"; ?>
