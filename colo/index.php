@@ -1,9 +1,9 @@
 <?php
 //on récupère la connexion a la bdd depuis le fichier init
-require_once('inc/init.inc.php');
+require_once('assets/inc/init.inc.php');
 
 // on récupère la classe Contact
-include('inc/Contact.class.php');
+include('assets/inc/Contact.class.php');
 
 // récupération des informations des bdd pour affichage
 $resultat = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1"); ////ORDER BY id_titre_cv DESC LIMIT 1
@@ -372,7 +372,7 @@ $success = 'Message envoyé !';
                         <h3>Contact</h3>
                         <h4><strong>Email : </strong><?php $ligne_utilisateur['email']; ?></h4>
                         <h4><strong>telephone : </strong><?php $ligne_utilisateur['telephone']; ?></h4>
-                        <h4><strong>Ville: </strong> PARIS </h4>
+                        <h4><strong>Ville: </strong> <?php $ligne_utilisateur['ville']; ?> </h4>
                         <!-- <h4><strong>Skype : </strong> <?php $ligne_utilisateur['site']; ?> </h4> -->
                     </div>
                 </div>

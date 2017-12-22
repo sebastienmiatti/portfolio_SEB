@@ -49,12 +49,12 @@ if (isset($_POST['utilisateur']))
     } // ferme le if(isset) du form
 
 // Suppression d'un utilisateur
-if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans l'url
-    $efface =  $_GET['id_utilisateur'];
-    $resultat = "DELETE FROM t_utilisateurs WHERE id_utilisateur = '$efface'";
-    $pdo -> query($resultat); // on peut avec exec aussi si on veut
-    header("location: utilisateur.php"); // pour revenir sur la page
-} // ferme le if(isset)
+// if (isset($_GET['id_utilisateur'])) { // on récupère la comp. par son id dans l'url
+//     $efface =  $_GET['id_utilisateur'];
+//     $resultat = "DELETE FROM t_utilisateurs WHERE id_utilisateur = '$efface'";
+//     $pdo -> query($resultat); // on peut avec exec aussi si on veut
+//     header("location: utilisateur.php"); // pour revenir sur la page
+// } // ferme le if(isset)
 
 //inclusion du header
 require('inc/header.inc.php');
