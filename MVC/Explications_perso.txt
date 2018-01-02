@@ -1,0 +1,11 @@
+### Création d'un models MVC ###
+
+## Création des dossier
+    Création de 4 dossier a la racine core/controllers/models/views
+
+## Création des fichiers
+    Création du fichier index.php a la racine ainsi que le fichiers .htaccess pour la réécriture des urls
+
+## Définition de 2 variables Root et WebRoot
+    $WebRoot: indique url depuis la racine
+    $Root: contient le dossier sur le serveur
