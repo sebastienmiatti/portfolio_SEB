@@ -110,8 +110,9 @@ $success = 'Message envoyé !';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Miatti Sébastien-developpeur integrateur web technologies-html-css-php-mysql-jquery-javascrip-silex-ajax-boostrap-wordpress ">
-    <meta name="author" content="Miatti Sebastien" />
+    <meta name="description" content="Miatti Sébastien - devéloppeur intégrateur web actuellement 'En recherche de stage' ">
+    <meta name="author" lang="fr" content="Miatti Sébastien">
+    <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, html, css, php, MySql, javascript, jQuery, Ajax, Silex, Laravel, Symfony, PhpOO, MVC, wordpress, bootstrap, site, dynamique, Responsive, Adaptive">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -179,7 +180,7 @@ $success = 'Message envoyé !';
                         <a class="nav-link" href="#loisirs">Loisirs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reseau">Réseaux</a>
+                        <a class="nav-link" href="#reseau">Réseau</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#!"><i class="fa fa-search fa-lg"></i></a>
@@ -292,7 +293,7 @@ $success = 'Message envoyé !';
                         <hr>
                     </div>
                     <div class="row">
-                        <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les formations-->
+                        <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les expériences-->
                             <div class="col-md-4">
                                 <div class="jumbotron single_service  wow fadeInLeft">
                                     <?php $f_logo = (substr($ligne_formation['f_logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_formation['f_logo'] . "' m-b-3 aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_formation['f_logo'] . "' alt=''>"; ?>
@@ -536,8 +537,8 @@ $success = 'Message envoyé !';
                                     <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
                                     <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
                                     <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
-                                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
                                     <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -564,8 +565,8 @@ $success = 'Message envoyé !';
                     <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
                     <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
                     <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
-                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
                     <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
                 </div>
             </div>
         </div>
