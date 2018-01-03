@@ -225,7 +225,7 @@ $success = 'Message envoyé !';
     <div id="home" class="slider">
         <ul class="slides">
             <li>
-                <img src="img/homebener.jpg">
+                <img src="img/homebener.jpg" alt="image-fond">
                 <div class="caption center-align">
                     <div class="single_home">
 
@@ -497,7 +497,7 @@ $success = 'Message envoyé !';
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
                                         <form role="form" action="#" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
-                                                <label for="co_name">Nom</label>
+                                                <label for="co_nom">Nom</label>
                                                 <input type="text" class="form-control" id="co_nom" name="co_nom" placeholder="Nom">
                                                 <span class="help-block" style="display: none;">Merci d'inserer votre nom</span></div>
                                                 <div class="form-group">
@@ -511,7 +511,7 @@ $success = 'Message envoyé !';
                                                     <span class="help-block" style="display: none;">Merci de rentrer un sujet correct:</span>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="message">Message</label>
+                                                    <label for="co_message">Message</label>
                                                     <textarea rows="10" cols="100" class="form-control" id="co_message" name="co_message" placeholder="Message"></textarea>
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
@@ -551,13 +551,13 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="copyright_text m-t-2 text-xs-center">
-                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_black" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
+                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_blanck" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
                         <?php
                         $date = date("d-m-Y");
                         $heure = date("H:i");
                         Print("le $date &middot; $heure");
                         ?>
-                    </p></p>
+                    </p>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -580,32 +580,32 @@ $success = 'Message envoyé !';
 <!-- SCRIPTS -->
 
 <!-- JQuery -->
-<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+<script src="js/jquery-2.2.3.min.js"></script>
 
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="js/tether.min.js"></script>
+<script src="js/tether.min.js"></script>
 
 
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/mdb.min.js"></script>
+<script src="js/mdb.min.js"></script>
 
 <!-- Wow js -->
-<script type="text/javascript" src="js/wow.min.js"></script>
+<script src="js/wow.min.js"></script>
 
 <!-- Mixitup js -->
-<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+<script src="js/jquery.mixitup.min.js"></script>
 
 <!-- Magnific-popup js -->
-<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
 
 <!-- accordion js -->
-<script type="text/javascript" src="js/accordion.js"></script>
+<script src="js/accordion.js"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="js/materialize.js"></script>
+<script src="js/materialize.js"></script>
 
 <script>
 $(".button-collapse").sideNav();
@@ -616,9 +616,9 @@ $(".button-collapse").sideNav();
 new WOW().init();
 </script>
 
-<script type="text/javascript" src="js/plugins.js"></script>
-<script type="text/javascript" src="js/waypoints/lib/noframework.waypoints.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/waypoints/lib/noframework.waypoints.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
