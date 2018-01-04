@@ -45,6 +45,9 @@ $ligne_formations = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->query(" SELECT * FROM t_reseaux WHERE utilisateur_id ='1'");
 $ligne_reseaux = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = $pdo->query(" SELECT * FROM t_partenaires WHERE utilisateur_id ='1'");
+$ligne_partenaires = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 $sql = $pdo->query(" SELECT * FROM t_loisirs WHERE utilisateur_id ='1'");
 $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -160,7 +163,7 @@ $success = 'Message envoyé !';
             <!--Content for large and medium screens-->
             <div class="navbar-desktop">
                 <!--Navbar Brand-->
-                <a class="navbar-brand" href="index.php"><img src="img/<?= $ligne_titre_cv['logo']; ?>" alt="logo" height="80px" /></a>
+                    <a class="navbar-brand" href="index.php"><img src="img/<?= $ligne_titre_cv['logo']; ?>" alt="logo" height="80px"/></a>
                 <!--Links-->
                 <ul class="nav navbar-nav pull-right hidden-md-down text-uppercase">
                     <li class="nav-item">
@@ -180,10 +183,10 @@ $success = 'Message envoyé !';
                         <a class="nav-link" href="#loisirs">Loisirs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reseau">Réseau</a>
+                        <a class="nav-link" href="#partenaire">Partenaires</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#!"><i class="fa fa-search fa-lg"></i></a>
+                        <a class="nav-link" target="_blank" href="#contact"><i class="fa fa-search fa-lg"></i></a>
                     </li>
                 </ul>
 
@@ -210,10 +213,10 @@ $success = 'Message envoyé !';
                         <a class="nav-link" href="#loisirs">Loisirs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#reseau">Réseau</a>
+                        <a class="nav-link" href="#partenaire">Partenaires</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#!"><i class="fa fa-search fa-lg"></i></a>
+                        <a class="nav-link" href="#contact"><i class="fa fa-search fa-lg"></i></a>
                     </li>
                 </ul>
             </div>
@@ -296,7 +299,7 @@ $success = 'Message envoyé !';
                         <?php foreach($ligne_formations as $ligne_formation) : ?> <!--boucle pour afficher les expériences-->
                             <div class="col-md-4">
                                 <div class="jumbotron single_service  wow fadeInLeft">
-                                    <?php $f_logo = (substr($ligne_formation['f_logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_formation['f_logo'] . "' m-b-3 aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_formation['f_logo'] . "' alt=''>"; ?>
+                                    <?php $f_logo = (substr($ligne_formation['f_logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_formation['f_logo'] . "' aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_formation['f_logo'] . "' alt=''>"; ?>
                                     <div class="service_icon center">
                                         <p><?= $f_logo ?></p>
                                     </div>
@@ -322,6 +325,30 @@ $success = 'Message envoyé !';
 </section> <!-- End of service section -->
 
 
+<section id="reseau" class="works">
+    <div class="container">
+        <div class="row">
+            <div class="main_works_area center m-y-4">
+                <div class="head_title center wow fadeInUp">
+                    <h2 class="flow">Réseaux sociaux</h2>
+                </div>
+                <hr>
+                <div class="main_works_content p-y-4">
+                    <?php foreach($ligne_reseaux as $ligne_reseau) : ?>
+                        <div class="col-md-2">
+                            <div class="single_works wow zoomIn">
+                                <?php $logo = (substr($ligne_reseau['logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_reseau['logo'] . "' aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_reseau['logo'] . "' alt=''>"; ?>
+                                <a href="<?= $ligne_reseau['url'];?>" target="_blank"><?= $logo ?></a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr />
+</section><!-- End of works Section -->
 
 <section id="joinus" class="joinus">
     <div class="main_joinus_area m-y-3">
@@ -433,12 +460,13 @@ $success = 'Message envoyé !';
 </section><!-- End of Team section -->
 
 <section id="loisirs" class="counter">
-
+    <div class="head_title center wow fadeInUp">
+        <h2 class="flow">Loisirs</h2>
+    </div>
     <div class="main_counter_area m-y-3">
         <div class="overlay p-y-3">
             <div class="container">
                 <div class="row">
-
                     <?php foreach($ligne_loisirs as $ligne_loisir) : ?>
                         <div class="main_counter_content center white-text wow fadeInUp">
                             <div class="col-md-3">
@@ -458,32 +486,32 @@ $success = 'Message envoyé !';
     <hr />
 </section><!-- End of counter Section -->
 
-<section id="reseau" class="works">
+
+<section id="partenaire" class="offer">
     <div class="container">
         <div class="row">
             <div class="main_works_area center m-y-4">
                 <div class="head_title center wow fadeInUp">
-                    <h2 class="flow">Réseaux sociaux</h2>
+                    <h2 class="flow">Partenaires</h2>
                 </div>
                 <hr>
                 <div class="main_works_content p-y-4">
-                    <?php foreach($ligne_reseaux as $ligne_reseau) : ?>
+                    <?php foreach($ligne_partenaires as $ligne_partenaire): ?>
                         <div class="col-md-2">
                             <div class="single_works wow zoomIn">
-                                <?php $logo = (substr($ligne_reseau['logo'], 0, 3) == "fa-")? "<i class= 'fa " . $ligne_reseau['logo'] . "'-officiel aria-hidden='true'></i>" : "<img width='20' src='img/" . $ligne_reseau['logo'] . "' alt=''>"; ?>
-                                <a href="<?= $ligne_reseau['url'];?>" target="_blank"><?= $logo ?></a>
+                                <a href="<?= $ligne_partenaire['p_url'];?>" target="_blank"><h6><?= $ligne_partenaire['p_reseau']; ?></h6></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
-
             </div>
         </div>
     </div>
     <hr />
-</section><!-- End of works Section -->
+</section> <!-- End of works Section -->
 
-<section id="footer" class="footer">
+
+<section id="contact" class="footer">
     <div class="container">
         <div class="row">
             <div class="main_footer_area white-text p-b-3">
@@ -497,12 +525,15 @@ $success = 'Message envoyé !';
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
                                         <form action="#" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
+                                                <div class="head_title center wow fadeInUp">
+                                                    <h2 class="flow">Contactez-moi</h2>
+                                                </div>
                                                 <label for="co_nom">Nom</label>
                                                 <input type="text" class="form-control" id="co_nom" name="co_nom" placeholder="Nom">
                                                 <span class="help-block" style="display: none;">Merci d'inserer votre nom</span></div>
                                                 <div class="form-group">
                                                     <label for="co_email">E-Mail</label>
-                                                    <input type="email" class="form-control" id="co_email" name="co_email" placeholder="Addresse email">
+                                                    <input type="email" class="form-control" id="co_email" name="co_email" placeholder="Email">
                                                     <span class="help-block" style="display: none;">Merci de rentrer une adresse email valide</span>
                                                 </div>
                                                 <div class="form-group">
@@ -515,7 +546,6 @@ $success = 'Message envoyé !';
                                                     <textarea rows="10" cols="100" class="form-control" id="co_message" name="co_message" placeholder="Message"></textarea>
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
-
                                                 <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg" style=" margin-top: 10px;">Envoyer</button>
                                                 <?= $success ?>
                                             </form>
@@ -527,18 +557,17 @@ $success = 'Message envoyé !';
                         </div>
                     </div>
 
-
                     <div class="col-md-3">
                         <div class="single_f_widget p-t-3 wow fadeInUp">
                             <img src="img/<?= $ligne_utilisateur['avatar'];?>" alt="" />
                             <div class="single_f_widget_text">
                                 <p><?= $ligne_texte['t_foot']; ?></p>
                                 <div class="socail_f_widget">
-                                    <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
-                                    <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
-                                    <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
-                                    <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
-                                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
+                                    <a target="_blank" href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
+                                    <a target="_blank" href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                                    <a target="_blank" href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -546,32 +575,33 @@ $success = 'Message envoyé !';
                 </div>
             </div>
         </div>
-<div class="main_coppyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-xs-12">
-                <div class="copyright_text m-t-2 text-xs-center">
-                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_blank" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
-                        <?php
-                        $date = date("d-m-Y");
-                        $heure = date("H:i");
-                        Print("le $date &middot; $heure");
-                        ?>
-                    </p>
+
+    <div class="main_coppyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <div class="copyright_text m-t-2 text-xs-center">
+                        <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_blank" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
+                            <?php
+                            $date = date("d-m-Y");
+                            $heure = date("H:i");
+                            Print("le $date &middot; $heure");
+                            ?>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="socail_coppyright text-sm-right m-t-2 text-xs-center wow zoomIn">
-                    <a href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
-                    <a href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
-                    <a href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
-                    <a href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                <div class="col-sm-6">
+                    <div class="socail_coppyright text-sm-right m-t-2 text-xs-center wow zoomIn">
+                        <a target="_blank" href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="https://codepen.io/tchikito/" ><i class="fa fa-codepen"></i></a>
+                        <a target="_blank" href="https://github.com/sebastienmiatti" ><i class="fa fa-github"></i></a>
+                        <a target="_blank" href="https://twitter.com/SebMiatti" ><i class="fa fa-twitter"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 
 

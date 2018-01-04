@@ -8,7 +8,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet"><!-- importation bootstrap CSS -->
         <link rel="stylesheet" href="css/style_admin.css">
 
-        <title>Site cv - Admin :<?= ($ligne_utilisateur['prenom']); ?> <?= ($ligne_utilisateur['nom']); ?></title>
+        <title>Site cv - Admin :<?= $identifiant ?></title>
 
     </head>
 
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"><?= ($ligne_utilisateur['pseudo']); ?></a>
+            <a class="navbar-brand" href="index.php"><?= $identifiant ?></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,6 +43,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="loisirs.php">Loisirs</a></li>
                         <li><a href="reseaux.php">Reseaux</a></li>
+                        <li><a href="partenaire.php">Partenaire</a></li>
                     </ul>
                 </li>
 
@@ -65,4 +66,4 @@
 
 <!---        FIN NAVBAR          -->
 <div class="container">
-    <h1 class="well text-center">Admin - Port-folio : <?php echo($ligne_utilisateur['prenom']).' '.($ligne_utilisateur['nom']); ?></h1>
+    <h1 class="well text-center">Admin - Port-folio : <?= $identifiant ?></h1>

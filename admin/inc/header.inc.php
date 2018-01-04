@@ -43,6 +43,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="loisirs.php">Loisirs</a></li>
                         <li><a href="reseaux.php">Reseaux</a></li>
+                        <li><a href="partenaire.php">Partenaire</a></li>
                     </ul>
                 </li>
 
