@@ -495,7 +495,7 @@ $success = 'Message envoyé !';
                                     <div class="text-center col-xs-8 col-sm-12 col-md-12 col-lg-12"> </div>
                                     <div class="text-center col-lg-12">
                                         <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-                                        <form role="form" action="#" id="feedbackForm" class="text-center" method="POST">
+                                        <form action="#" id="feedbackForm" class="text-center" method="POST">
                                             <div class="form-group">
                                                 <label for="co_nom">Nom</label>
                                                 <input type="text" class="form-control" id="co_nom" name="co_nom" placeholder="Nom">
@@ -551,7 +551,7 @@ $success = 'Message envoyé !';
         <div class="row">
             <div class="col-sm-6 col-xs-12">
                 <div class="copyright_text m-t-2 text-xs-center">
-                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_blanck" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
+                    <p class="wow zoomIn" data-wow-duration="1s"> Copyright &copy; <a target="_blank" href="admin/index.php">&middot;</a> tous droits réservés &middot; Créé par <i class="fa fa-code"></i> <?= $ligne_utilisateur['prenom'];?> <?= $ligne_utilisateur['nom'];?> <i class="fa fa-code"></i>
                         <?php
                         $date = date("d-m-Y");
                         $heure = date("H:i");
@@ -612,7 +612,7 @@ $(".button-collapse").sideNav();
 </script>
 
 <!-- wow js active -->
-<script type="text/javascript">
+<script>
 new WOW().init();
 </script>
 
