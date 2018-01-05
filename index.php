@@ -115,7 +115,7 @@ $success = 'Message envoyé !';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Miatti Sébastien - devéloppeur intégrateur web actuellement 'En recherche de stage' ">
     <meta name="author" lang="fr" content="Miatti Sébastien">
-    <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, html, css, php, MySql, javascript, jQuery, Ajax, Silex, Laravel, Symfony, PhpOO, MVC, wordpress, bootstrap, site, dynamique, Responsive, Adaptive">
+    <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, html, css, php, MySql, javascript, jQuery, Ajax, Silex, Laravel, Symfony, PhpOO, MVC, wordpress, bootstrap, site, dynamique, Responsive, Adaptive, Paris, ile-de-france, Haut-de-seine, France">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
 

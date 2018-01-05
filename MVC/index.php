@@ -10,7 +10,7 @@ require(ROOT.'core/model.php'); //inclusion du model
 require(ROOT.'core/controller.php'); //inclusion du controller
 
 // récupération des parametres pour le bon controlleur et la bonne route
-$params = explode('/',$_GET['p']);
+$params = explode('/', $_GET['p']);
 print_r($params);
 
  ?>
