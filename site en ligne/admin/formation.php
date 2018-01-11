@@ -92,11 +92,11 @@ require('inc/header.inc.php');
 
     <div class="col-md-3">
         <div class="panel panel-primary">
-        <div class="panel-heading">Insertion d'une expérience</div>
+        <div class="panel-heading">Insertion d'une formation</div>
             <div class="panel-body">
                 <form action="formation.php" method="post">
                     <div class="form-group">
-                        <label for="f_titre">Titre de l'expérience :</label>
+                        <label for="f_titre">Titre de la formation :</label>
                         <input type="text" name="f_titre" class="form-control" id="f_titre" placeholder="Insérer un titre">
                     </div>
                     <div class="form-group">
@@ -114,12 +114,10 @@ require('inc/header.inc.php');
                     <div class="form-group">
                         <label for="f_logo">Logo</label>
                         <input type="text" name="f_logo" class="form-control" id="f_logo" placeholder="<?= $ligne_formation['f_logo']; ?>">
-
                     </div>
                     <script>
                         CKEDITOR.replace('editor1');
                     </script>
-
                     <input type="submit" class="btn btn-success btn-block" value="Insérez">
                 </form>
             </div>

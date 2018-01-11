@@ -105,7 +105,6 @@ $success = 'Message envoyé !';
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-111096839-1');
     </script>
     <!-- fin google analytics -->
@@ -113,9 +112,9 @@ $success = 'Message envoyé !';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Miatti Sébastien - devéloppeur intégrateur web actuellement 'En recherche de stage' ">
+    <meta name="description" content="Miatti Sébastien - développeur intégrateur web actuellement en recherche de stage ">
     <meta name="author" lang="fr" content="Miatti Sébastien">
-    <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, html, css, php, MySql, javascript, jQuery, Ajax, Silex, Laravel, Symfony, PhpOO, MVC, wordpress, bootstrap, site, dynamique, Responsive, Adaptive, Paris, ile-de-france, Haut-de-seine, France">
+    <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, HTML, CSS, PHP, MySql, JavaScript, jQuery, Ajax, Silex, Laravel, Symfony, PHPOO, MVC, wordpress, bootstrap, site, site web, dynamique, Responsive, Adaptatif, Paris, ile-de-france, Hauts-de-seine, France, developpeur integrateur web, developpeur web, integrateur web, orienté object, reactjs, angularjs">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
@@ -427,7 +426,7 @@ $success = 'Message envoyé !';
                 <div class="main_team_area m-y-3">
                     <div class="head_title center wow fadeInUp">
                         <h2 class="flow">Réalisations</h2>
-                        <p>Voivi l'apercu de quelques de mes réalisation, inspirations et projet en cours</p>
+                        <p>Voivi l'apercu de quelques-unes de mes réalisations, inspirations et projets en cours</p>
                     </div>
                     <hr>
                     <div class="main_team_content center">
@@ -546,7 +545,7 @@ $success = 'Message envoyé !';
                                                     <textarea rows="10" cols="100" class="form-control" id="co_message" name="co_message" placeholder="Message"></textarea>
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
-                                                <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg" style=" margin-top: 10px;">Envoyer</button>
+                                                <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg btn-center" style=" margin-top: 10px;">Envoyer</button>
                                                 <?= $success ?>
                                             </form>
                                             <!-- END CONTACT FORM -->

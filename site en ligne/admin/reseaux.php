@@ -51,7 +51,7 @@ require('inc/header.inc.php');
 
 <hr>
     <div class="panel panel-info">
-        <div class="panel-heading text-center"><b>Liste des reseaux</b></div>
+        <div class="panel-heading text-center"><b>Liste des réseaux</b></div>
     </div>
 <hr>
 <div class="row">
