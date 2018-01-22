@@ -1,24 +1,9 @@
 <?php
-require('inc/init.inc.php');
+require('inc/init.inc.php'); // inclusion de l'init
 
 // on récupère la classe Contact
 include('inc/Contact.class.php');
 
-
-// gestion des contenus de la BDD expérirences
-// $result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
-// $result->execute();
-// $ligne_experience = $result -> fetch();
-
-// vérification des informations de session pour en connaitre l'état connexion/déconnexion
-// if(isset($_SESSION['connexion']) && $_SESSION['connexion'] == 'connecté'){
-//     $id_utilisateur = $_SESSION['id_utilisateur'];
-//     $prenom = $_SESSION['prenom'];
-//     $nom = $_SESSION['nom'];
-//
-// }else{
-//     header('location: admin/connexion.php');
-// }
 
 // récupération des informations des bdd pour affichage
 $sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1"); ////ORDER BY id_titre_cv DESC LIMIT 1
@@ -54,9 +39,7 @@ $ligne_loisirs = $sql->fetchAll(PDO::FETCH_ASSOC);
 $sql = $pdo->query(" SELECT * FROM t_textes WHERE utilisateur_id ='1' ORDER BY id_texte DESC LIMIT 1");
 $ligne_texte = $sql->fetch();
 
-//créé un formulaire
-//Formulaire/index.php
-
+//Formulaire
 // on vérifie que le formulaire a été posté
 if (!empty($_POST))
 {
@@ -152,8 +135,9 @@ $success = 'Message envoyé !';
     <!-- Start your project here-->
     <!--Navbar-->
 
-    <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+    <div class='preloader'><div class='loaded'>&nbsp;</div></div> <!-- Image de préchargerment -->
 
+    <!-- menu -->
     <nav class="navbar navbar-fixed-top navbar-light bg-faded">
         <!--Collapse button-->
         <div class="container">
@@ -190,8 +174,9 @@ $success = 'Message envoyé !';
                 </ul>
 
             </div>
+            <!-- Fin menu -->
 
-
+            <!-- menu mobile -->
             <!-- Content for mobile devices-->
             <div class="navbar-mobile">
 
@@ -219,11 +204,12 @@ $success = 'Message envoyé !';
                     </li>
                 </ul>
             </div>
+            <!-- fin du menu mobile -->
         </div>
     </nav>
     <!--/.Navbar-->
 
-
+    <!-- SECTION 1 -->
     <div id="home" class="slider">
         <ul class="slides">
             <li>
@@ -240,8 +226,9 @@ $success = 'Message envoyé !';
             </li>
         </ul>
     </div>
+    <!-- Fin SECTION 1 -->
 
-
+<!-- SECTION 2 -->
 <section id="experiences" class="about">
     <div class="container">
         <div class="row">
@@ -282,9 +269,10 @@ $success = 'Message envoyé !';
 <br />
 <hr />
 </section><!-- End of About Section-->
+<!-- Fin SECTION 2 -->
 
 
-
+<!-- SECTION 3 -->
 <section id="formations" class="service">
     <div class="container">
         <div class="row">
@@ -322,8 +310,9 @@ $success = 'Message envoyé !';
 </div>
 <hr />
 </section> <!-- End of service section -->
+<!-- Fin SECTION 3 -->
 
-
+<!-- SECTION 4 -->
 <section id="reseau" class="works">
     <div class="container">
         <div class="row">
@@ -348,7 +337,9 @@ $success = 'Message envoyé !';
     </div>
     <hr />
 </section><!-- End of works Section -->
+<!-- Fin SECTION 4 -->
 
+<!-- Fin SECTION 5 -->
 <section id="joinus" class="joinus">
     <div class="main_joinus_area m-y-3">
         <div class="container">
@@ -366,9 +357,10 @@ $success = 'Message envoyé !';
     </div>
     <hr />
 </section> <!-- End of JoinUs section -->
+<!-- Fin SECTION 5 -->
 
 
-
+<!-- Fin SECTION 6 -->
 <section id="competences" class="offer">
     <div class="container">
         <div class="row">
@@ -417,8 +409,9 @@ $success = 'Message envoyé !';
     <hr />
 
 </section>
+<!-- Fin SECTION 6 -->
 
-
+<!-- SECTION 7 -->
 <section id="realisations" class="team">
     <div class="container">
         <div class="row">
@@ -457,7 +450,9 @@ $success = 'Message envoyé !';
     </div>
     <hr />
 </section><!-- End of Team section -->
+<!-- Fin SECTION 7 -->
 
+<!-- SECTION 8 -->
 <section id="loisirs" class="counter">
     <div class="head_title center wow fadeInUp">
         <h2 class="flow">Loisirs</h2>
@@ -484,8 +479,9 @@ $success = 'Message envoyé !';
     </div>
     <hr />
 </section><!-- End of counter Section -->
+<!-- Fin SECTION 8 -->
 
-
+<!-- SECTION 9 -->
 <section id="partenaire" class="offer">
     <div class="container">
         <div class="row">
@@ -508,8 +504,9 @@ $success = 'Message envoyé !';
     </div>
     <hr />
 </section> <!-- End of works Section -->
+<!-- Fin SECTION 9 -->
 
-
+<!-- SECTION Footer -->
 <section id="contact" class="footer">
     <div class="container">
         <div class="row">
@@ -602,6 +599,7 @@ $success = 'Message envoyé !';
         </div>
     </div>
 </section>
+<!-- Fin SECTION Footer -->
 
 
 <!-- /Start your project here-->

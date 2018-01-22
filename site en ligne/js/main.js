@@ -65,6 +65,7 @@ jQuery(document).ready(function () {
 
 });
 
+ // Création de l'animation concernant les titres de compétences (personalisation depuis codepen)
 var flicker = {
     /*unicode : "!\"#$%'()*+,-./0123456789:;?@`aAbBcCdDeEfFgGhHijJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ{[|\}]~^_",*/
     unicode : "█▓▒░█▓▒░█▓▒░dD░iI░░xX░░cC░▓uUyY▓▓░lL░░aA░░░rR░░░░░\\\|||░░░░//////",
@@ -125,6 +126,7 @@ var flicker = {
 
 
 
+// début de l'animation .flickr au moment prédéfini
 var waypoint = new Waypoint({
   element: document.getElementById('competences'),
   handler: function() {

@@ -18,7 +18,7 @@
     padding-top: 0rem;
 }
 
-
+ /* Création de la class .flow afin d'ajouté une animation dans le texte souhaité*/
 .flow{
 	background-image: url(https://media.giphy.com/media/3o7aCQTyoPLEVwVtZK/giphy.gif);
 	background-size: cover;
