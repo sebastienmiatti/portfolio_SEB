@@ -64,7 +64,7 @@ require('inc/header.inc.php');
                   <th>Commentaire</th>
                   <th>Titre</th>
                   <th>Sous-titre</th>
-                  <th>Dates</th>
+                  <th>Sujet</th>
                   <th>Description</th>
                   <th>Suppression</th>
                 </tr>
