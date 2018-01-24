@@ -1,0 +1,276 @@
+h2{
+    font-size: 35px;
+    color:#2c3e50;
+    padding: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+h3{
+    font-size: 22px;
+    color:#2c3e50;
+    padding: 15px;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+h4{
+    text-align: center;
+    margin-top: 30px;
+}
+
+strong{
+    font-weight: bold;
+}
+
+em{
+	font-style: italic;
+}
+
+ul{
+	/*list-style: none;*/
+	padding-left: 30px;
+}
+
+header{
+	background: cyan;
+	/*display: flex;
+	align-items: center;*/
+	}
+
+		#portrait a{
+			color: inherit;
+			display: inline-block;
+			width: 80%;
+			text-align: center;
+			line-height: 1.5em;
+			}
+		#php{
+			border-radius: 50%;
+		}
+		#icones div{
+			text-align: center;
+		}
+/*nav{
+	background: #bb8fce;
+	height: 50px;
+	text-align: center;
+	width: 100%;
+	}
+	nav ul{
+		padding: 10px;
+		}
+		nav li{
+			display: inline-block;
+			background: blue;
+			border-radius: 5px;
+			padding: 7px;
+			margin: 0 1%;
+			}
+			nav li a{
+				color: white;
+				padding: 10px;
+				text-decoration: none;
+			}*/
+
+main{
+	background: white;
+	width: 75%;
+	margin: 20px auto;
+	padding-bottom: 20px;
+	}
+
+footer{
+	background: #383838;
+	padding: 10px;
+	}
+	#adresse dd{
+		color: white;
+	}
+	#docCV{
+		font-size: 1.5em;
+		float:left;
+		width: 70%;
+		}
+		#docCV a{
+			width: 50%;
+			color: cyan;
+			margin: 0 auto;
+			margin-left: 55%;
+		}
+	#social{
+		float:left;
+		width: 30%;
+		color: #c0c5cd;
+		text-align: right;
+		}
+			#social li{
+				margin: 5px;
+				display: inline;
+				}
+				#social a{
+					color: white;
+				}
+
+					.clear{
+					   clear: both;
+					}
+
+					.cadre{
+						border: 1px solid;
+						border-radius: 10px;
+						break-inside: avoid-column;
+					}
+
+					.flex{
+					   display: flex;
+					   flex-wrap: wrap;
+					   /*flex-direction: row;*/
+					   justify-content: space-around;
+					   align-content: space-around;
+					   /*margin: auto;*/
+					}
+
+					.col3{
+						columns: 15px 3;
+						/*column-count: 3;*/
+					}
+
+
+
+					.cadre h2, .cadre h3{
+						border-top-right-radius: 10px;
+						border-top-left-radius: 10px;
+						background: #e3e8f8;
+						text-align: center;
+					}
+
+					.cadre article{
+						padding: 10px;
+					}
+.expose{
+	vertical-align:super;
+}
+ /*********************      i n d e x . h t m l     *****************************/
+
+ #presentation .cadre1 {
+	padding: 10px;
+	width: 75%;
+	margin: 20px auto;
+	border:1px solid;
+	border-radius: 10px;
+	font-size: 2em;
+ }
+
+ #presentation p{
+	 margin: 1em 0;
+ }
+
+ #presentation dl, #presentation ul{
+	 margin: 10px;
+ }
+
+ #forts li, #interets li{
+	 font-size: 1.3em;
+ }
+
+ /*********************   fin    i n d e x . h t m l     *****************************/
+ /*********************      p a r c o u r s . h t m l     *****************************/
+ #parcours .cadre{
+	 margin: 10px;
+ }
+
+#parcours p, #parcours ul{
+	margin: 10px;
+
+}
+
+
+/*********************   fin    p a r c o u r s . h t m l     *****************************/
+
+/*********************   début    f o r m a t i o n . h t m l     *****************************/
+#formations{
+	width: 90%;
+	margin: auto;
+	}
+
+	#diplomes article, #formations div section{
+		/*float:left;*/
+		width: 30%;
+		}
+	#formations article p{
+		margin: 10px;
+	}
+
+	#formations .flex article{
+		margin-bottom: 20px;
+
+	}
+
+/*********************   fin    f o r m a t i o n . h t m l     *****************************/
+/*********************   début    c o m p e t e n c e . h t m l     *****************************/
+#competences article{
+	margin: 5px;
+	border: 1px solid;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+#competences .flex article{
+	width: 15%;
+}
+/*********************   fin    c o m p e t e n c e . h t m l     *****************************/
+
+/*********************   début    t e s t . h t m l     *****************************/
+ 	#contenu{
+ 		background: white;
+ 		/*height: 600px;*/
+ 		width: 75%;
+ 		margin: auto;
+ 		}
+ 		#centre{
+ 			position:relative;
+			border-radius: 50px;
+ 			background: cyan;
+ 			height: 500px;
+ 			width: 500px;
+ 			margin: auto;
+ 			}
+ 			#centre div{
+ 				position: absolute;
+ 				margin: 15px;
+ 				}
+ 				#topLeft{
+ 					border-top-left-radius: 100px;
+					border-bottom-right-radius: 100%;
+ 					top:0;
+ 					left:0;
+ 				}
+ 				#topRight{
+ 					border-top-right-radius: 100px;
+					border-bottom-left-radius: 100%;
+ 					top:0;
+ 					right:0;
+ 				}
+ 				#leftBottom{
+ 					border-bottom-left-radius: 100px;
+					border-top-right-radius: 100%;
+ 					bottom:0;
+ 					left:0;
+ 				}
+ 				#rightBottom{
+ 					border-bottom-right-radius: 100px;
+					border-top-left-radius: 100%;
+ 					right:0;
+ 					bottom:0;
+ 				}
+ 				.horizontal{
+ 					width:300px;
+ 					height: 150px;
+ 					background: red;
+ 				}
+ 				.vertical{
+ 					width:150px;
+ 					height: 300px;
+ 					background: blue;
+ 				}
+/*********************   fin    t e s t . h t m l     *****************************/

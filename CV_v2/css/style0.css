@@ -1,0 +1,140 @@
+body{
+	background: url("../photos/99326.jpg");
+}
+
+header{
+	background: #A5F2E7;
+	padding-bottom: 10px;
+}
+
+#titre p{
+	margin-top: 3%;
+}
+
+h1{
+	padding: 25px 0;
+	font-size: 3.8em;
+
+	/*font-family: 'Anton', sans-serif;*/
+	color:#2980b9;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+h1::first-letter {
+    text-transform: uppercase;
+}
+
+.navbar-default {
+	background: #8983F3;
+}
+
+.navbar-header .navbar-toggle.collapsed {
+	background: white;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: white;
+}
+
+main{
+	font-family: Times, "Times New Roman";
+	background: #FFFCEA;
+	padding-bottom: 15px;
+}
+
+.italic{
+	font-style: italic;
+}
+
+.shadow, .panel-info, #contact .thumbnail{
+	border: 2px solid silver;
+	box-shadow: 8px 8px 15px black;
+}
+/*************************** index.php *****************************************/
+
+#presentation{
+	margin-bottom: 20px;
+}
+
+.presentation {
+	margin: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 2em;
+}
+
+#presentation section ul{
+	font-size: 1.5em;
+	list-style: disc;
+	margin-left: 20px;
+
+}
+
+/*************************** fin index.php *****************************************/
+/*************************** parcours.php *****************************************/
+
+#parcours h2{
+	margin-left: 15px;
+}
+/*************************** fin parcours.php *****************************************/
+
+
+/***************************  contact.php *****************************************/
+#contact .thumbnail{
+	padding: 10px;
+}
+
+span.error{
+    color: red;
+}
+
+/*************************** fin contact.php *****************************************/
+
+
+
+
+
+
+footer{
+	margin-top: 20px;
+	padding-top: 5px;
+	background: #3A0077;
+	line-height: 1em;
+	font-family:
+	/*background: #383838;*/
+	padding: 10px;
+	color: white;
+}
+
+footer a{
+	text-decoration: none;
+	color: white;
+}
+
+#logos_reseaux li{
+	display: inline-block;
+
+}
+
+#portrait img{
+	margin: auto;
+	width: 100px;
+}
+
+#titre p{
+	font-family: arial;
+	font-weight:bold;
+	font-size: 4em;
+	text-align: center;
+}
+
+#icones{
+	width: 80%;
+	margin: 15% auto;
+}
+
+#icones img{
+	width: 20%;
+	margin: 1px;
+}

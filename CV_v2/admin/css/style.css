@@ -1,0 +1,74 @@
+@charset "utf_8";
+body{
+    /*background: ;*/
+    background: #39f;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.fond-cadre{
+    background: #fff;
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+img[alt="ciel étoilé"]{
+    margin-top: 20px;
+}
+
+.container-fluid table{
+    min-width : 200px;
+    margin: 20px auto;
+    background: #f9f9f9;
+    border: 5px solid silver;
+}
+
+.container-fluid table th, .container-fluid table td{
+    padding: 5px;
+    border: 1px solid;
+}
+
+#connexion{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 25vh;
+    padding-bottom: 30px;
+    background: #f9f9f9;
+}
+
+#adresse{
+    font-size: 1.5em;
+    line-height: 1.2;
+    font-family: 'Lato', sans-serif;
+    margin: auto;
+    overflow: hidden;
+}
+
+.cadre-form{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    background: silver;
+}
+
+.text-leger{
+    color: silver;
+}

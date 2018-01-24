@@ -1,0 +1,216 @@
+/* couleurs :
+#DFFCB5
+#B7F5DE
+#ADD1FC
+#9870FC */
+
+
+
+body{
+	background-image: url("../photos/fond.jpg");
+	background-repeat: repeat;
+	/* background-size: cover; */
+}
+
+header{
+	background: #DFFCB5;
+	/* padding-top: 10px; */
+}
+
+#main{
+	position: relative;
+}
+
+#forts{
+	margin-top: 20px;
+}
+
+#titre p{
+	color: #9870FC;
+	text-transform: uppercase;
+	font-size: 2.8em;
+	/* margin-top: 1.2em; */
+	font-family: arial;
+	font-weight:bold;
+	text-align: center;
+	margin: 15px 0;
+}
+
+h1, h2, h3, h4, h5, h6, .panel-heading{
+	font-family: arial;
+}
+
+
+h1{
+	text-transform: uppercase;
+	color: #9870FC;
+	padding: 25px 0;
+	font-size: 2.5em;
+	/* color:#2980b9; */
+	text-align: center;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+h1::first-letter {
+	text-transform: uppercase;
+}
+
+.navbar-default {
+	border: 0;
+	border-radius: 0;
+	background: #ADD1FC;
+}
+
+.navbar-header .navbar-toggle.collapsed {
+	background: white;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: white;
+}
+
+main{
+	font-family: Times, "Times New Roman";
+	background: #DFFCB5;
+	padding-bottom: 15px;
+}
+
+#presentation, #interets{
+	padding-bottom: 150px;
+}
+
+
+
+.italic{
+	font-style: italic;
+}
+
+.shadow, .panel-info, #contact .thumbnail{
+	border: 2px solid silver;
+	box-shadow: 20px 40px 0px rgba(88, 136, 72, 0.4);
+}
+/*************************** index.php *****************************************/
+
+#presentation{
+	margin-bottom: 20px;
+}
+
+#presentation h1{
+	display: none;
+}
+
+.presentation {
+	margin: 20px;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 2em;
+}
+
+#presentation ul, #competences ul, #interets ul{
+	font-size: 1.5em;
+	list-style: disc;
+	margin-left: 20px;
+}
+
+/*************************** fin index.php *****************************************/
+/*************************** parcours.php *****************************************/
+
+/* #parcours .panel-info{
+	max-height: 250px;
+}
+
+#parcours  .panel-body{
+	overflow: scroll;
+} */
+
+#parcours h2{
+	margin-left: 15px;
+}
+
+
+/*************************** fin parcours.php *****************************************/
+
+/***************************  contact.php *****************************************/
+#contact h2{
+	text-align: center;
+}
+
+#contact .thumbnail{
+	padding: 10px;
+}
+
+span.error{
+	color: red;
+}
+
+/*************************** fin contact.php *****************************************/
+
+/***************************  realisations.php *****************************************/
+
+#realisations article{
+	background: white;
+}
+
+#realisations img{
+	width: 100%;
+	/* margin: 1px; */
+}
+
+#realisations article p{
+	font-size: 1.3em;
+}
+
+/***************************  fin realisations.php *****************************************/
+
+footer{
+	margin-top: 20px;
+	/* padding-top: 5px; */
+	background: #ADD1FC;
+	/* line-height: 2em; */
+	font-family:
+	/*background: #383838;*/
+	/* padding: 10px; */
+	color: white;
+}
+
+footer a{
+	text-decoration: none;
+	color: white;
+	line-height: 3em;
+}
+
+#logos_reseaux ul{
+	margin: 5px 0;
+}
+
+#logos_reseaux li{
+	display: inline-block;
+}
+
+#portrait a{
+	font-family: 'Orbitron', sans-serif;
+}
+
+#portrait a:hover{
+	text-decoration: none;
+}
+
+#portrait p{
+	margin: 10px 0;
+	font-size: 1.5em;
+}
+
+#portrait strong{
+	color: #9870FC;
+}
+
+#icones{
+	width: 60%;
+	margin: 5% auto;
+}
+
+#icones img{
+	width: 20%;
+	margin: 1px;
+}
