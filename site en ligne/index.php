@@ -4,6 +4,8 @@ require('inc/init.inc.php'); // inclusion de l'init
 // on récupère la classe Contact
 include('inc/Contact.class.php');
 
+// on créé une variable de succès
+$success = 'Message envoyé !';
 
 // récupération des informations des bdd pour affichage
 $sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1"); ////ORDER BY id_titre_cv DESC LIMIT 1
@@ -56,11 +58,13 @@ if (!empty($_POST))
     // si tous les champs sont correctement renseignés
     if($valid)
     {
+        $success='<div class="alert alert-success">Message envoyé</div>';
         // on crée un nouvel objet (ou une instance) de la class Contact.class.php
         $contact = new Contact($pdo);
         // on utilise la méthode insertContact pour insérer en BDD
         $contact->insertContact($co_nom, $co_email, $co_sujet, $co_message);
     }
+
 }
 
 // on utilise la méthode sendMail de la classe Contact.class.php
@@ -73,8 +77,6 @@ if (!empty($_POST))
 // unset($email);
 // unset($contact);
 
-// on créé une variable de succès
-$success = 'Message envoyé !';
 
 ?>
 

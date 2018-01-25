@@ -4,6 +4,8 @@ require('inc/init.inc.php');
 // on récupère la classe Contact
 include('inc/Contact.class.php');
 
+// on créé une variable de succès
+$success = '';
 
 // gestion des contenus de la BDD expérirences
 // $result = $pdo -> prepare("SELECT * FROM t_experiences WHERE utilisateur_id='1'");
@@ -73,6 +75,7 @@ if (!empty($_POST))
     // si tous les champs sont correctement renseignés
     if($valid)
     {
+        $success='<div class="alert alert-success">Message envoyé</div>';
         // on crée un nouvel objet (ou une instance) de la class Contact.class.php
         $contact = new Contact($pdo);
         // on utilise la méthode insertContact pour insérer en BDD
@@ -90,8 +93,6 @@ if (!empty($_POST))
 // unset($email);
 // unset($contact);
 
-// on créé une variable de succès
-$success = 'Message envoyé !';
 
 ?>
 
@@ -527,6 +528,7 @@ $success = 'Message envoyé !';
                                                 <div class="head_title center wow fadeInUp">
                                                     <h2 class="flow">Contactez-moi</h2>
                                                 </div>
+                                                <?= $success ?>
                                                 <label for="co_nom">Nom</label>
                                                 <input type="text" class="form-control" id="co_nom" name="co_nom" placeholder="Nom">
                                                 <span class="help-block" style="display: none;">Merci d'inserer votre nom</span></div>
@@ -546,7 +548,6 @@ $success = 'Message envoyé !';
                                                     <span class="help-block" style="display: none;">Merci de rentrer un message</span>
                                                 </div>
                                                 <button type="submit" id="feedbackSubmit" class="btn btn-alert btn-lg btn-center" style=" margin-top: 10px;">Envoyer</button>
-                                                <?= $success ?>
                                             </form>
                                             <!-- END CONTACT FORM -->
                                         </div>
