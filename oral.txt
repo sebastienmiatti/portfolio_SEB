@@ -1,0 +1,15 @@
+  Bonjour je m'apelle Sébastien Miatti et j'ai beaucoup plus d'affinité avec le dev back-end que le dev front-end, j'ai intégré le groupe Matcher un bien il y a 3 semaine et depuis je suis le projet de près avec mes collègues. 20(secs)
+
+
+
+  Concernant mes évolutions dans le groupe de matcher un bien, j'ai tout d'abord eu a éditer, plus précisement créé une page index.html, qui a pour rôle d'afficher que le site matcher un bien est actuellement en maintenance.(vue de la page).
+  tres rapidemment il a fallu tout d'abord la présenter a Anne-Sophie qui en a pris connaissance et nous a envoyer un lien vers le blog qui était a rajouté sur la page index.html ou elle a rédiger un article permettant au visiteur d'etre avertit de la remise en beauté actuel de Matcher un bien.
+  mon activité suivante a été la réindentation de chaques fichier afin d'avoir une meilleur visibilité sur notre travail et du coup une meilleur efficacité ensuite je me suis occupé de l'établissement de commentaires, un part un sur chaques parties du code (montrer la page index.php).
+  nous avons organisé le code de style 'css' contenu dans les pages 'php'; dans un fichier lié à la page php et portant le meme nom que cette page.
+  j'ai également créé la page resume.txt qui résume chaques fichiers inclus ou apellé dans les page souhaité par notre lead dev qui lui ont permis par la suite un meilleur ajustement des fonctions php pour les affichages.
+  toutes ces modification de premier niveaux nous on permis de pouvoir travailler et dévelloper sur de bonne bases car lors des modifications que nous avons apporté nous avons gardé ces méthodes de travail.(2m)
+
+
+    'temps de parole total (2M20) UI(index.html->Blog->appercuprofillocataire.php->index.php->.php.css->resume.txt)'
+
+ 
