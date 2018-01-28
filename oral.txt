@@ -1,13 +1,17 @@
-  Bonjour je m'apelle Sébastien Miatti et j'ai beaucoup plus d'affinité avec le dev back-end que le dev front-end, j'ai intégré le groupe Matcher un bien il y a 3 semaine et depuis je suis le projet de près avec mes collègues. 20(secs)
+﻿  Bonjour je m'apelle Sébastien Miatti et j'ai beaucoup plus d'affinité avec le dev back-end que le dev front-end, j'ai intégré le groupe Matcher un bien il y a 3 semaine et depuis je suis le projet de près avec mes collègues. 20(secs)
 
 
 
-  Concernant mes évolutions dans le groupe de matcher un bien, j'ai tout d'abord eu a éditer, plus précisement créé une page index.html, qui a pour rôle d'afficher que le site matcher un bien est actuellement en maintenance.(vue de la page).
-  tres rapidemment il a fallu tout d'abord la présenter a Anne-Sophie qui en a pris connaissance et nous a envoyer un lien vers le blog qui était a rajouté sur la page index.html ou elle a rédiger un article permettant au visiteur d'etre avertit de la remise en beauté actuel de Matcher un bien.
-  mon activité suivante a été la réindentation de chaques fichier afin d'avoir une meilleur visibilité sur notre travail et du coup une meilleur efficacité ensuite je me suis occupé de l'établissement de commentaires, un part un sur chaques parties du code (montrer la page index.php).
+  Concernant mes évolutions dans le groupe de matcher un bien, j'ai tout d'abord eu a éditer, plus précisement créé une page index.html, qui a pour rôle d'afficher que le site matcher un bien est actuellement en maintenance.
+  (vue de la page).
+  tres rapidemment il a fallu tout d'abord la présenter a Anne-Sophie qui en a pris connaissance et nous a envoyer un lien vers le blog qui était a rajouté sur la page index.html ou elle a rédiger un article permettant au visiteur
+  d'etre avertit de la remise en beauté actuel de Matcher un bien.
+  mon activité suivante a été la réindentation de chaques fichier afin d'avoir une meilleur visibilité sur notre travail et du coup une meilleur efficacité ensuite je me suis occupé de l'établissement de commentaires,
+  un part un sur chaques parties du code (montrer la page index.php).
   nous avons organisé le code de style 'css' contenu dans les pages 'php'; dans un fichier lié à la page php et portant le meme nom que cette page.
   j'ai également créé la page resume.txt qui résume chaques fichiers inclus ou apellé dans les page souhaité par notre lead dev qui lui ont permis par la suite un meilleur ajustement des fonctions php pour les affichages.
   toutes ces modification de premier niveaux nous on permis de pouvoir travailler et dévelloper sur de bonne bases car lors des modifications que nous avons apporté nous avons gardé ces méthodes de travail.(2m)
+
 
 
     'temps de parole total (2M20) UI(index.html->Blog->appercuprofillocataire.php->index.php->.php.css->resume.txt)'
@@ -15,19 +19,27 @@
 
 
 
+
+
  Présentation personnelle
-bonjour je m'appel miatti Sébastien et j'ai 27 ans, j'ai tout été attiré par le monde informatique , j'ai tout d'abord commencé a suivre des études orienté vers l'informatique et électronique ensuite en autodidacte j'ai appris le xtml, qui m'a permis d'entrependre mon premier projet. j'ai rejoind la formation du PoleS et de WebForce 3 qui m'as permis de me confirmé et d'apprendre d'autre langage lié au web; c'est grâce a ceux-ci que j'ai réalisé mon site CV.
+bonjour je m'appel miatti Sébastien et j'ai 27 ans, j'ai toujours été attiré par le monde informatique , j'ai tout d'abord commencé a suivre des études orienté vers l'informatique et électronique et ensuite en autodidacte 
+j'ai appris le xtml, qui m'a permis d'entrependre mon premier projet. j'ai rejoind la formation du PoleS et de WebForce 3 qui m'as permis de me confirmé et d'apprendre d'autre langage lié au web; c'est grâce a ceux-ci 
+que j'ai réalisé mon site CV.
 
 Tout d'abord pour l'interface front de mon site cv j'ai personnalisé un template bootstrap One-page obtenu depuis le moteur de recherche google, car l'intégration ne me parle peu, j'ai beaucoups plus d'affinité avec le developpement.
-Ce template est responsive et donne une complete visibilité sur mes compétences actuelles. le langages coté serveur php m'as permis a l'aide de boucles plus précisément la méthode foreach et de requete SQL de récupéré dynamiquement toutes les informations contenu dans une base de données pour l'affichage.
-j'ai décidé d'affiché mes réalisations par une boucles qui différencie grâce a la fonction strlen si certains caractères sont présent soit pour l'affichage d'un lien direct vers le fichier en ligne soit pour l'affichage en format images(pdf).
+Ce template est responsive et donne une complete visibilité sur mes compétences actuelles. le langages coté serveur php m'as permis a l'aide de boucles plus précisément la méthode foreach et de requete SQL de récupéré dynamiquement 
+toutes les informations contenu dans une base de données pour l'affichage.
+j'ai décidé d'affiché mes réalisations par une boucles qui différencie grâce a la fonction strlen si certains caractères sont présent soit pour l'affichage d'un lien direct vers le fichier en ligne soit pour l'affichage en format pdf.
 j'ai décidé d'ajouté des back-link dans la sections PARTENAIRES afin de mettre en avant les collègues ou connaissancse dans le milieu, ainsi qu'un lien direct vers le PoleS.
-Vous pouvez maintenant voir que par l'utilisation du formulaire en orienté objets présent dans le footer partie 'Contact' grâce a la classe contact et la fonction insertContact crée une insertion d'informations qui sont vérifier directement dans la BDD.
-On va maintenant se dirigé vers la partie administration de mon site cv, ce back-office  a été réaliser from-scratch grâce a l'aide du framework bootstrap version 3.3.7, ici ont peux consulter, inserer, modifier ou supprimer des informations lié à la base de données.
-tout d'abord l'insertion du message reçu d'un visiteur sur le front ensuite, une modification et une suppréssion.
-je compte tout d'abord apporté des améliorations sur mon site cv coté front, donner plus d'informations sur les visibilités des partenaires et développer mes compétences dans le framework symfony afin de pouvoir créé des API (site dynamique) évolutif.
+Vous pouvez maintenant voir que par l'utilisation du formulaire en orienté objets, grâce a la classe contact et la fonction insertContact cela une insertion d'informations qui sont vérifier et envoyer dans la BDD.
+On va maintenant se dirigé vers la partie administration de mon site cv, ce back-office  a été réaliser from-scratch grâce a l'aide du framework bootstrap version 3.3.7, ici ont peux consulter, inserer, modifier ou 
+supprimer des informations lié à la base de données.
+on peux voir l'insertion du message reçu d'un visiteur sur le front ensuite, une modification et une suppréssion.
+je compte tout d'abord apporté des améliorations sur mon site cv coté front, donner plus d'informations sur les visibilités des partenaires et développer mes compétences dans le framework symfony afin de pouvoir créé des 
+API (site dynamique) évolutif.
+
 
 miatti-sebastien.fr(montrer le responsive) + github(front index.php)
 miatti-sebastien.fr + github(front inc/Contact.class.php)
 miatti-sebastien.fr/admin/index.php + github(back compétences) insert supprimer
-miatti-sebastien.fr/admin/index.php + github(back titre) modif 'sur'
+miatti-sebastien.fr/admin/index.php + github(back texte) modif 'sur'
