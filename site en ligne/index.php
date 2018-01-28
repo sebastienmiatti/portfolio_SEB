@@ -5,7 +5,7 @@ require('inc/init.inc.php'); // inclusion de l'init
 include('inc/Contact.class.php');
 
 // on créé une variable de succès
-$success = 'Message envoyé !';
+$success = '';
 
 // récupération des informations des bdd pour affichage
 $sql = $pdo->query(" SELECT * FROM t_titre_cv WHERE utilisateur_id ='1' ORDER BY id_titre_cv DESC LIMIT 1"); ////ORDER BY id_titre_cv DESC LIMIT 1
@@ -559,7 +559,7 @@ if (!empty($_POST))
                         <div class="single_f_widget p-t-3 wow fadeInUp">
                             <img src="img/<?= $ligne_utilisateur['avatar'];?>" alt="" />
                             <div class="single_f_widget_text">
-                                <p><?= $ligne_texte['t_foot']; ?></p>
+                                <p><em><b><?= $ligne_texte['t_foot']; ?></b></em></p>
                                 <div class="socail_f_widget">
                                     <a target="_blank" href="https://www.linkedin.com/in/s%C3%A9bastien-miatti-7b6586145/"><i class="fa fa-linkedin"></i></a>
                                     <a target="_blank" href="https://www.facebook.com/Miattisebastien/"><i class="fa fa-facebook"></i></a>
