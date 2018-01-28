@@ -13,7 +13,7 @@ require('inc/init.inc.php');
 // }
 
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_commentaires");
+$resultat = $pdo -> prepare("SELECT * FROM t_commentaires ORDER BY id_commentaire DESC");
 $resultat->execute();
 $nbr_commentaires = $resultat->rowCount();
 // $ligne_commentaire = $resultat -> fetch();
@@ -87,11 +87,11 @@ require('inc/header.inc.php');
 
     <div class="col-md-3">
         <div class="panel panel-primary">
-        <div class="panel-heading">Insertion d'une expérience</div>
+        <div class="panel-heading">Insertion d'un commentaire</div>
             <div class="panel-body">
                 <form action="contact.php" method="POST">
                     <div class="form-group">
-                        <label for="co_nom">Titre de l'expérience :</label>
+                        <label for="co_nom">Titre du commentaire :</label>
                         <input type="text" name="co_nom" class="form-control" id="co_nom" placeholder="Insérer un titre">
                     </div>
                     <div class="form-group">

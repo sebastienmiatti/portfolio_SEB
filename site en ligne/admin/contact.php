@@ -13,7 +13,7 @@ require('inc/init.inc.php');
 // }
 
 // gestion des contenus de la BDD réalisations
-$resultat = $pdo -> prepare("SELECT * FROM t_commentaires");
+$resultat = $pdo -> prepare("SELECT * FROM t_commentaires ORDER BY id_commentaire DESC");
 $resultat->execute();
 $nbr_commentaires = $resultat->rowCount();
 // $ligne_commentaire = $resultat -> fetch();
