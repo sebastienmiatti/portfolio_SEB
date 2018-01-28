@@ -30,7 +30,7 @@ Tout d'abord pour l'interface front de mon site cv j'ai personnalisé un templat
 Ce template est responsive et donne une complete visibilité sur mes compétences actuelles. le langages coté serveur php m'as permis a l'aide de boucles plus précisément la méthode foreach et de requete SQL de récupéré dynamiquement 
 toutes les informations contenu dans une base de données pour l'affichage.
 j'ai décidé d'affiché mes réalisations par une boucles qui différencie grâce a la fonction strlen si certains caractères sont présent soit pour l'affichage d'un lien direct vers le fichier en ligne soit pour l'affichage en format pdf.
-j'ai décidé d'ajouté des back-link dans la sections PARTENAIRES afin de mettre en avant les collègues ou connaissancse dans le milieu, ainsi qu'un lien direct vers le PoleS.
+j'ai décidé d'ajouté des back-link dans la sections PARTENAIRES afin de mettre en avant les collègues ou connaissance dans le réseau professionnel, ainsi qu'un lien direct vers le PoleS.
 Vous pouvez maintenant voir que par l'utilisation du formulaire en orienté objets, grâce a la classe contact et la fonction insertContact cela une insertion d'informations qui sont vérifier et envoyer dans la BDD.
 On va maintenant se dirigé vers la partie administration de mon site cv, ce back-office  a été réaliser from-scratch grâce a l'aide du framework bootstrap version 3.3.7, ici ont peux consulter, inserer, modifier ou 
 supprimer des informations lié à la base de données.
