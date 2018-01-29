@@ -20,7 +20,7 @@ affinité developement>integration
 -modifs de niveaux 1 -> travaille sur de bonnes bases car maintiens de ces méthodes de travail.
 
 ------------------------------------------------------------------------------------------------------
-'temps de parole total (2M20) UI(index.html->Blog->index.php->resume.txt)'
+'temps de parole total (2M20) UI(_index.html->Blog->index.php->resume.txt)'
 ------------------------------------------------------------------------------------------------------
 
 
@@ -30,7 +30,7 @@ affinité developement>integration
 bonjour je m'appel miatti Sébastien et j'ai 27 ans, j'ai toujours été attiré par le monde informatique , j'ai tout d'abord commencé a suivre des études orienté vers l'informatique et électronique et ensuite en autodidacte j'ai appris le xhtml, ce qui m'a permis d'entrependre mon premier projet. j'ai rejoind la formation du PoleS et de WebForce 3 qui m'as permis de me confirmé et d'apprendre d'autre langage lié au web; c'est grâce a ceux-ci que j'ai réalisé mon site CV.
 
 vous pouvez voir maintenant l'interface front de mon site cv, j'ai personnalisé un template bootstrap One-page obtenu depuis le moteur de recherche google, car l'intégration ne me parle peu, j'ai beaucoups plus d'affinité avec le developpement.
-Ce template est responsive et donne une complete visibilité sur mon statut actuel. le langages coté serveur php m'as permis a l'aide de boucles plus précisément la méthode foreach et de requete SQL de récupéré dynamiquement toutes les informations contenu dans une base de données pour un affichage dynamique.
+Ce template est responsive et donne une complete visibilité sur mon statut actuel. le langages coté serveur php m'as permis a l'aide de boucles foreach et de requete SQL de récupéré dynamiquement toutes les informations contenu dans une base de données pour un affichage dynamique.
 j'ai décidé d'affiché mes réalisations par une condition grâce a la fonction strlen si certains caractères sont présent soit on peut avoir l'affichage d'un lien direct vers le fichier en ligne soit en peux avoir l'affichage en format pdf.
 j'ai décidé d'ajouté des back-link dans la sections PARTENAIRES afin de mettre en avant mon réseau professionnel.
 Vous pouvez maintenant voir que par l'utilisation du formulaire en php orienté objets, grâce a la classe contact et la fonction insertContact() cela effectue une insertion d'informations qui sont vérifier et envoyer dans la BDD.
