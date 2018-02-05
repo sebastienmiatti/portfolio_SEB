@@ -153,8 +153,7 @@ $success = 'Message envoyé !';
             </div>
             <div class="row animate-in" data-anim-type="fade-in-up">
                 <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
-
-                    <p >
+                    <p>
                         This line is fixed so you can write anything
                     </p>
                     <div class="social">
