@@ -72,7 +72,7 @@ $success = 'Message envoyé !';
 ?>
 
 <!DOCTYPE html>
-<html lang="fr" class="no-js" >
+<html lang="fr" class="no-js">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -151,7 +151,6 @@ $success = 'Message envoyé !';
                     </div>
                 </div>
             </div>
-
             <div class="row animate-in" data-anim-type="fade-in-up">
                 <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
 
@@ -171,7 +170,7 @@ $success = 'Message envoyé !';
     <!--HOME SECTION END-->
 
 
-    <!--SERVICE SECTION START-->
+    <!--Expériences SECTION START-->
     <section id="services" >
         <div class="container">
             <div class="row text-center header">
@@ -195,10 +194,10 @@ $success = 'Message envoyé !';
             </div>
         </div>
     </section>
-    <!--SERVICE SECTION END-->
+    <!--Expériences SECTION END-->
 
 
-    <!--PRICING SECTION START-->
+    <!--Formations SECTION START-->
     <section id="formations" >
         <div class="container">
             <div class="row text-center header animate-in" data-anim-type="fade-in-up">
@@ -237,10 +236,10 @@ $success = 'Message envoyé !';
             </div>
         </div>
     </section>
-    <!--PRIICING SECTION END-->
+    <!--Formations SECTION END-->
 
 
-    <!--TEAM SECTION START-->
+    <!--Compétences SECTION START-->
     <section id="team" >
         <div class="container">
             <div class="row text-center header animate-in" data-anim-type="fade-in-up">
@@ -265,10 +264,10 @@ $success = 'Message envoyé !';
             </div>
         </div>
     </section>
-    <!--TEAM SECTION END-->
+    <!--Compétences SECTION END-->
 
 
-    <!--WORK SECTION START-->
+    <!--Réalisations SECTION START-->
     <section id="work" >
         <div class="container">
             <div class="row text-center header animate-in" data-anim-type="fade-in-up">
@@ -305,7 +304,7 @@ $success = 'Message envoyé !';
             </div>
         </div>
     </section>
-    <!--WORK SECTION END-->
+    <!--Réalisations SECTION END-->
 
 
     <!--CONTACT SECTION START-->
@@ -409,6 +408,7 @@ $success = 'Message envoyé !';
         </div>
     </section>
     <!--CONTACT SECTION END-->
+
 
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME -->
     <!-- CORE JQUERY -->
