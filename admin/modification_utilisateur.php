@@ -29,7 +29,7 @@ if(isset($_POST['prenom']))
     $pays = addslashes($_POST['pays']);
     $site_web = addslashes($_POST['site_web']);
 
-    $pdo->exec("UPDATE t_utilisateurs SET prenom = '$prenom', nom ='$nom', email ='$email', telephone ='$telephone', pseudo='$pseudo', age='$age', date_naissance='$date_naissance', adresse='$adresse', code_postal='$code_postal', ville='$ville', pays='$pays', site_web='$site_web'  WHERE id_utilisateur = '$id_utilisateur'");
+    $pdo->exec("UPDATE t_utilisateurs SET prenom = '$prenom', nom ='$nom', email ='$email', telephone ='$telephone', pseudo='$pseudo', age='$age', date_naissance='$date_naissance', adresse='$adresse', code_postal='$code_postal', ville='$ville', pays='$pays', site_web='$site_web',  WHERE id_utilisateur = '$id_utilisateur'");
     header('location: utilisateur.php');
     exit();
 }
