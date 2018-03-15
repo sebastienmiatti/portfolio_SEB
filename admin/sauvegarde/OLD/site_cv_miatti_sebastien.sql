@@ -1,6 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 4.5.1
--- http://www.phpmyadmin.net
+-- https://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
 -- Généré le :  Ven 08 Décembre 2017 à 17:00
@@ -246,8 +246,8 @@ CREATE TABLE `t_titre_cv` (
 INSERT INTO `t_titre_cv` (`id_titre_cv`, `titre_cv`, `accroche`, `logo`, `utilisateur_id`) VALUES
 (1, 'Developpeur Web', 'le meilleur site au monde mon pote ', 'img-logo.png', 1),
 (2, 'Developpeur Web', 'Bienvenu mon site web, aller mon pote laisse un petit commentaire des familles', 'img-logo.png', 1),
-(3, 'Developpeur Webchoco', 'Bienvenu mon site web, aller mon pote laisse un petit commentaire des familles ggf\r\nhttp://localhost/htdocs-SEB/portfolio_SEB/admin/reseaux.php', 'img-logo.png', 1),
-(4, 'Developpeur Webchoco', 'Bienvenu mon site web, aller mon pote laisse un petit commentaire des familles ggf\r\nhttp://localhost/htdocs-SEB/portfolio_SEB/admin/reseaux.php', 'logo.png', 1),
+(3, 'Developpeur Webchoco', 'Bienvenu mon site web, aller mon pote laisse un petit commentaire des familles ggf\r\nhttps://localhost/htdocs-SEB/portfolio_SEB/admin/reseaux.php', 'img-logo.png', 1),
+(4, 'Developpeur Webchoco', 'Bienvenu mon site web, aller mon pote laisse un petit commentaire des familles ggf\r\nhttps://localhost/htdocs-SEB/portfolio_SEB/admin/reseaux.php', 'logo.png', 1),
 (5, 'Développeur Intégrateur Web', 'Bienvenu mon site cv, réalisé en production avec lePoles, je vous tiendrais informer ici de mes inspirations, réalisations a venir ou en cours', 'logo.png', 1);
 
 -- --------------------------------------------------------

@@ -110,7 +110,7 @@ if (!empty($_POST))
     <!-- Font Awesome -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800,600,300,300italic,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-    <link rel="icon" href="img/SebLogo.png">
+    <link rel="icon" href="https://miatti-sebastien.fr/img/SebLogo.png">
     <!-- Material Design Bootstrap -->
     <link href="css/materialize.css" rel="stylesheet">
 

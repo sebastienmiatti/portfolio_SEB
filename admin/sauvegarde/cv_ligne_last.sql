@@ -1,6 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 4.1.14.8
--- http://www.phpmyadmin.net
+-- https://www.phpmyadmin.net
 --
 -- Client :  db714439183.db.1and1.com
 -- Généré le :  Dim 28 Janvier 2018 à 22:19

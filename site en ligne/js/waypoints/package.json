@@ -1,7 +1,7 @@
 {
   "name": "waypoints",
   "version": "4.0.1",
-  "author": "Caleb Troughton <caleb@imakewebthings.com> (http://imakewebthings.com)",
+  "author": "Caleb Troughton <caleb@imakewebthings.com> (https://imakewebthings.com)",
   "description": "Easily execute a function when you scroll to an element",
   "scripts": {
     "build": "gulp build",

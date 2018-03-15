@@ -1,5 +1,5 @@
 /*!
- * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
+ * Bootstrap v4.0.0-alpha.2 (https://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
@@ -2767,10 +2767,10 @@ var Tooltip = (function ($) {
 
   /**
    * Check for Tether dependency
-   * Tether - http://github.hubspot.com/tether/
+   * Tether - https://github.hubspot.com/tether/
    */
   if (window.Tether === undefined) {
-    throw new Error('Bootstrap tooltips require Tether (http://github.hubspot.com/tether/)');
+    throw new Error('Bootstrap tooltips require Tether (https://github.hubspot.com/tether/)');
   }
 
   /**

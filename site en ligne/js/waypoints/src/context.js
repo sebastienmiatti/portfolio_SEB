@@ -10,7 +10,7 @@
   var Waypoint = window.Waypoint
   var oldWindowLoad = window.onload
 
-  /* http://imakewebthings.com/waypoints/api/context */
+  /* https://imakewebthings.com/waypoints/api/context */
   function Context(element) {
     this.element = element
     this.Adapter = Waypoint.Adapter
@@ -171,7 +171,7 @@
   }
 
   /* Public */
-  /* http://imakewebthings.com/waypoints/api/context-destroy */
+  /* https://imakewebthings.com/waypoints/api/context-destroy */
   Context.prototype.destroy = function() {
     var allWaypoints = []
     for (var axis in this.waypoints) {
@@ -185,7 +185,7 @@
   }
 
   /* Public */
-  /* http://imakewebthings.com/waypoints/api/context-refresh */
+  /* https://imakewebthings.com/waypoints/api/context-refresh */
   Context.prototype.refresh = function() {
     /*eslint-disable eqeqeq */
     var isWindow = this.element == this.element.window
@@ -285,7 +285,7 @@
   }
 
   /* Public */
-  /* http://imakewebthings.com/waypoints/api/context-find-by-element */
+  /* https://imakewebthings.com/waypoints/api/context-find-by-element */
   Context.findByElement = function(element) {
     return contexts[element.waypointContextKey]
   }
