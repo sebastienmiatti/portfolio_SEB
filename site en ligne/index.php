@@ -368,7 +368,7 @@ if (!empty($_POST))
                         <i class="fa fa-envelope m-b-1"></i>
                         <h2 class="text-uppercase m-b-3"><?= $ligne_texte['t_head']; ?></h2>
                         <p>“ <?= $ligne_texte['t_body']; ?>”</p>
-                        <a target="_blank" href="img/cv_seb_web.pdf" class="btn btn-danger waves-effect waves-red">Telecharger mon CV</a>
+                        <a target="_blank" href="https://miatti-sebastien.fr/img/cv_seb_web.pdf" class="btn btn-danger waves-effect waves-red">Telecharger mon CV</a>
                     </div>
                 </div>
             </div>
