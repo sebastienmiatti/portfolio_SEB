@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/*CSS Document admin sara*/
+
+/* .navbar{
+    border-radius: 0;
+}
+
+.suppr{
+    width: 50px;
+}
+
+.modif{
+    width: 50px;
+} */
+
+.navbar-brand{
+    margin-top: 0rem;
+    padding-top: 0rem;
+}
+
+ /* Création de la class .flow afin d'ajouté une animation dans le texte souhaité*/
+.flow{
+	background-image: url(https://media.giphy.com/media/3o7aCQTyoPLEVwVtZK/giphy.gif);
+	background-size: cover;
+	color: transparent;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+	text-transform: uppercase;
+	/* font-size: 120px; */
+	line-height: 1.10;
+	margin: 10px 0;
+}
+/* styling my button */
