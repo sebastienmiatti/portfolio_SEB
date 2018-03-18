@@ -10,7 +10,7 @@
       "sizes": "144x144",
       "type": "image/png"
     }, {
-      "src": "images/img/SebLogo.png",
+      "src": "images/img/SebLogo.jpg",
       "sizes": "152x152",
       "type": "image/png"
     }, {
@@ -22,7 +22,7 @@
       "sizes": "256x256",
       "type": "image/png"
     }],
-  "start_url": "/index.html",
+  "start_url": "/index.php",
   "display": "standalone",
   "background_color": "#3E4EB8",
   "theme_color": "#263e5f"

@@ -102,6 +102,7 @@ if (!empty($_POST))
     <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, HTML, CSS, PHP, MySql, JavaScript, jQuery, Ajax, Silex, Laravel, Symfony, PHPOO, MVC, wordpress, bootstrap, site, site web, dynamique, Responsive, Adaptatif, Paris, ile-de-france, Hauts-de-seine, France, developpeur integrateur web, developpeur web, integrateur web, orienté object, reactjs, angularjs">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link rel="stylesheet" type="text/css" href="styles/inline.css">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -156,6 +157,20 @@ if (!empty($_POST))
             <!-- End Facebook Pixel Code -->
 
         </head>
+
+
+        <header class="header">
+            <h1 class="header__title">Sebastien Miatti</h1>
+            <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+            <button id="butAdd" class="headerButton" aria-label="Add"></button>
+        </header>
+
+        <div class="loader">
+            <svg viewBox="0 0 32 32" width="32" height="32">
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+            </svg>
+        </div>
+
 
         <body data-spy="scroll" data-target=".navbar-desktop">
             <!-- Start your project here-->
@@ -633,7 +648,7 @@ if (!empty($_POST))
         <!-- SCRIPTS -->
         <script src="scripts/app.js" async></script>
         <!-- JQuery -->
-    
+
 </body>
 
 </html>
