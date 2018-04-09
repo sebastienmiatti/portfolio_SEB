@@ -99,7 +99,7 @@ if (!empty($_POST))
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Miatti Sébastien - développeur intégrateur web actuellement en recherche de stage ">
     <meta name="author" lang="fr" content="Miatti Sébastien">
-    <meta name="keywords" lang="fr" content="Miatti, Sebastien, developpeur, integrateur, web, technologies, HTML, CSS, PHP, MySql, JavaScript, jQuery, Ajax, Silex, Laravel, Symfony, PHPOO, MVC, wordpress, bootstrap, site, site web, dynamique, Responsive, Adaptatif, Paris, ile-de-france, Hauts-de-seine, France, developpeur integrateur web, developpeur web, integrateur web, orienté object, reactjs, angularjs">
+    <meta name="keywords" lang="fr" content="Miatti, Sebastien, développeur, intégrateur, web, technologies, HTML, CSS, PHP, MySql, JavaScript, jQuery, Ajax, Silex, Laravel, Symfony, PHPOO, MVC, wordpress, bootstrap, site, site web, dynamique, Responsive, Adaptatif, Paris, ile-de-france, Hauts-de-seine, France, developpeur integrateur web, developpeur web, integrateur web, orienté object, reactjs, angularjs">
     <!--<meta http-equiv="x-ua-compatible" content="ie=edge">-->
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
