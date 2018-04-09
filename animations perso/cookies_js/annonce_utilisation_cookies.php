@@ -35,7 +35,7 @@
 (function($){
 
     if( $.cookie('cookiebarre') === undefined ){
-        $('body').append('<div class="cookie" id="cookie">En poursuivant votre navigation sur ce site, vous acceptez l\'utilisation de Cookies afin de faciliter et personaliser votre navigation, et d\'analyser le trafic sur ce site,  <em>cf</em> <a href="https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi">CNIL</a>, <a href="confidentialite.php">En savoir plus</a><div class="cookie_btn" id="cookie_btn">OK</div></div>');
+        $('body').append('<div class="cookie" id="cookie">En poursuivant votre navigation sur ce site, vous acceptez l\'utilisation de Cookies afin de faciliter et personaliser votre navigation, et d\'analyser le trafic sur ce site,  <em>cf</em> <a href="https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi">CNIL</a>, <a href="#">En savoir plus</a><div class="cookie_btn" id="cookie_btn">OK</div></div>');
 
         $('#cookie_btn').click(function(e){
             e.preventDefault();
